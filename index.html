@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elizabeth Berget — Author</title>
+<meta name="description" content="Elizabeth Berget is a Christian writer exploring maternal imagery for God in the Bible. Her debut book Love Like a Mother releases May 5, 2026.">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== THE GARDEN IN DAYLIGHT ===== */
+  :root {
+    /* Light palette */
+    --linen: #F4EDE4;
+    --linen-warm: #EDE5D9;
+    --sage-bg: #E4E8DF;
+    --sage-light: #EDF0EA;
+    --white-warm: #FDFBF7;
+    --forest: #1E2E24;
+    --forest-mid: #263830;
+
+    /* Text on light */
+    --ink: #2A2824;
+    --ink-soft: #504C44;
+    --ink-faint: #8A857A;
+
+    /* Text on dark (keep for hero + endorsement + footer) */
+    --cream: #F0E6D2;
+    --cream-soft: rgba(240,230,210,0.82);
+    --cream-faint: rgba(240,230,210,0.5);
+
+    /* Accents */
+    --gold: #A8853A;
+    --gold-light: #C4A24E;
+    --gold-on-dark: #C8A45C;
+    --gold-faint: rgba(168,133,58,0.12);
+    --teal: #4A7A74;
+    --teal-light: #5E948D;
+    --teal-on-dark: #7BA5A0;
+    --sage: #5B7B5E;
+    --coral: #B8523A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--linen);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Subtle linen texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* Art system */
+  .art { position: absolute; pointer-events: none; z-index: 1; }
+  .art img { display: block; width: 100%; height: auto; }
+
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    transition: all 0.5s ease;
+  }
+  nav.scrolled {
+    background: rgba(244,237,228,0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(168,133,58,0.12);
+  }
+  nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a.active { color: var(--gold); }
+  /* When scrolled, nav is on linen */
+  nav.scrolled a { color: var(--ink-soft); }
+  nav.scrolled a:hover, nav.scrolled a.active { color: var(--gold); }
+
+
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--forest);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary:hover {
+    background: var(--forest-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(30,46,36,0.2);
+  }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  /* On dark backgrounds */
+  .on-dark .btn-primary {
+    background: linear-gradient(135deg, var(--gold-on-dark), var(--gold-light));
+    color: var(--forest);
+  }
+  .on-dark .btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(200,164,92,0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    border: 1px solid var(--ink-faint);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+    background: rgba(91,123,94,0.05);
+  }
+
+  .on-dark .btn-secondary {
+    color: var(--cream);
+    border-color: rgba(240,230,210,0.25);
+  }
+  .on-dark .btn-secondary:hover {
+    border-color: var(--teal-on-dark);
+    color: var(--teal-on-dark);
+  }
+
+  /* Shared labels */
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--sage);
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 3rem;
+    line-height: 1.25;
+  }
+
+
+  /* ========================================
+     HERO — warm cream (book is the jewel)
+     ======================================== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 2rem 6rem;
+    z-index: 2;
+    overflow: hidden;
+    background: var(--linen);
+  }
+
+  .art-moon { display: none; }
+
+  .art-hero-fern-r {
+    right: -5%; bottom: -8%; width: 525px; opacity: 0.12;
+    transform: rotate(-10deg);
+  }
+  .art-hero-fern-l {
+    left: -6%; bottom: -10%; width: 410px; opacity: 0.08;
+    transform: scaleX(-1) rotate(5deg);
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+  }
+
+  .book-cover-wrap {
+    flex-shrink: 0;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+  .book-cover {
+    width: 420px;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15), 0 25px 60px rgba(0,0,0,0.2);
+  }
+
+  .hero-text { flex: 1; position: relative; z-index: 5; }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem; font-weight: 300;
+    line-height: 1.05; color: var(--ink);
+    margin-bottom: 1rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--teal); font-weight: 400; }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400;
+    color: var(--ink-soft); line-height: 1.6;
+    margin-bottom: 2.5rem; max-width: 440px;
+    opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+  .hero-meta {
+    display: flex; align-items: center; gap: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 1s forwards;
+  }
+  .release-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--gold);
+    background: var(--gold-faint);
+    border: 1px solid rgba(168,133,58,0.2);
+    padding: 0.45rem 1rem;
+  }
+  .release-badge svg { width: 15px; height: 15px; fill: var(--gold); }
+
+  .hero-cta {
+    display: flex; gap: 1rem;
+    opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards;
+  }
+
+
+  /* ========================================
+     ELIZABETH — warm cream, contained portrait
+     ======================================== */
+  .author-section {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: var(--forest);
+    padding: 5rem 2rem;
+  }
+
+  .author-inner {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .author-photo-side {
+    flex: 0 0 300px;
+    position: relative;
+  }
+  .author-photo-side img {
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .art-author-stork {
+    right: 4%; bottom: 0; width: 240px; opacity: 0.25;
+  }
+
+  .author-text-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; z-index: 5;
+  }
+
+  .author-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold-on-dark);
+    margin-bottom: 1rem;
+  }
+  .author-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300;
+    line-height: 1.12; color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+  .author-title em { font-style: italic; color: var(--teal-on-dark); font-weight: 400; }
+
+  .author-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400;
+    color: var(--cream-soft);
+    line-height: 1.65;
+    margin-bottom: 2.2rem;
+    max-width: 440px;
+  }
+
+
+  /* ========================================
+     INSIDE THE BOOK — soft sage
+     ======================================== */
+  .book-themes {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem 7rem;
+    overflow: hidden;
+    background: var(--sage-bg);
+  }
+
+  .art-themes-leaf-l { display: none; }
+  .art-themes-leaf-r { display: none; }
+
+  .book-themes-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+
+  .book-themes .section-label { color: var(--sage); }
+  .book-themes .section-title { color: var(--ink); }
+
+  .themes-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3.5rem;
+  }
+  .themes-intro em { color: var(--ink); font-weight: 500; }
+
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .theme-item {
+    padding: 0;
+    text-align: center;
+  }
+  .theme-item::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--teal);
+    margin: 0 auto 1.8rem;
+  }
+  .theme-number { display: none; }
+  .theme-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .theme-desc {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+
+  /* ========================================
+     ENDORSEMENT — deep forest (dramatic)
+     ======================================== */
+  .endorsement {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    background: var(--forest);
+  }
+  .endorsement::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 450px;
+    background: radial-gradient(ellipse at center, rgba(123,165,160,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .art-endorsement-leaf {
+    right: -3%; bottom: 0; width: 220px; opacity: 0.12;
+    transform: rotate(15deg);
+  }
+
+  .endorsement-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 7rem; line-height: 1;
+    color: var(--gold-on-dark);
+    opacity: 0.3;
+    display: block;
+    margin-bottom: -2rem;
+  }
+  .endorsement blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400;
+    font-style: italic; line-height: 1.75;
+    color: var(--cream);
+  }
+  .endorsement cite {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem; font-weight: 600;
+    font-style: normal; letter-spacing: 0.06em;
+    color: var(--gold-on-dark);
+    margin-top: 2rem;
+  }
+  .endorsement cite em {
+    display: block; font-style: italic;
+    color: var(--cream-faint);
+    font-weight: 400; font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+
+
+  /* ========================================
+     FEATURED WRITING — warm cream
+     ======================================== */
+  .featured-posts {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem 7rem;
+    overflow: hidden;
+    background: var(--sage-light);
+  }
+  .art-posts-bears { display: none; }
+  .art-posts-fern {
+    left: -3%; top: 10%; width: 280px; opacity: 0.1;
+    transform: scaleX(-1);
+  }
+
+  .featured-posts .section-label { color: var(--sage); }
+  .featured-posts .section-title { color: var(--ink); }
+
+  .featured-posts-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 2rem 1.8rem;
+    border: 1px solid rgba(42,40,36,0.08);
+    background: var(--white-warm);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(30,46,36,0.08);
+  }
+  .post-card-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    margin-bottom: 1rem;
+  }
+  .post-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem; font-weight: 400;
+    color: var(--ink);
+    line-height: 1.25; margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+  .post-card:hover .post-card-title { color: var(--teal); }
+
+  .post-card-excerpt {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 1.5rem; flex: 1;
+  }
+  .post-card-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: color 0.3s ease;
+  }
+  .post-card:hover .post-card-link { color: var(--teal); }
+  .post-card-link svg { transition: transform 0.3s ease; }
+  .post-card:hover .post-card-link svg { transform: translateX(3px); }
+
+
+  /* ========================================
+     SUBSCRIBE — sage
+     ======================================== */
+  .subscribe-strip {
+    position: relative;
+    z-index: 2;
+    padding: 5rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    background: var(--sage-bg);
+  }
+  .subscribe-strip .section-label { color: var(--sage); }
+  .subscribe-strip .section-title { color: var(--ink); }
+
+  .subscribe-strip p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.12rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto 2.2rem;
+    line-height: 1.65;
+  }
+  .subscribe-strip em { color: var(--teal); }
+
+  .art-subscribe-storks {
+    left: 0; bottom: 0; width: 350px;
+    mix-blend-mode: screen;
+  }
+  .art-subscribe-bears {
+    right: 3%; bottom: 0; width: 320px; opacity: 0.12;
+  }
+
+
+  /* ========================================
+     FOOTER — dark bookend
+     ======================================== */
+  footer {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    overflow: hidden;
+    background: #131315;
+  }
+  .art-footer-fern-l {
+    left: -2%; bottom: 0; width: 350px; opacity: 0.1;
+    transform: rotate(12deg);
+  }
+  .art-footer-fern-r {
+    right: -2%; bottom: 0; width: 350px; opacity: 0.1;
+    transform: scaleX(-1) rotate(12deg);
+  }
+
+  .footer-links {
+    display: flex; justify-content: center; gap: 2rem;
+    margin-bottom: 2rem; flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cream-faint);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover { color: var(--gold-on-dark); }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(240,230,210,0.2);
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.05em;
+  }
+
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.12s; }
+  .reveal-d2 { transition-delay: 0.24s; }
+  .reveal-d3 { transition-delay: 0.36s; }
+
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1000px) {
+    .author-inner { flex-direction: column; align-items: center; text-align: center; }
+    .author-photo-side { flex: none; }
+    .author-text-side { align-items: center; }
+    .author-tagline { max-width: 520px; }
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 6rem 2rem 4rem; }
+    .hero-inner { flex-direction: column; text-align: center; gap: 3rem; }
+    .book-cover { width: 340px; }
+    .hero-title { font-size: 3.4rem; }
+    .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
+    .hero-meta { justify-content: center; }
+    .hero-cta { justify-content: center; flex-wrap: wrap; }
+    .author-title { font-size: 2.8rem; }
+    .section-title { font-size: 2.3rem; }
+    .posts-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .themes-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .art-posts-bears { display: none; }
+    .art-moon { right: 4%; top: 4%; width: 35px; }
+    .art-hero-fern-r { width: 450px; opacity: 0.15; }
+    .art-hero-fern-l { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
+    .book-cover { width: 280px; }
+    .hero-title { font-size: 2.6rem; }
+    .hero-subtitle { font-size: 1.05rem; }
+    .author-title { font-size: 2.4rem; }
+    .author-text-side { padding: 0; }
+    .endorsement { padding: 4rem 1.5rem; }
+    .endorsement blockquote { font-size: 1.15rem; }
+    .featured-posts { padding: 4rem 1.5rem 5rem; }
+    .art-endorsement-leaf { display: none; }
+    nav { gap: 1rem; padding: 0.9rem 0.8rem; }
+    nav a { font-size: 0.78rem; letter-spacing: 0.08em; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ===== H E R O (dark) ===== -->
+<section class="hero">
+  <img src="images/art/moon.png" alt="" class="art art-moon">
+  <div class="art art-hero-fern-r"><img src="images/art/blue-fern.png" alt=""></div>
+  <div class="art art-hero-fern-l"><img src="images/art/olive-fern.png" alt=""></div>
+
+  <div class="hero-inner">
+    <div class="book-cover-wrap">
+      <img src="images/book-cover.jpg" alt="Love Like a Mother — Book Cover" class="book-cover">
+    </div>
+    <div class="hero-text">
+      <p class="hero-eyebrow">A New Book by Elizabeth Berget</p>
+      <h1 class="hero-title">Love Like<br><em>a Mother</em></h1>
+      <p class="hero-subtitle">How the Sacred Work of Motherhood Reveals the Maternal Heart of God</p>
+      <div class="hero-meta">
+        <div class="release-badge">
+          <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+          May 5, 2026
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="book.html" class="btn-primary"><span>Pre-Order Now</span></a>
+        <a href="about.html" class="btn-secondary">About Elizabeth</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== E L I Z A B E T H (cream) ===== -->
+<section class="author-section on-dark" id="about-elizabeth">
+  <div class="art art-author-stork"><img src="images/art/stork-ferns.png" alt=""></div>
+  <div class="author-inner">
+    <div class="author-photo-side">
+      <img src="images/liz.jpg" alt="Elizabeth Berget">
+    </div>
+    <div class="author-text-side reveal">
+      <p class="author-name">Elizabeth Berget</p>
+      <h2 class="author-title">Writer. Mother.<br><em>Storyteller.</em></h2>
+      <p class="author-tagline">Elizabeth writes about the sacred, ordinary work of mothering — and how it reveals the maternal heart of God. She lives in Minneapolis with her husband, three kids, and a golden doodle named Penny.</p>
+      <a href="about.html" class="btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.8rem; letter-spacing: 0.1em;">More About Elizabeth</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== I N S I D E  T H E  B O O K (sage) ===== -->
+<section class="book-themes">
+  <div class="art art-themes-leaf-l"><img src="images/art/blue-leaf.png" alt=""></div>
+  <div class="art art-themes-leaf-r"><img src="images/art/olive-fern.png" alt=""></div>
+  <div class="book-themes-inner">
+    <p class="section-label reveal">Inside the Book</p>
+    <h2 class="section-title reveal reveal-d1" style="margin-bottom:1rem;">What if motherhood wasn't a barrier<br>to knowing God — <em style="color:var(--teal); font-style:italic;">but an invitation?</em></h2>
+    <p class="themes-intro reveal reveal-d2"><em>Love Like a Mother</em> weaves together real-life stories from the trenches of motherhood with overlooked maternal imagery for God in the Bible, offering both spiritual depth and a sense of humor that only a mother could deliver.</p>
+    <div class="themes-grid">
+      <div class="theme-item reveal reveal-d1">
+        <span class="theme-number">01</span>
+        <h3 class="theme-title">Rediscover God as Mother</h3>
+        <p class="theme-desc">An invitation to rediscover God under the lens of motherhood — as the one who gestates, births, mourns, nourishes, comforts, and protects. Mothers bear the image of God in the sacred ordinary, from first contractions to first tantrums.</p>
+      </div>
+      <div class="theme-item reveal reveal-d2">
+        <span class="theme-number">02</span>
+        <h3 class="theme-title">A Lifeline for the Spiritually Adrift</h3>
+        <p class="theme-desc">For moms feeling spiritually adrift within parenting, a lifeline to connection right in the middle of dishes, diapers, and sleepless nights. Theological insights rooted in Scripture alongside contemplative practices that fit the busiest days.</p>
+      </div>
+      <div class="theme-item reveal reveal-d3">
+        <span class="theme-number">03</span>
+        <h3 class="theme-title">For Every Stage of Motherhood</h3>
+        <p class="theme-desc">An inspiration for moms in all stages of life, perfect for gift-giving and group discussion. Whether you're in the thick of toddler years or watching your children leave home, these words will meet you exactly where you are.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== E N D O R S E M E N T (deep forest) ===== -->
+<section class="endorsement on-dark">
+  <div class="art art-endorsement-leaf"><img src="images/art/green-leaf.png" alt=""></div>
+  <div class="endorsement-inner reveal">
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote>
+      Elizabeth is exactly the warm, witty, and wise guide you need in motherhood: the rare writer whose words feel like friendship. She invites each of us to encounter God as mother — and our faith is deepened by the maternal love we find in Scripture together.
+    </blockquote>
+    <cite>
+      Laura Fanucci
+      <em>Author of Everyday Sacrament: The Messy Grace of Parenting</em>
+    </cite>
+  </div>
+</section>
+
+
+<!-- ===== F E A T U R E D  W R I T I N G (cream) ===== -->
+<section class="featured-posts">
+  <div class="art art-posts-bears"><img src="images/art/bears.png" alt=""></div>
+  <div class="art art-posts-fern"><img src="images/art/back-fern.png" alt=""></div>
+  <div class="featured-posts-inner">
+    <p class="section-label reveal">From the Substack</p>
+    <h2 class="section-title reveal reveal-d1" style="margin-bottom: 2.5rem;">Featured Writing</h2>
+    <div class="posts-grid">
+      <a href="https://elizabethberget.substack.com/p/the-women-who-cry-in-aldi" target="_blank" class="post-card reveal reveal-d1">
+        <div class="post-card-number">01</div>
+        <h3 class="post-card-title">The Women Who Cry in Aldi</h3>
+        <p class="post-card-excerpt">Four generations of women huddled together in a grocery store — all of us crying in our togetherness, embodied panic and empathy.</p>
+        <span class="post-card-link">Read on Substack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="https://elizabethberget.substack.com/p/the-gospel-according-to-vomit" target="_blank" class="post-card reveal reveal-d2">
+        <div class="post-card-number">02</div>
+        <h3 class="post-card-title">The Gospel According to Vomit</h3>
+        <p class="post-card-excerpt">On the holiness hiding in the most unglamorous moments of motherhood — and what the mess reveals about a God who draws near.</p>
+        <span class="post-card-link">Read on Substack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="https://elizabethberget.substack.com/p/the-kindness-of-round-things" target="_blank" class="post-card reveal reveal-d3">
+        <div class="post-card-number">03</div>
+        <h3 class="post-card-title">The Kindness of Round Things</h3>
+        <p class="post-card-excerpt">On what having curves means about us — and about a God whose creation favors softness, circles, and the generous shape of a mother's body.</p>
+        <span class="post-card-link">Read on Substack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== S U B S C R I B E (sage) ===== -->
+<section class="subscribe-strip">
+  <div class="art art-subscribe-storks"><img src="images/art/storks-left.png" alt=""></div>
+  <div class="art art-subscribe-bears"><img src="images/art/bears.png" alt=""></div>
+  <div class="reveal" style="position:relative; z-index:5;">
+    <p class="section-label">Stay Connected</p>
+    <h2 class="section-title" style="margin-bottom:1.5rem;">Join the Flock</h2>
+    <p>Subscribe to <em>Back of the Flock</em>, Elizabeth's Substack, for reflections on faith, motherhood, and the stories that sustain us.</p>
+    <a href="https://elizabethberget.substack.com" target="_blank" class="btn-primary"><span>Subscribe on Substack</span></a>
+  </div>
+</section>
+
+
+<!-- ===== F O O T E R (dark) ===== -->
+<footer>
+  <div class="art art-footer-fern-l"><img src="images/art/back-fern.png" alt=""></div>
+  <div class="art art-footer-fern-r"><img src="images/art/back-fern.png" alt=""></div>
+  <div class="footer-links" style="position:relative; z-index:5;">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="book.html">My Book</a>
+    <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+    <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank">Instagram</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy" style="position:relative; z-index:5;">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
+</footer>
+
+
+<nav id="navbar">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="book.html">My Book</a>
+  <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<script>
+/* Navbar scroll */
+(function() {
+  const navbar = document.getElementById('navbar');
+  if (!navbar) return;
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 80);
+  });
+})();
+
+/* Scroll reveal */
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>
