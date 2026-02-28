@@ -1,4 +1,4 @@
-/* ===== FIREFLY PARTICLES ===== */
+/* ===== FIREFLY PARTICLES — Night Garden ===== */
 (function() {
   const canvas = document.getElementById('fireflies');
   if (!canvas) return;
@@ -25,7 +25,8 @@
       this.fadeSpeed = Math.random() * 0.007 + 0.003;
       this.phase = Math.random() * Math.PI * 2;
       this.wobble = Math.random() * 0.4 + 0.15;
-      const colors = [[200,164,92],[181,137,74],[140,180,130],[200,180,140]];
+      /* Night garden palette: gold, cool blue, pale teal, warm amber */
+      const colors = [[200,164,92],[155,181,184],[122,158,162],[181,137,74]];
       this.color = colors[Math.floor(Math.random() * colors.length)];
       this.fadingIn = true;
       this.life = Math.random() * 400 + 200;

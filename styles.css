@@ -1,28 +1,45 @@
 /* ===== ELIZABETH BERGET — SHARED SITE STYLES ===== */
-/* Botanical Greenhouse Aesthetic */
+/* Enchanted Night Garden Aesthetic */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 :root {
-  --bg-deep: #131315;
-  --bg-mid: #1a1a1e;
-  --bg-warm: #1e1e22;
-  --bg-card: #222226;
-  --cream: #f0e6d2;
-  --cream-soft: rgba(240, 230, 210, 0.78);
-  --cream-faint: rgba(240, 230, 210, 0.45);
-  --gold: #c8a45c;
-  --gold-light: #dfc07a;
-  --gold-dim: rgba(200, 164, 92, 0.55);
-  --gold-faint: rgba(200, 164, 92, 0.15);
-  --teal: #7ba5a0;
-  --teal-soft: rgba(123, 165, 160, 0.7);
-  --sage: #6a9a72;
-  --sage-dim: rgba(120, 120, 130, 0.35);
-  --olive: #5c7a4a;
-  --coral: #c75b3f;
-  --leaf-dark: #2a2a30;
-  --leaf-mid: #3a3a42;
+  /* Dark palette */
+  --midnight: #0C1117;
+  --midnight-warm: #111820;
+  --midnight-blue: #14202A;
+
+  /* Dusty blue from the cover */
+  --blue-mist: #9BB5B8;
+  --blue-pale: #B5C9CB;
+  --blue-cloud: #C2D1D3;
+  --blue-deep: #7A9EA2;
+  --blue-faint: rgba(155,181,184,0.10);
+
+  /* Cream */
+  --cream: #F0E6D2;
+  --cream-soft: rgba(240,230,210,0.80);
+  --cream-faint: rgba(240,230,210,0.40);
+
+  /* Gold */
+  --gold: #C8A45C;
+  --gold-light: #DFC07A;
+  --gold-dim: rgba(200,164,92,0.50);
+  --gold-faint: rgba(200,164,92,0.12);
+
+  /* Gold on light backgrounds */
+  --gold-dark: #6B5020;
+
+  /* Nature accents */
+  --sage: #6A8E6B;
+  --sage-soft: rgba(106,142,107,0.5);
+  --olive: #4A6A3E;
+  --coral: #C75B3F;
+
+  /* Text on blue-mist backgrounds */
+  --ink: #1A2E28;
+  --ink-soft: #344840;
+  --ink-faint: #607870;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,21 +47,21 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Lora', Georgia, serif;
-  background: var(--bg-deep);
+  background: var(--midnight);
   color: var(--cream);
   line-height: 1.7;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Linen grain texture */
+/* Grain texture */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.028;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -68,7 +85,7 @@ body::before {
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.09;
+  opacity: 0.07;
 }
 .vine-border-left { left: 0; }
 .vine-border-right { right: 0; transform: scaleX(-1); }
@@ -88,7 +105,7 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(19, 19, 21, 0.92);
+  background: rgba(12,17,23,0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--gold-faint);
@@ -104,7 +121,15 @@ nav a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-nav a:hover, nav a.active { color: var(--gold); }
+nav a:hover, nav a.active { color: var(--cream); }
+
+/* ===== GOLD DIVIDER ===== */
+.gold-rule {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  margin: 0 auto;
+}
 
 /* ===== BOTANICAL DIVIDER ===== */
 .botanical-divider {
@@ -136,7 +161,7 @@ nav a:hover, nav a.active { color: var(--gold); }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--bg-deep);
+  color: var(--midnight);
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
   padding: 1rem 2.2rem;
   text-decoration: none;
@@ -155,7 +180,7 @@ nav a:hover, nav a.active { color: var(--gold); }
   transition: opacity 0.3s ease;
 }
 .btn-primary:hover::before { opacity: 1; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,164,92,0.3); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,164,92,0.25); }
 .btn-primary span { position: relative; z-index: 1; }
 
 .btn-secondary {
@@ -170,14 +195,14 @@ nav a:hover, nav a.active { color: var(--gold); }
   background: transparent;
   padding: 1rem 2.2rem;
   text-decoration: none;
-  border: 1px solid rgba(240, 230, 210, 0.2);
+  border: 1px solid rgba(240,230,210,0.2);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .btn-secondary:hover {
-  border-color: var(--sage);
-  color: var(--sage);
-  background: rgba(120, 120, 130, 0.06);
+  border-color: var(--blue-mist);
+  color: var(--blue-mist);
+  background: rgba(155,181,184,0.06);
 }
 
 /* ===== SECTION HELPERS ===== */
@@ -187,7 +212,7 @@ nav a:hover, nav a.active { color: var(--gold); }
   font-weight: 500;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--gold);
   text-align: center;
   margin-bottom: 0.8rem;
 }
@@ -208,8 +233,8 @@ footer {
   z-index: 2;
   padding: 4rem 2rem 3rem;
   text-align: center;
-  border-top: 1px solid rgba(120, 120, 130, 0.1);
-  background: rgba(50, 50, 56, 0.06);
+  border-top: 1px solid rgba(155,181,184,0.06);
+  background: var(--midnight);
 }
 .footer-links {
   display: flex;
@@ -231,9 +256,21 @@ footer {
 .footer-links a:hover { color: var(--gold); }
 .footer-copy {
   font-size: 0.78rem;
-  color: rgba(240, 230, 210, 0.2);
+  color: rgba(240,230,210,0.15);
   font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.05em;
+}
+
+/* ===== DARK SECTION NOISE TEXTURE ===== */
+footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 512px 512px;
 }
 
 /* ===== SCROLL REVEAL ===== */
@@ -257,8 +294,8 @@ footer {
 }
 
 @keyframes coverBreathe {
-  0% { box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 20px 60px rgba(0,0,0,0.4), 0 0 80px rgba(106,154,114,0.08); }
-  100% { box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 20px 60px rgba(0,0,0,0.4), 0 0 100px rgba(106,154,114,0.14), 0 0 40px rgba(200,164,92,0.06); }
+  0% { box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 20px 60px rgba(0,0,0,0.4), 0 0 80px rgba(155,181,184,0.08); }
+  100% { box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 20px 60px rgba(0,0,0,0.4), 0 0 100px rgba(155,181,184,0.14), 0 0 40px rgba(200,164,92,0.06); }
 }
 
 /* ===== RESPONSIVE ===== */

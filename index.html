@@ -9,37 +9,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
-  /* ===== THE GARDEN IN DAYLIGHT ===== */
+  /* ===== ENCHANTED NIGHT GARDEN ===== */
   :root {
-    /* Light palette */
-    --linen: #F4EDE4;
-    --linen-warm: #EDE5D9;
-    --sage-bg: #E4E8DF;
-    --sage-light: #EDF0EA;
-    --white-warm: #FDFBF7;
-    --forest: #1E2E24;
-    --forest-mid: #263830;
-
-    /* Text on light */
-    --ink: #2A2824;
-    --ink-soft: #504C44;
-    --ink-faint: #8A857A;
-
-    /* Text on dark (keep for hero + endorsement + footer) */
+    --midnight: #0C1117;
+    --midnight-warm: #111820;
+    --midnight-blue: #14202A;
+    --blue-mist: #9BB5B8;
+    --blue-pale: #B5C9CB;
+    --blue-cloud: #C2D1D3;
+    --blue-deep: #7A9EA2;
+    --blue-faint: rgba(155,181,184,0.10);
     --cream: #F0E6D2;
-    --cream-soft: rgba(240,230,210,0.82);
-    --cream-faint: rgba(240,230,210,0.5);
-
-    /* Accents */
-    --gold: #A8853A;
-    --gold-light: #C4A24E;
-    --gold-on-dark: #C8A45C;
-    --gold-faint: rgba(168,133,58,0.12);
-    --teal: #4A7A74;
-    --teal-light: #5E948D;
-    --teal-on-dark: #7BA5A0;
-    --sage: #5B7B5E;
-    --coral: #B8523A;
+    --cream-soft: rgba(240,230,210,0.80);
+    --cream-faint: rgba(240,230,210,0.40);
+    --gold: #C8A45C;
+    --gold-light: #DFC07A;
+    --gold-dim: rgba(200,164,92,0.50);
+    --gold-faint: rgba(200,164,92,0.12);
+    --sage: #6A8E6B;
+    --sage-soft: rgba(106,142,107,0.5);
+    --olive: #4A6A3E;
+    --coral: #C75B3F;
+    --ink: #1A2E28;
+    --ink-soft: #344840;
+    --ink-faint: #607870;
+    --gold-dark: #6B5020;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,198 +41,191 @@
 
   body {
     font-family: 'Lora', Georgia, serif;
-    background: var(--linen);
-    color: var(--ink);
+    background: var(--midnight);
+    color: var(--cream);
     line-height: 1.7;
     overflow-x: hidden;
   }
 
-  /* Subtle linen texture */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.03;
+    opacity: 0.025;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
     background-size: 256px 256px;
   }
 
-  /* Art system */
+
+  /* ===== FIREFLY CANVAS ===== */
+  #fireflies {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ===== ART SYSTEM ===== */
   .art { position: absolute; pointer-events: none; z-index: 1; }
   .art img { display: block; width: 100%; height: auto; }
+  .art-leaf {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    width: 220px;
+    opacity: 0.12;
+  }
+  .art-leaf img { display: block; width: 100%; height: auto; }
 
 
   /* ===== NAVIGATION ===== */
   nav {
     position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
+    top: 0; width: 100%; z-index: 100;
     padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
+    display: flex; justify-content: center; align-items: center; gap: 2.5rem;
     transition: all 0.5s ease;
   }
-  nav.scrolled {
-    background: rgba(244,237,228,0.95);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(168,133,58,0.12);
-  }
+  /* Hero is light (blue-mist), so nav starts dark */
   nav a {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.92rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.92rem; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--ink-soft);
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  nav a:hover, nav a.active { color: var(--gold); }
-  /* When scrolled, nav is on linen */
-  nav.scrolled a { color: var(--ink-soft); }
-  nav.scrolled a:hover, nav.scrolled a.active { color: var(--gold); }
+  nav a:hover, nav a.active { color: var(--ink); }
+  nav.scrolled {
+    background: rgba(12,17,23,0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--gold-faint);
+  }
+  nav.scrolled a { color: var(--cream-soft); }
+  nav.scrolled a:hover, nav.scrolled a.active { color: var(--cream); }
+
+
+  /* ===== GOLD DIVIDER ===== */
+  .gold-rule {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    margin: 0 auto;
+  }
 
 
   /* ===== BUTTONS ===== */
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
+    display: inline-flex; align-items: center; gap: 0.6rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--forest);
-    padding: 1rem 2.2rem;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
+    font-size: 1.05rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cream);
+    background: var(--ink);
+    padding: 1rem 2.2rem; text-decoration: none;
+    border: none; cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .btn-primary:hover {
-    background: var(--forest-mid);
+    background: var(--midnight-blue);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(30,46,36,0.2);
+    box-shadow: 0 8px 30px rgba(12,17,23,0.25);
   }
   .btn-primary span { position: relative; z-index: 1; }
 
   /* On dark backgrounds */
   .on-dark .btn-primary {
-    background: linear-gradient(135deg, var(--gold-on-dark), var(--gold-light));
-    color: var(--forest);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--midnight);
   }
   .on-dark .btn-primary:hover {
-    box-shadow: 0 8px 30px rgba(200,164,92,0.3);
+    box-shadow: 0 8px 30px rgba(200,164,92,0.25);
   }
 
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
+    display: inline-flex; align-items: center;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 1.05rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--ink);
     background: transparent;
-    padding: 1rem 2.2rem;
-    text-decoration: none;
+    padding: 1rem 2.2rem; text-decoration: none;
     border: 1px solid var(--ink-faint);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    cursor: pointer; transition: all 0.3s ease;
   }
   .btn-secondary:hover {
-    border-color: var(--sage);
-    color: var(--sage);
-    background: rgba(91,123,94,0.05);
+    border-color: var(--ink);
+    color: var(--ink);
+    background: rgba(26,46,40,0.05);
   }
-
   .on-dark .btn-secondary {
     color: var(--cream);
-    border-color: rgba(240,230,210,0.25);
+    border-color: rgba(240,230,210,0.2);
   }
   .on-dark .btn-secondary:hover {
-    border-color: var(--teal-on-dark);
-    color: var(--teal-on-dark);
+    border-color: var(--blue-mist);
+    color: var(--blue-mist);
+    background: rgba(155,181,184,0.06);
   }
 
-  /* Shared labels */
+
+  /* ===== SECTION HELPERS ===== */
   .section-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--sage);
-    text-align: center;
-    margin-bottom: 0.8rem;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: center; margin-bottom: 0.8rem;
   }
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    text-align: center;
-    color: var(--ink);
-    margin-bottom: 3rem;
-    line-height: 1.25;
+    font-size: 2.8rem; font-weight: 300;
+    text-align: center; color: var(--ink);
+    margin-bottom: 3rem; line-height: 1.25;
   }
+  .on-dark .section-label { color: var(--gold); }
+  .on-dark .section-title { color: var(--cream); }
 
 
   /* ========================================
-     HERO — warm cream (book is the jewel)
+     HERO — Dusty blue, book as jewel
      ======================================== */
   .hero {
     position: relative;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7rem 2rem 6rem;
+    display: flex; align-items: center; justify-content: center;
+    padding: 7rem 2rem 5rem;
     z-index: 2;
     overflow: hidden;
-    background: var(--linen);
-  }
-
-  .art-moon { display: none; }
-
-  .art-hero-fern-r {
-    right: -5%; bottom: -8%; width: 525px; opacity: 0.12;
-    transform: rotate(-10deg);
-  }
-  .art-hero-fern-l {
-    left: -6%; bottom: -10%; width: 410px; opacity: 0.08;
-    transform: scaleX(-1) rotate(5deg);
+    background: var(--blue-mist);
   }
 
   .hero-inner {
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-    max-width: 1100px;
-    width: 100%;
-    position: relative;
-    z-index: 5;
+    display: flex; align-items: center; gap: 5rem;
+    max-width: 1100px; width: 100%;
+    position: relative; z-index: 5;
   }
 
   .book-cover-wrap {
     flex-shrink: 0;
     opacity: 0;
-    animation: fadeUp 1s ease 0.2s forwards;
+    animation: bookReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
   }
+  @keyframes bookReveal {
+    from { opacity: 0; transform: translateY(40px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
   .book-cover {
-    width: 420px;
-    height: auto;
-    display: block;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15), 0 25px 60px rgba(0,0,0,0.2);
+    width: 420px; height: auto; display: block;
+    box-shadow:
+      0 4px 15px rgba(0,0,0,0.15),
+      0 25px 60px rgba(0,0,0,0.25),
+      0 0 60px rgba(12,17,23,0.1);
   }
 
   .hero-text { flex: 1; position: relative; z-index: 5; }
@@ -247,89 +234,89 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.82rem; font-weight: 500;
     letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-dark);
     margin-bottom: 1.2rem;
-    opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
+    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
   }
+
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4.5rem; font-weight: 300;
     line-height: 1.05; color: var(--ink);
     margin-bottom: 1rem;
-    opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+    opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
   }
-  .hero-title em { font-style: italic; color: var(--teal); font-weight: 400; }
+  .hero-title em {
+    font-style: italic;
+    color: var(--midnight-blue);
+    font-weight: 400;
+  }
 
   .hero-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem; font-weight: 400;
     color: var(--ink-soft); line-height: 1.6;
     margin-bottom: 2.5rem; max-width: 440px;
-    opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards;
+    opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
   }
+
   .hero-meta {
     display: flex; align-items: center; gap: 1.2rem;
     margin-bottom: 2.5rem;
-    opacity: 0; animation: fadeUp 0.8s ease 1s forwards;
+    opacity: 0; animation: fadeUp 0.8s ease 1.1s forwards;
   }
   .release-badge {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--gold);
-    background: var(--gold-faint);
-    border: 1px solid rgba(168,133,58,0.2);
+    color: var(--gold-dark);
+    background: rgba(107,80,32,0.10);
+    border: 1px solid rgba(107,80,32,0.25);
     padding: 0.45rem 1rem;
   }
-  .release-badge svg { width: 15px; height: 15px; fill: var(--gold); }
+  .release-badge svg { width: 15px; height: 15px; fill: var(--gold-dark); }
 
   .hero-cta {
     display: flex; gap: 1rem;
-    opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards;
+    opacity: 0; animation: fadeUp 0.8s ease 1.3s forwards;
   }
 
 
   /* ========================================
-     ELIZABETH — warm cream, contained portrait
+     ELIZABETH — midnight (dark)
      ======================================== */
   .author-section {
-    position: relative;
-    z-index: 2;
+    position: relative; z-index: 2;
     overflow: hidden;
-    background: var(--forest);
+    background: var(--midnight-warm);
     padding: 5rem 2rem;
   }
 
   .author-inner {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    display: flex; align-items: center; gap: 4rem;
+    max-width: 1000px; margin: 0 auto;
   }
 
   .author-photo-side {
-    flex: 0 0 300px;
-    position: relative;
+    flex: 0 0 300px; position: relative; z-index: 5;
   }
   .author-photo-side img {
-    width: 300px;
-    height: 380px;
-    object-fit: cover;
-    object-position: center 20%;
-    display: block;
-    border-radius: 4px;
+    width: 300px; height: 380px;
+    object-fit: cover; object-position: center 20%;
+    display: block; border: none;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    position: relative; z-index: 2;
   }
-
-  .art-author-stork {
-    right: 4%; bottom: 0; width: 240px; opacity: 0.25;
+  .author-photo-side::after {
+    content: '';
+    position: absolute;
+    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    border: 1px solid rgba(200,164,92,0.5);
+    z-index: 1; pointer-events: none;
   }
 
   .author-text-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
     position: relative; z-index: 5;
   }
 
@@ -337,7 +324,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.85rem; font-weight: 500;
     letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold-on-dark);
+    color: var(--gold);
     margin-bottom: 1rem;
   }
   .author-title {
@@ -346,77 +333,75 @@
     line-height: 1.12; color: var(--cream);
     margin-bottom: 1.2rem;
   }
-  .author-title em { font-style: italic; color: var(--teal-on-dark); font-weight: 400; }
+  .author-title em { font-style: italic; color: var(--blue-mist); font-weight: 400; }
 
   .author-tagline {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.15rem; font-weight: 400;
     color: var(--cream-soft);
-    line-height: 1.65;
-    margin-bottom: 2.2rem;
-    max-width: 440px;
+    line-height: 1.65; margin-bottom: 2.2rem; max-width: 440px;
   }
 
 
   /* ========================================
-     INSIDE THE BOOK — soft sage
+     INSIDE THE BOOK — blue mist (light)
      ======================================== */
   .book-themes {
-    position: relative;
-    z-index: 2;
+    position: relative; z-index: 2;
     padding: 6rem 2rem 7rem;
     overflow: hidden;
-    background: var(--sage-bg);
+    background: var(--blue-mist);
   }
 
-  .art-themes-leaf-l { display: none; }
-  .art-themes-leaf-r { display: none; }
-
   .book-themes-inner {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 900px; margin: 0 auto;
     position: relative; z-index: 5;
   }
 
-  .book-themes .section-label { color: var(--sage); }
+  .book-themes .section-label { color: var(--ink-faint); }
   .book-themes .section-title { color: var(--ink); }
 
   .themes-intro {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.15rem; font-weight: 400;
     color: var(--ink-soft);
-    line-height: 1.7;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3.5rem;
+    line-height: 1.7; text-align: center;
+    max-width: 600px; margin: 0 auto 3.5rem;
   }
   .themes-intro em { color: var(--ink); font-weight: 500; }
 
   .themes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 2.5rem;
   }
+
   .theme-item {
-    padding: 0;
-    text-align: center;
+    padding: 2rem 1.5rem; text-align: center;
+    border: 1px solid rgba(26,46,40,0.08);
+    background: rgba(255,255,255,0.12);
+    transition: all 0.4s ease;
   }
-  .theme-item::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--teal);
-    margin: 0 auto 1.8rem;
+  .theme-item:hover {
+    border-color: rgba(200,164,92,0.25);
+    background: rgba(255,255,255,0.18);
   }
-  .theme-number { display: none; }
+
+  .theme-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.25em;
+    color: var(--gold-dark);
+    display: block; margin-bottom: 1.2rem;
+  }
+
   .theme-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.35rem; font-weight: 500;
     color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 1rem;
+    line-height: 1.3; margin-bottom: 1rem;
   }
+
   .theme-desc {
     font-size: 0.88rem;
     color: var(--ink-soft);
@@ -425,43 +410,48 @@
 
 
   /* ========================================
-     ENDORSEMENT — deep forest (dramatic)
+     ENDORSEMENT SLIDER — midnight (dark)
      ======================================== */
   .endorsement {
-    position: relative;
-    z-index: 2;
-    padding: 6rem 2rem;
-    text-align: center;
+    position: relative; z-index: 2;
+    padding: 6rem 2rem; text-align: center;
     overflow: hidden;
-    background: var(--forest);
+    background: var(--midnight);
   }
+
   .endorsement::before {
     content: '';
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 700px; height: 450px;
-    background: radial-gradient(ellipse at center, rgba(123,165,160,0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(155,181,184,0.06) 0%, transparent 70%);
     pointer-events: none;
   }
 
-  .art-endorsement-leaf {
-    right: -3%; bottom: 0; width: 220px; opacity: 0.12;
-    transform: rotate(15deg);
-  }
-
-  .endorsement-inner {
-    max-width: 680px;
-    margin: 0 auto;
+  .endorsement-slider {
+    max-width: 720px; margin: 0 auto;
     position: relative; z-index: 5;
   }
+
+  .endorsement-track { position: relative; min-height: 280px; }
+
+  .endorsement-slide {
+    position: absolute; top: 0; left: 0; right: 0;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    pointer-events: none;
+  }
+  .endorsement-slide.active {
+    opacity: 1; transform: translateY(0);
+    pointer-events: auto; position: relative;
+  }
+
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
     font-size: 7rem; line-height: 1;
-    color: var(--gold-on-dark);
-    opacity: 0.3;
-    display: block;
-    margin-bottom: -2rem;
+    color: var(--gold); opacity: 0.3;
+    display: block; margin-bottom: -2rem;
   }
   .endorsement blockquote {
     font-family: 'Cormorant Garamond', serif;
@@ -474,67 +464,99 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.92rem; font-weight: 600;
     font-style: normal; letter-spacing: 0.06em;
-    color: var(--gold-on-dark);
-    margin-top: 2rem;
+    color: var(--gold); margin-top: 2rem;
   }
   .endorsement cite em {
     display: block; font-style: italic;
     color: var(--cream-faint);
-    font-weight: 400; font-size: 0.85rem;
-    margin-top: 0.3rem;
+    font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem;
+  }
+
+  .slider-controls {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.8rem; margin-top: 2.5rem;
+  }
+  .slider-arrow {
+    background: none;
+    border: 1px solid rgba(240,230,210,0.15);
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.3s ease; border-radius: 50%;
+  }
+  .slider-arrow:hover {
+    border-color: var(--gold);
+    background: rgba(200,164,92,0.06);
+  }
+  .slider-arrow svg {
+    width: 18px; height: 18px;
+    stroke: var(--cream-soft);
+    transition: stroke 0.3s ease;
+  }
+  .slider-arrow:hover svg { stroke: var(--gold); }
+
+  .slider-dots { display: flex; gap: 0.6rem; align-items: center; }
+  .slider-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: 1px solid rgba(240,230,210,0.25);
+    background: transparent; cursor: pointer;
+    transition: all 0.3s ease; padding: 0;
+  }
+  .slider-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: scale(1.15);
+  }
+  .slider-dot:hover:not(.active) {
+    border-color: var(--cream-soft);
+    background: rgba(240,230,210,0.15);
   }
 
 
   /* ========================================
-     FEATURED WRITING — warm cream
+     FEATURED WRITING — blue mist (light)
      ======================================== */
   .featured-posts {
-    position: relative;
-    z-index: 2;
+    position: relative; z-index: 2;
     padding: 6rem 2rem 7rem;
     overflow: hidden;
-    background: var(--sage-light);
-  }
-  .art-posts-bears { display: none; }
-  .art-posts-fern {
-    left: -3%; top: 10%; width: 280px; opacity: 0.1;
-    transform: scaleX(-1);
+    background: var(--blue-mist);
   }
 
-  .featured-posts .section-label { color: var(--sage); }
+  .featured-posts .section-label { color: var(--ink-faint); }
   .featured-posts .section-title { color: var(--ink); }
 
   .featured-posts-inner {
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1000px; margin: 0 auto;
     position: relative; z-index: 5;
   }
+
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
+
   .post-card {
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
     text-decoration: none;
     padding: 2rem 1.8rem;
-    border: 1px solid rgba(42,40,36,0.08);
-    background: var(--white-warm);
+    border: 1px solid rgba(26,46,40,0.08);
+    background: rgba(255,255,255,0.35);
     transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .post-card:hover {
-    border-color: var(--teal);
+    border-color: var(--gold);
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(30,46,36,0.08);
+    box-shadow: 0 12px 35px rgba(12,17,23,0.12);
+    background: rgba(255,255,255,0.50);
   }
+
   .post-card-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.75rem; font-weight: 500;
     letter-spacing: 0.15em;
-    color: var(--teal);
+    color: var(--gold-dark);
     margin-bottom: 1rem;
   }
   .post-card-title {
@@ -544,7 +566,7 @@
     line-height: 1.25; margin-bottom: 1rem;
     transition: color 0.3s ease;
   }
-  .post-card:hover .post-card-title { color: var(--teal); }
+  .post-card:hover .post-card-title { color: var(--midnight-blue); }
 
   .post-card-excerpt {
     font-size: 0.88rem;
@@ -556,68 +578,53 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.82rem; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-dark);
     display: inline-flex; align-items: center; gap: 0.4rem;
     transition: color 0.3s ease;
   }
-  .post-card:hover .post-card-link { color: var(--teal); }
+  .post-card:hover .post-card-link { color: var(--ink); }
   .post-card-link svg { transition: transform 0.3s ease; }
   .post-card:hover .post-card-link svg { transform: translateX(3px); }
 
 
   /* ========================================
-     SUBSCRIBE — sage
+     SUBSCRIBE — midnight-blue (dark)
      ======================================== */
   .subscribe-strip {
-    position: relative;
-    z-index: 2;
-    padding: 5rem 2rem;
-    text-align: center;
+    position: relative; z-index: 2;
+    padding: 5rem 2rem; text-align: center;
     overflow: hidden;
-    background: var(--sage-bg);
+    background: var(--midnight-blue);
+    border-top: 1px solid var(--gold-faint);
+    border-bottom: 1px solid var(--gold-faint);
   }
-  .subscribe-strip .section-label { color: var(--sage); }
-  .subscribe-strip .section-title { color: var(--ink); }
-
+  .subscribe-strip .section-label { color: var(--gold); }
+  .subscribe-strip .section-title { color: var(--cream); }
   .subscribe-strip p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.12rem;
-    color: var(--ink-soft);
-    max-width: 480px;
-    margin: 0 auto 2.2rem;
-    line-height: 1.65;
+    font-size: 1.12rem; color: var(--cream-soft);
+    max-width: 480px; margin: 0 auto 2.2rem; line-height: 1.65;
   }
-  .subscribe-strip em { color: var(--teal); }
-
-  .art-subscribe-storks {
-    left: 0; bottom: 0; width: 350px;
-    mix-blend-mode: screen;
+  .subscribe-strip em { color: var(--blue-pale); }
+  .subscribe-strip .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--midnight);
   }
-  .art-subscribe-bears {
-    right: 3%; bottom: 0; width: 320px; opacity: 0.12;
+  .subscribe-strip .btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(200,164,92,0.25);
   }
 
 
   /* ========================================
-     FOOTER — dark bookend
+     FOOTER
      ======================================== */
   footer {
-    position: relative;
-    z-index: 2;
+    position: relative; z-index: 2;
     padding: 4rem 2rem 3rem;
-    text-align: center;
-    overflow: hidden;
-    background: #131315;
+    text-align: center; overflow: hidden;
+    background: var(--midnight);
+    border-top: 1px solid rgba(155,181,184,0.06);
   }
-  .art-footer-fern-l {
-    left: -2%; bottom: 0; width: 350px; opacity: 0.1;
-    transform: rotate(12deg);
-  }
-  .art-footer-fern-r {
-    right: -2%; bottom: 0; width: 350px; opacity: 0.1;
-    transform: scaleX(-1) rotate(12deg);
-  }
-
   .footer-links {
     display: flex; justify-content: center; gap: 2rem;
     margin-bottom: 2rem; flex-wrap: wrap;
@@ -626,16 +633,44 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.9rem; font-weight: 500;
     letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--cream-faint);
-    text-decoration: none;
+    color: var(--cream-faint); text-decoration: none;
     transition: color 0.3s ease;
   }
-  .footer-links a:hover { color: var(--gold-on-dark); }
+  .footer-links a:hover { color: var(--gold); }
   .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(240,230,210,0.2);
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 0.05em;
+    font-size: 0.78rem; color: rgba(240,230,210,0.15);
+    font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em;
+  }
+
+
+  /* ===== DARK SECTION NOISE TEXTURE ===== */
+  /* Light sections — very faint grain */
+  .hero::after,
+  .book-themes::after,
+  .featured-posts::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
+  }
+
+  /* Dark sections — matte paper grain */
+  .author-section::after,
+  .endorsement::after,
+  .subscribe-strip::after,
+  footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
   }
 
 
@@ -645,8 +680,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
   .reveal {
-    opacity: 0;
-    transform: translateY(28px);
+    opacity: 0; transform: translateY(28px);
     transition: opacity 0.9s ease, transform 0.9s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -660,6 +694,7 @@
     .author-inner { flex-direction: column; align-items: center; text-align: center; }
     .author-photo-side { flex: none; }
     .author-text-side { align-items: center; }
+    .author-text-side .btn-secondary { align-self: center !important; }
     .author-tagline { max-width: 520px; }
   }
 
@@ -675,10 +710,8 @@
     .section-title { font-size: 2.3rem; }
     .posts-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     .themes-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-    .art-posts-bears { display: none; }
-    .art-moon { right: 4%; top: 4%; width: 35px; }
-    .art-hero-fern-r { width: 450px; opacity: 0.15; }
     .art-hero-fern-l { display: none; }
+    .art-hero-fern-r { width: 450px; }
   }
 
   @media (max-width: 600px) {
@@ -690,8 +723,9 @@
     .author-text-side { padding: 0; }
     .endorsement { padding: 4rem 1.5rem; }
     .endorsement blockquote { font-size: 1.15rem; }
+    .endorsement-track { min-height: 320px; }
     .featured-posts { padding: 4rem 1.5rem 5rem; }
-    .art-endorsement-leaf { display: none; }
+    .art-endorsement-leaf, .art-themes-leaf-r { display: none; }
     nav { gap: 1rem; padding: 0.9rem 0.8rem; }
     nav a { font-size: 0.78rem; letter-spacing: 0.08em; }
   }
@@ -699,12 +733,18 @@
 </head>
 <body>
 
+<canvas id="fireflies"></canvas>
 
-<!-- ===== H E R O (dark) ===== -->
+
+<!-- ===== H E R O (dusty blue) ===== -->
 <section class="hero">
-  <img src="images/art/moon.png" alt="" class="art art-moon">
-  <div class="art art-hero-fern-r"><img src="images/art/blue-fern.png" alt=""></div>
-  <div class="art art-hero-fern-l"><img src="images/art/olive-fern.png" alt=""></div>
+  <!-- Botanical accents -->
+  <div class="art" style="right: -5%; bottom: -8%; width: 525px; opacity: 0.10; transform: rotate(-10deg);">
+    <img src="images/art/blue-fern.png" alt="">
+  </div>
+  <div class="art art-hero-fern-l" style="left: -6%; bottom: -10%; width: 410px; opacity: 0.07; transform: scaleX(-1) rotate(5deg);">
+    <img src="images/art/olive-fern.png" alt="">
+  </div>
 
   <div class="hero-inner">
     <div class="book-cover-wrap">
@@ -729,9 +769,13 @@
 </section>
 
 
-<!-- ===== E L I Z A B E T H (cream) ===== -->
+<!-- ===== E L I Z A B E T H (midnight dark) ===== -->
 <section class="author-section on-dark" id="about-elizabeth">
-  <div class="art art-author-stork"><img src="images/art/stork-ferns.png" alt=""></div>
+  <!-- Botanical accent -->
+  <div class="art-leaf" style="right: -2%; bottom: -5%; width: 260px; opacity: 0.08; transform: rotate(15deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
   <div class="author-inner">
     <div class="author-photo-side">
       <img src="images/liz.jpg" alt="Elizabeth Berget">
@@ -740,19 +784,25 @@
       <p class="author-name">Elizabeth Berget</p>
       <h2 class="author-title">Writer. Mother.<br><em>Storyteller.</em></h2>
       <p class="author-tagline">Elizabeth writes about the sacred, ordinary work of mothering — and how it reveals the maternal heart of God. She lives in Minneapolis with her husband, three kids, and a golden doodle named Penny.</p>
-      <a href="about.html" class="btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.8rem; letter-spacing: 0.1em;">More About Elizabeth</a>
+      <a href="about.html" class="btn-secondary" style="padding: 0.6rem 1.6rem; font-size: 0.82rem; letter-spacing: 0.1em; align-self: flex-start;">More About Elizabeth</a>
     </div>
   </div>
 </section>
 
 
-<!-- ===== I N S I D E  T H E  B O O K (sage) ===== -->
+<!-- ===== I N S I D E  T H E  B O O K (blue mist light) ===== -->
 <section class="book-themes">
-  <div class="art art-themes-leaf-l"><img src="images/art/blue-leaf.png" alt=""></div>
-  <div class="art art-themes-leaf-r"><img src="images/art/olive-fern.png" alt=""></div>
+  <!-- Botanical accents -->
+  <div class="art-leaf" style="left: -2%; top: 8%; width: 200px; opacity: 0.07; transform: scaleX(-1) rotate(10deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+  <div class="art-leaf art-themes-leaf-r" style="right: -1%; bottom: 5%; width: 240px; opacity: 0.06; transform: rotate(-20deg);">
+    <img src="images/art/olive-fern.png" alt="">
+  </div>
+
   <div class="book-themes-inner">
     <p class="section-label reveal">Inside the Book</p>
-    <h2 class="section-title reveal reveal-d1" style="margin-bottom:1rem;">What if motherhood wasn't a barrier<br>to knowing God — <em style="color:var(--teal); font-style:italic;">but an invitation?</em></h2>
+    <h2 class="section-title reveal reveal-d1" style="margin-bottom:1rem;">What if motherhood wasn't a barrier<br>to knowing God — <em style="color:var(--midnight-blue); font-style:italic;">but an invitation?</em></h2>
     <p class="themes-intro reveal reveal-d2"><em>Love Like a Mother</em> weaves together real-life stories from the trenches of motherhood with overlooked maternal imagery for God in the Bible, offering both spiritual depth and a sense of humor that only a mother could deliver.</p>
     <div class="themes-grid">
       <div class="theme-item reveal reveal-d1">
@@ -775,26 +825,78 @@
 </section>
 
 
-<!-- ===== E N D O R S E M E N T (deep forest) ===== -->
+<!-- ===== E N D O R S E M E N T S (midnight dark) ===== -->
 <section class="endorsement on-dark">
-  <div class="art art-endorsement-leaf"><img src="images/art/green-leaf.png" alt=""></div>
-  <div class="endorsement-inner reveal">
-    <span class="quote-mark">&ldquo;</span>
-    <blockquote>
-      Elizabeth is exactly the warm, witty, and wise guide you need in motherhood: the rare writer whose words feel like friendship. She invites each of us to encounter God as mother — and our faith is deepened by the maternal love we find in Scripture together.
-    </blockquote>
-    <cite>
-      Laura Fanucci
-      <em>Author of Everyday Sacrament: The Messy Grace of Parenting</em>
-    </cite>
+  <!-- Botanical accent -->
+  <div class="art-leaf art-endorsement-leaf" style="right: -3%; bottom: 0; width: 220px; opacity: 0.08; transform: rotate(15deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="endorsement-slider reveal">
+    <p class="section-label" style="margin-bottom: 2rem;">Praise for Love Like a Mother</p>
+
+    <div class="endorsement-track">
+      <div class="endorsement-slide active">
+        <span class="quote-mark">&ldquo;</span>
+        <blockquote>
+          Elizabeth is exactly the warm, witty, and wise guide you need in motherhood: the rare writer whose words feel like friendship. She invites each of us to encounter God as mother — and our faith is deepened by the maternal love we find in Scripture together.
+        </blockquote>
+        <cite>
+          Laura Fanucci
+          <em>Author of Everyday Sacrament: The Messy Grace of Parenting</em>
+        </cite>
+      </div>
+
+      <div class="endorsement-slide">
+        <span class="quote-mark">&ldquo;</span>
+        <blockquote>
+          This book is a gift to every mother who has ever wondered if the holy could be hiding in the mundane. Elizabeth writes with the tenderness of a poet and the conviction of a theologian — and somehow makes you laugh and cry on the same page.
+        </blockquote>
+        <cite>
+          Endorser Name
+          <em>Title or Description</em>
+        </cite>
+      </div>
+
+      <div class="endorsement-slide">
+        <span class="quote-mark">&ldquo;</span>
+        <blockquote>
+          I couldn't put this book down. Elizabeth has a rare ability to weave the raw, beautiful chaos of motherhood with deep scriptural truths in a way that feels both fresh and ancient. Every mother needs this on her nightstand.
+        </blockquote>
+        <cite>
+          Endorser Name
+          <em>Title or Description</em>
+        </cite>
+      </div>
+    </div>
+
+    <div class="slider-controls">
+      <button class="slider-arrow slider-prev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="slider-dots">
+        <button class="slider-dot active" aria-label="Testimonial 1"></button>
+        <button class="slider-dot" aria-label="Testimonial 2"></button>
+        <button class="slider-dot" aria-label="Testimonial 3"></button>
+      </div>
+      <button class="slider-arrow slider-next" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
   </div>
 </section>
 
 
-<!-- ===== F E A T U R E D  W R I T I N G (cream) ===== -->
+<!-- ===== F E A T U R E D  W R I T I N G (blue mist light) ===== -->
 <section class="featured-posts">
-  <div class="art art-posts-bears"><img src="images/art/bears.png" alt=""></div>
-  <div class="art art-posts-fern"><img src="images/art/back-fern.png" alt=""></div>
+  <!-- Pelican illustration -->
+  <div class="art" style="left: 0; bottom: 0; width: 380px; opacity: 0.16;">
+    <img src="images/art/storksLeft.png" alt="">
+  </div>
+  <div class="art-leaf" style="right: -1%; bottom: 5%; width: 200px; opacity: 0.06; transform: rotate(-20deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
   <div class="featured-posts-inner">
     <p class="section-label reveal">From the Substack</p>
     <h2 class="section-title reveal reveal-d1" style="margin-bottom: 2.5rem;">Featured Writing</h2>
@@ -822,11 +924,15 @@
 </section>
 
 
-<!-- ===== S U B S C R I B E (sage) ===== -->
+<!-- ===== S U B S C R I B E (dark) ===== -->
 <section class="subscribe-strip">
-  <div class="art art-subscribe-storks"><img src="images/art/storks-left.png" alt=""></div>
-  <div class="art art-subscribe-bears"><img src="images/art/bears.png" alt=""></div>
+  <!-- Botanical accent -->
+  <div class="art-leaf" style="left: 2%; bottom: -3%; width: 180px; opacity: 0.05; transform: scaleX(-1) rotate(-5deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
   <div class="reveal" style="position:relative; z-index:5;">
+    <div class="gold-rule" style="margin-bottom: 2rem;"></div>
     <p class="section-label">Stay Connected</p>
     <h2 class="section-title" style="margin-bottom:1.5rem;">Join the Flock</h2>
     <p>Subscribe to <em>Back of the Flock</em>, Elizabeth's Substack, for reflections on faith, motherhood, and the stories that sustain us.</p>
@@ -835,10 +941,17 @@
 </section>
 
 
-<!-- ===== F O O T E R (dark) ===== -->
+<!-- ===== F O O T E R ===== -->
 <footer>
-  <div class="art art-footer-fern-l"><img src="images/art/back-fern.png" alt=""></div>
-  <div class="art art-footer-fern-r"><img src="images/art/back-fern.png" alt=""></div>
+  <!-- Botanical accents -->
+  <div class="art" style="left: -2%; bottom: 0; width: 350px; opacity: 0.06; transform: rotate(12deg);">
+    <img src="images/art/back-fern.png" alt="">
+  </div>
+  <div class="art" style="right: -2%; bottom: 0; width: 350px; opacity: 0.06; transform: scaleX(-1) rotate(12deg);">
+    <img src="images/art/back-fern.png" alt="">
+  </div>
+
+  <div class="gold-rule" style="margin-bottom: 2.5rem;"></div>
   <div class="footer-links" style="position:relative; z-index:5;">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -859,26 +972,43 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<script>
-/* Navbar scroll */
-(function() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 80);
-  });
-})();
+<script src="main.js"></script>
 
-/* Scroll reveal */
+<script>
+/* Testimonial slider */
 (function() {
-  const els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.12 });
-  els.forEach(el => observer.observe(el));
+  const slides = document.querySelectorAll('.endorsement-slide');
+  const dots = document.querySelectorAll('.slider-dot');
+  const prevBtn = document.querySelector('.slider-prev');
+  const nextBtn = document.querySelector('.slider-next');
+  if (!slides.length) return;
+
+  let current = 0;
+  let autoTimer;
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function startAuto() {
+    autoTimer = setInterval(function() { goTo(current + 1); }, 6000);
+  }
+  function resetAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { goTo(i); resetAuto(); });
+  });
+
+  startAuto();
 })();
 </script>
 </body>
