@@ -99,6 +99,7 @@
     transition: color 0.3s ease;
   }
   nav a:hover, nav a.active { color: var(--ink); }
+  .nav-toggle span { background: var(--ink); }
   nav.scrolled {
     background: rgba(12,17,23,0.92);
     backdrop-filter: blur(14px);
@@ -107,6 +108,7 @@
   }
   nav.scrolled a { color: var(--cream-soft); }
   nav.scrolled a:hover, nav.scrolled a.active { color: var(--cream); }
+  nav.scrolled .nav-toggle span { background: var(--cream); }
 
 
   /* ===== GOLD DIVIDER ===== */
@@ -262,7 +264,7 @@
   .hero-desc {
     font-family: 'Lora', Georgia, serif;
     font-size: 0.95rem; font-weight: 400;
-    color: var(--ink-faint); line-height: 1.7;
+    color: var(--ink-soft); line-height: 1.7;
     margin-bottom: 2.5rem; max-width: 440px;
     opacity: 0; animation: fadeUp 0.8s ease 1.0s forwards;
   }
@@ -275,12 +277,13 @@
   .release-badge {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--midnight);
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem; font-weight: 500; letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    padding: 0;
   }
-  .release-badge svg { width: 15px; height: 15px; fill: var(--midnight); }
+  .release-badge svg { width: 14px; height: 14px; fill: var(--ink-faint); }
 
   .hero-cta {
     display: flex; gap: 1rem;
@@ -855,8 +858,8 @@
 
       <div class="endorsement-slide">
         <span class="quote-mark">&ldquo;</span>
-        <blockquote>
-          Weaving into the account her own alternately funny and touching motherhood anecdotes, Berget makes a strong case for eschewing reductive framings of God as a &ldquo;dominant, masculine deity&rdquo; for a more holistic notion that centers love, protection, and creation. This will be a balm for new and experienced moms alike.
+        <blockquote style="font-size: 1.6rem;">
+          This will be a balm for new and experienced moms alike.
         </blockquote>
         <cite>
           Publishers Weekly
