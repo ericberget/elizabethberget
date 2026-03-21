@@ -38,30 +38,33 @@
     position: sticky;
     top: 52px;
     z-index: 90;
-    background: rgba(12,17,23,0.92);
+    background: rgba(12,17,23,0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(155,181,184,0.08);
-    padding: 0.7rem 2rem;
+    border-bottom: 1px solid rgba(200,164,92,0.2);
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: center;
-    gap: 1.8rem;
+    gap: 2rem;
     opacity: 0;
     animation: fadeUp 0.6s ease 0.6s forwards;
   }
   .press-subnav a {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.78rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--cream-faint);
+    color: var(--cream-soft);
     text-decoration: none;
     transition: color 0.3s ease;
     white-space: nowrap;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid transparent;
   }
   .press-subnav a:hover {
     color: var(--gold);
+    border-bottom-color: var(--gold);
   }
 
   /* ===== HERO ===== */
@@ -174,110 +177,168 @@
   }
 
 
-  /* ===== CONTACT POINTS ===== */
-  .press-contact {
+  /* ===== DOWNLOADS & BOOK DETAILS (combined) ===== */
+  .press-assets {
     position: relative; z-index: 2;
     padding: 5rem 2rem;
     overflow: hidden;
     background: var(--blue-mist);
   }
-  .press-contact-inner {
-    max-width: 600px; margin: 0 auto;
+  .press-assets-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     position: relative; z-index: 5;
   }
-  .press-contact .section-label { color: var(--ink-faint); }
-  .press-contact .section-title {
+  .assets-col h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; font-weight: 300;
-    text-align: center; color: var(--ink);
-    margin-bottom: 2rem; line-height: 1.25;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 0.8rem;
+  }
+  .assets-col h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 300;
+    color: var(--ink); margin-bottom: 1.5rem;
+    line-height: 1.25;
+  }
+  .download-cards {
+    display: flex; flex-direction: column;
+    gap: 1rem;
+  }
+  .download-card {
+    display: flex; align-items: center; gap: 1.2rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(26,46,40,0.1);
+    background: rgba(253,251,247,0.5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .download-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border-color: var(--ink);
+  }
+  .download-thumb {
+    width: 60px; height: 60px;
+    object-fit: cover; flex-shrink: 0;
+    border: 1px solid rgba(26,46,40,0.08);
+  }
+  .download-info {
+    flex: 1;
+  }
+  .download-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--ink); display: block;
+    margin-bottom: 0.2rem;
+  }
+  .download-meta {
+    font-size: 0.8rem; color: var(--ink-faint);
+  }
+  .download-icon {
+    flex-shrink: 0; opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+  .download-card:hover .download-icon { opacity: 0.8; }
+
+  .book-details {
+    display: flex; flex-direction: column;
+    gap: 0;
+  }
+  .detail-row {
+    display: flex; justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(26,46,40,0.08);
+  }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .detail-value {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.95rem; color: var(--ink);
+    text-align: right;
+  }
+
+  /* ===== CONNECT & BOOK (combined) ===== */
+  .press-connect {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    background: #2A2318;
+  }
+  .press-connect-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    position: relative; z-index: 5;
+  }
+  .connect-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .connect-col h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 300;
+    color: var(--cream); margin-bottom: 1.5rem;
+    line-height: 1.25;
   }
   .press-links {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    display: flex; flex-direction: column;
+    gap: 0.7rem;
   }
   .press-link {
     display: flex; align-items: center; gap: 0.6rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem; font-weight: 500;
-    color: var(--ink-soft); text-decoration: none;
-    padding: 1rem 1.4rem;
-    border: 1px solid rgba(26,46,40,0.12);
-    background: rgba(253,251,247,0.5);
+    color: var(--cream-soft); text-decoration: none;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(200,164,92,0.15);
+    background: rgba(200,164,92,0.06);
     transition: all 0.3s ease;
   }
   .press-link:hover {
-    border-color: var(--ink);
-    color: var(--ink);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border-color: var(--gold);
+    color: var(--cream);
+    transform: translateX(4px);
   }
-
-
-  /* ===== BOOK LINKS ===== */
-  .press-book {
-    position: relative; z-index: 2;
-    padding: 5rem 2rem;
-    overflow: hidden;
-    background: var(--midnight);
-    text-align: center;
-  }
-  .press-book-inner {
-    max-width: 800px; margin: 0 auto;
-    position: relative; z-index: 5;
-  }
-  .press-book .section-label { color: var(--gold); }
-  .press-book .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; font-weight: 300;
-    text-align: center; color: var(--cream);
-    margin-bottom: 1rem; line-height: 1.25;
-  }
-  .press-book-note {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; color: var(--cream-soft);
-    margin-bottom: 2.5rem; line-height: 1.6;
-  }
-  .retailer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem; margin-bottom: 1rem;
+  .retailer-list {
+    display: flex; flex-direction: column;
+    gap: 0.7rem;
   }
   .retailer-card {
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 1.8rem 1.2rem;
-    background: rgba(155,181,184,0.05);
-    border: 1px solid rgba(155,181,184,0.1);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem 1.2rem;
+    background: rgba(200,164,92,0.06);
+    border: 1px solid rgba(200,164,92,0.15);
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease;
     position: relative; overflow: hidden;
   }
   .retailer-card::before {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0;
-    height: 3px; background: var(--gold);
+    height: 2px; background: var(--gold);
     transform: scaleX(0); transform-origin: center;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .retailer-card:hover::before { transform: scaleX(1); }
   .retailer-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    border-color: var(--gold-dim);
+    transform: translateX(4px);
+    border-color: var(--gold);
   }
   .retailer-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; font-weight: 500;
+    font-size: 1.05rem; font-weight: 500;
     color: var(--cream); transition: color 0.3s ease;
   }
   .retailer-card:hover .retailer-name { color: var(--gold); }
-  .retailer-row-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    max-width: 540px; margin: 0 auto;
-  }
 
 
   /* ===== TOPICS ===== */
@@ -359,7 +420,7 @@
 
   /* ===== GRAIN TEXTURES ===== */
   .press-bio::after,
-  .press-contact::after,
+  .press-assets::after,
   .press-topics::after {
     content: '';
     position: absolute; inset: 0; z-index: 3;
@@ -368,7 +429,7 @@
     background-size: 512px 512px;
   }
   .press-pw::after,
-  .press-book::after,
+  .press-connect::after,
   .press-questions::after,
   footer::after {
     content: '';
@@ -389,9 +450,8 @@
       max-width: 280px; margin: 0 auto;
     }
     .press-bio-text { text-align: center; }
-    .press-links { grid-template-columns: 1fr; }
-    .retailer-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto 1rem; }
-    .retailer-row-2 { grid-template-columns: 1fr; max-width: 320px; }
+    .press-assets-inner { grid-template-columns: 1fr; max-width: 500px; }
+    .press-connect-inner { grid-template-columns: 1fr; max-width: 500px; }
     .topic-list { grid-template-columns: 1fr; }
     .press-hero h1 { font-size: 2.8rem; }
   }
@@ -404,8 +464,8 @@
     .press-bio { padding: 3rem 1.5rem 4rem; }
     .press-pw { padding: 3.5rem 1.5rem; }
     .press-pw blockquote { font-size: 1.15rem; }
-    .press-contact { padding: 3.5rem 1.5rem; }
-    .press-book { padding: 3.5rem 1.5rem; }
+    .press-assets { padding: 3.5rem 1.5rem; }
+    .press-connect { padding: 3.5rem 1.5rem; }
     .press-topics { padding: 3.5rem 1.5rem 4rem; }
     .press-questions { padding: 3.5rem 1.5rem 4rem; }
     nav { gap: 1rem; padding: 0.9rem 0.8rem; }
@@ -438,8 +498,8 @@
 <nav class="press-subnav">
   <a href="#bio">Bio</a>
   <a href="#review">Review</a>
-  <a href="#contact-points">Contact</a>
-  <a href="#book-links">Book Links</a>
+  <a href="#assets">Downloads</a>
+  <a href="#contact-points">Connect</a>
   <a href="#topics">Topics</a>
   <a href="#questions">Questions</a>
 </nav>
@@ -484,63 +544,134 @@
 </section>
 
 
-<!-- ===== CONTACT POINTS (blue mist) ===== -->
-<section class="press-contact" id="contact-points">
-  <div class="press-contact-inner">
-    <p class="section-label reveal">Find Elizabeth Online</p>
-    <h2 class="section-title reveal reveal-d1">Contact Points</h2>
-    <div class="press-links reveal reveal-d2">
-      <a href="index.html" class="press-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Website
-      </a>
-      <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank" class="press-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
-      </a>
-      <a href="https://www.threads.net/@elizabeth_a_berget" target="_blank" class="press-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M15.5 9.5c-.7-1.2-2-2-3.5-2-2.2 0-4 1.8-4 4s1.8 4 4 4c1.5 0 2.8-.8 3.5-2"/><path d="M15.5 9.5V15"/></svg>
-        Threads
-      </a>
-      <a href="https://elizabethberget.substack.com" target="_blank" class="press-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Substack
-      </a>
+<!-- ===== DOWNLOADS & BOOK DETAILS (blue mist) ===== -->
+<section class="press-assets" id="assets">
+  <div class="press-assets-inner">
+
+    <!-- Left: Downloadable Assets -->
+    <div class="assets-col reveal">
+      <h3>For Media Use</h3>
+      <h2>Download Assets</h2>
+      <div class="download-cards">
+        <a href="images/book-cover-hires.jpg" download class="download-card">
+          <img src="images/book-cover-hires.jpg" alt="Book cover" class="download-thumb">
+          <div class="download-info">
+            <span class="download-name">Book Cover</span>
+            <span class="download-meta">High-resolution JPG</span>
+          </div>
+          <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+        <a href="images/about.webp" download="elizabeth-berget-headshot.webp" class="download-card">
+          <img src="images/about.webp" alt="Author headshot" class="download-thumb">
+          <div class="download-info">
+            <span class="download-name">Author Headshot</span>
+            <span class="download-meta">High-resolution photo</span>
+          </div>
+          <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+        <a href="images/liz.jpg" download="elizabeth-berget-photo.jpg" class="download-card">
+          <img src="images/liz.jpg" alt="Author photo" class="download-thumb">
+          <div class="download-info">
+            <span class="download-name">Author Photo (Alternate)</span>
+            <span class="download-meta">High-resolution JPG</span>
+          </div>
+          <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
     </div>
+
+    <!-- Right: Book Details -->
+    <div class="assets-col reveal reveal-d1">
+      <h3>At a Glance</h3>
+      <h2>Book Details</h2>
+      <div class="book-details">
+        <div class="detail-row">
+          <span class="detail-label">Title</span>
+          <span class="detail-value"><em>Love Like a Mother</em></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Subtitle</span>
+          <span class="detail-value" style="max-width: 55%; text-align: right; line-height: 1.4;">How the Sacred Work of Motherhood Reveals the Maternal Heart of God</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Author</span>
+          <span class="detail-value">Elizabeth Berget</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Publisher</span>
+          <span class="detail-value">Brazos Press</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Pub Date</span>
+          <span class="detail-value">April 15, 2025</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">ISBN</span>
+          <span class="detail-value">978-1587436819</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Pages</span>
+          <span class="detail-value">224</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Format</span>
+          <span class="detail-value">Paperback</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 
-<!-- ===== BOOK LINKS (midnight) ===== -->
-<section class="press-book" id="book-links">
-  <div class="art-leaf" style="right: -2%; bottom: -3%; width: 220px; opacity: 0.05; transform: rotate(15deg);">
-    <img src="images/art/green-leaf.png" alt="">
-  </div>
+<!-- ===== CONNECT & BOOK LINKS (combined) ===== -->
+<section class="press-connect" id="contact-points">
+  <div class="press-connect-inner">
 
-  <div class="press-book-inner">
-    <p class="section-label reveal">Available Anywhere Books Are Sold</p>
-    <h2 class="section-title reveal reveal-d1">Book Links</h2>
-    <p class="press-book-note reveal reveal-d1"><em>Love Like a Mother</em> is available anywhere books are sold. Here are some links to help direct people:</p>
+    <!-- Left: Contact Points -->
+    <div class="connect-col reveal">
+      <h3>Find Elizabeth Online</h3>
+      <h2>Contact Links</h2>
+      <div class="press-links">
+        <a href="index.html" class="press-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Website
+        </a>
+        <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank" class="press-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.threads.net/@elizabeth_a_berget" target="_blank" class="press-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M15.5 9.5c-.7-1.2-2-2-3.5-2-2.2 0-4 1.8-4 4s1.8 4 4 4c1.5 0 2.8-.8 3.5-2"/><path d="M15.5 9.5V15"/></svg>
+          Threads
+        </a>
+        <a href="https://elizabethberget.substack.com" target="_blank" class="press-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Substack
+        </a>
+      </div>
+    </div>
 
-    <div class="retailer-grid reveal reveal-d2">
-      <a href="https://a.co/d/5YA42rg" target="_blank" class="retailer-card">
-        <span class="retailer-name">Amazon</span>
-      </a>
-      <a href="https://www.barnesandnoble.com/w/love-like-a-mother-elizabeth-berget/1148520131?ean=9781587436819" target="_blank" class="retailer-card">
-        <span class="retailer-name">Barnes &amp; Noble</span>
-      </a>
-      <a href="https://bakerbookhouse.com/products/9781587436819_love-like-a-mother" target="_blank" class="retailer-card">
-        <span class="retailer-name">Baker Book House</span>
-      </a>
+    <!-- Right: Book Links -->
+    <div class="connect-col reveal reveal-d1" id="book-links">
+      <h3>Available Anywhere Books Are Sold</h3>
+      <h2>Book Links</h2>
+      <div class="retailer-list">
+        <a href="https://a.co/d/5YA42rg" target="_blank" class="retailer-card">
+          <span class="retailer-name">Amazon</span>
+        </a>
+        <a href="https://www.barnesandnoble.com/w/love-like-a-mother-elizabeth-berget/1148520131?ean=9781587436819" target="_blank" class="retailer-card">
+          <span class="retailer-name">Barnes &amp; Noble</span>
+        </a>
+        <a href="https://bakerbookhouse.com/products/9781587436819_love-like-a-mother" target="_blank" class="retailer-card">
+          <span class="retailer-name">Baker Book House</span>
+        </a>
+        <a href="https://www.target.com/p/love-like-a-mother-by-elizabeth-berget-paperback/-/A-94219908" target="_blank" class="retailer-card">
+          <span class="retailer-name">Target</span>
+        </a>
+      </div>
     </div>
-    <div class="retailer-row-2 reveal reveal-d3">
-      <a href="https://bookshop.org/p/books/love-like-a-mother-elizabeth-berget/21929857" target="_blank" class="retailer-card">
-        <span class="retailer-name">Bookshop</span>
-      </a>
-      <a href="https://www.target.com/p/love-like-a-mother-by-elizabeth-berget-paperback/-/A-94219908" target="_blank" class="retailer-card">
-        <span class="retailer-name">Target</span>
-      </a>
-    </div>
+
   </div>
 </section>
 
