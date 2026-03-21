@@ -276,12 +276,11 @@
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.92rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--gold-dark);
-    background: rgba(107,80,32,0.10);
-    border: 1px solid rgba(107,80,32,0.25);
-    padding: 0.45rem 1rem;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    padding: 0.5rem 1.2rem;
   }
-  .release-badge svg { width: 15px; height: 15px; fill: var(--gold-dark); }
+  .release-badge svg { width: 15px; height: 15px; fill: var(--midnight); }
 
   .hero-cta {
     display: flex; gap: 1rem;
@@ -734,8 +733,6 @@
     .endorsement-track { min-height: 320px; }
     .featured-posts { padding: 4rem 1.5rem 5rem; }
     .art-endorsement-leaf, .art-themes-leaf-r { display: none; }
-    nav { gap: 1rem; padding: 0.9rem 0.8rem; }
-    nav a { font-size: 0.78rem; letter-spacing: 0.08em; }
   }
 </style>
 </head>
@@ -995,6 +992,7 @@
 
 
 <nav id="navbar">
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <a href="index.html" class="active">Home</a>
   <a href="about.html">About</a>
   <a href="book.html">My Book</a>

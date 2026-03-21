@@ -123,6 +123,63 @@ nav a {
 }
 nav a:hover, nav a.active { color: var(--cream); }
 
+/* ===== HAMBURGER BUTTON ===== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 101;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--cream);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+nav.open .nav-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+nav.open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+nav.open .nav-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 1.2rem;
+    background: rgba(12,17,23,0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .nav-toggle { display: block; }
+  nav a {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    border-bottom: 1px solid rgba(155,181,184,0.06);
+  }
+  nav.open a {
+    display: block;
+  }
+  nav a:last-of-type { border-bottom: none; }
+}
+
 /* ===== GOLD DIVIDER ===== */
 .gold-rule {
   width: 60px;
@@ -305,6 +362,4 @@ footer::after {
 }
 
 @media (max-width: 600px) {
-  nav { gap: 1rem; padding: 0.9rem 0.8rem; }
-  nav a { font-size: 0.78rem; letter-spacing: 0.08em; }
 }

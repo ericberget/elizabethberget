@@ -81,6 +81,21 @@
   });
 })();
 
+/* ===== MOBILE NAV TOGGLE ===== */
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const navbar = document.getElementById('navbar');
+  if (!toggle || !navbar) return;
+  toggle.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+  });
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('open');
+    });
+  });
+})();
+
 /* ===== COUNTDOWN (only if elements exist) ===== */
 (function() {
   const el = document.getElementById('cd-days');
