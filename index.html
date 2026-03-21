@@ -244,9 +244,10 @@
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 4.5rem; font-weight: 300;
-    line-height: 1.05; color: var(--ink);
+    font-size: 3.8rem; font-weight: 300;
+    line-height: 1.1; color: var(--ink);
     margin-bottom: 1rem;
+    white-space: nowrap;
     opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
   }
   .hero-title em {
@@ -715,7 +716,7 @@
     .hero { padding: 6rem 2rem 4rem; }
     .hero-inner { flex-direction: column; text-align: center; gap: 3rem; }
     .book-cover { width: 340px; }
-    .hero-title { font-size: 3.4rem; }
+    .hero-title { font-size: 3.4rem; white-space: normal; }
     .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
     .hero-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
     .hero-meta { justify-content: center; }
@@ -731,7 +732,7 @@
   @media (max-width: 600px) {
     .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
     .book-cover { width: 280px; }
-    .hero-title { font-size: 2.6rem; }
+    .hero-title { font-size: 2.6rem; white-space: normal; }
     .hero-subtitle { font-size: 1.05rem; }
     .author-title { font-size: 2.4rem; }
     .author-text-side { padding: 0; }
@@ -764,8 +765,8 @@
     </div>
     <div class="hero-text">
       <div class="release-badge">Releasing May 5, 2026</div>
-      <h1 class="hero-title">Love Like<br>a Mother</h1>
-      <p class="hero-subtitle">How the Sacred Work of Motherhood Reveals the Maternal Heart of God</p>
+      <h1 class="hero-title">Love like a Mother</h1>
+      <p class="hero-subtitle">How the Sacred Work of Motherhood<br>Reveals the Maternal Heart of God</p>
       <p class="hero-desc">Discover how the God of the Bible loves like a mother, and grow your faith within the sacred ordinary of everyday motherhood.</p>
       <div class="hero-cta">
         <a href="book.html#preorder" class="btn-primary"><span>Pre-Order Now</span></a>
