@@ -278,11 +278,14 @@
   .release-badge {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem; font-weight: 500; letter-spacing: 0.12em;
-    color: var(--ink-soft);
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
     background: none;
     border: none;
     padding: 0;
+    margin-bottom: 1.2rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
   }
   .release-badge svg { width: 14px; height: 14px; fill: var(--ink-faint); }
 
@@ -760,15 +763,13 @@
       <img src="images/book-cover-hires.jpg" alt="Love Like a Mother — Book Cover" class="book-cover">
     </div>
     <div class="hero-text">
+      <div class="release-badge">
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+        Releasing May 5, 2026
+      </div>
       <h1 class="hero-title">Love Like<br>a Mother</h1>
       <p class="hero-subtitle">How the Sacred Work of Motherhood Reveals the Maternal Heart of God</p>
       <p class="hero-desc">Discover how the God of the Bible loves like a mother, and grow your faith within the sacred ordinary of everyday motherhood.</p>
-      <div class="hero-meta">
-        <div class="release-badge">
-          <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
-          Releasing May 5, 2026
-        </div>
-      </div>
       <div class="hero-cta">
         <a href="book.html#preorder" class="btn-primary"><span>Pre-Order Now</span></a>
         <a href="about.html" class="btn-secondary">About Elizabeth</a>
