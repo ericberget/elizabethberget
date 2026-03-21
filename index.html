@@ -85,8 +85,8 @@
   nav {
     position: fixed;
     top: 0; width: 100%; z-index: 100;
-    padding: 1.2rem 2rem;
-    display: flex; justify-content: center; align-items: center; gap: 2.5rem;
+    padding: 1.2rem 2.5rem;
+    display: flex; justify-content: flex-end; align-items: center; gap: 2.5rem;
     transition: all 0.5s ease;
   }
   /* Hero is light (blue-mist), so nav starts dark */
@@ -226,7 +226,7 @@
   }
 
   .book-cover {
-    width: 420px; height: auto; display: block;
+    width: 357px; height: auto; display: block;
     box-shadow:
       0 4px 15px rgba(0,0,0,0.15),
       0 25px 60px rgba(0,0,0,0.25),
@@ -717,7 +717,7 @@
   @media (max-width: 900px) {
     .hero { padding: 6rem 2rem 4rem; }
     .hero-inner { flex-direction: column; text-align: center; gap: 3rem; }
-    .book-cover { width: 340px; }
+    .book-cover { width: 289px; }
     .hero-title { font-size: 3.4rem; white-space: normal; }
     .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
     .hero-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
@@ -733,7 +733,7 @@
 
   @media (max-width: 600px) {
     .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
-    .book-cover { width: 280px; }
+    .book-cover { width: 238px; }
     .hero-title { font-size: 2.6rem; white-space: normal; }
     .hero-subtitle { font-size: 1.05rem; }
     .author-title { font-size: 2.4rem; }
@@ -772,7 +772,6 @@
       <p class="hero-desc">Discover how the God of the Bible loves like a mother, and grow your faith within the sacred ordinary of everyday motherhood.</p>
       <div class="hero-cta">
         <a href="book.html#preorder" class="btn-primary"><span>Pre-Order Now</span></a>
-        <a href="about.html" class="btn-secondary">About Elizabeth</a>
       </div>
     </div>
   </div>
