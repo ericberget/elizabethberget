@@ -112,10 +112,11 @@ nav {
 }
 .nav-logo:hover { opacity: 1; }
 .nav-logo img {
-  height: 48px;
+  height: 48px !important;
+  max-height: 48px !important;
   width: auto;
   display: block;
-  filter: brightness(0) invert(0.85);
+  filter: brightness(0) invert(1);
 }
 nav.scrolled .nav-logo img {
   filter: brightness(0) invert(0.9);

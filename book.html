@@ -67,10 +67,20 @@
   /* ===== NAV ===== */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
-    padding: 1.2rem 2rem;
-    display: flex; justify-content: center; gap: 2.5rem;
+    padding: 1.6rem 3rem;
+    display: flex; justify-content: flex-end; align-items: center; gap: 2.2rem;
     transition: all 0.5s ease;
   }
+  .nav-logo { margin-right: auto; display: block; line-height: 0; opacity: 0.85; transition: opacity 0.3s ease; }
+  .nav-logo:hover { opacity: 1; }
+  .nav-logo img { height: 48px !important; max-height: 48px !important; width: auto; display: block; filter: brightness(0) invert(0.3); }
+  nav.scrolled .nav-logo img { filter: brightness(0) invert(0.9); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: all 0.3s ease; }
+  nav.scrolled .nav-toggle span { background: var(--cream); }
+  nav.open .nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.open .nav-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
   /* Nav on light hero */
   nav a {
     font-family: 'Cormorant Garamond', serif;
@@ -83,10 +93,33 @@
   nav.scrolled {
     background: rgba(12,17,23,0.92);
     backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--gold-faint);
   }
   nav.scrolled a { color: var(--cream-soft); }
   nav.scrolled a:hover, nav.scrolled a.active { color: var(--cream); }
+
+  /* ===== MOBILE NAV ===== */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column; align-items: stretch; padding: 0;
+      background: rgba(12,17,23,0.97) !important;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); gap: 0;
+    }
+    .nav-logo { position: absolute; left: 1.2rem; top: 1rem; }
+    .nav-logo img { height: 22px !important; filter: brightness(0) invert(0.9) !important; }
+    .nav-toggle { display: block; position: absolute; right: 1.2rem; top: 1rem; }
+    .nav-toggle span { background: var(--cream) !important; }
+    nav a {
+      display: none; width: 100%; text-align: center; padding: 0.9rem 1rem;
+      font-size: 1rem; letter-spacing: 0.2em;
+      color: var(--cream-soft) !important; border-bottom: 1px solid rgba(155,181,184,0.06);
+    }
+    nav a:hover, nav a.active { color: var(--cream) !important; }
+    nav.open a { display: block; }
+    nav a:last-of-type { border-bottom: none; }
+    nav::before { content: ''; display: block; height: 44px; }
+  }
 
 
   /* ===== BUTTONS ===== */
@@ -701,7 +734,7 @@
 
 
 <nav id="navbar">
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Elizabeth Berget"></a>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Elizabeth Berget" style="height:48px;width:auto;"></a>
   <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
@@ -718,6 +751,17 @@
   if (!navbar) return;
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 80);
+  });
+})();
+
+/* Mobile nav toggle */
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const navbar = document.getElementById('navbar');
+  if (!toggle || !navbar) return;
+  toggle.addEventListener('click', () => { navbar.classList.toggle('open'); });
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => { navbar.classList.remove('open'); });
   });
 })();
 
