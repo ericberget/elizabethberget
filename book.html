@@ -442,6 +442,7 @@
 
   /* Dark sections — matte paper grain */
   .book-about::after,
+  .pw-review::after,
   .preorder::after,
   footer::after {
     content: '';
@@ -595,6 +596,26 @@
 </section>
 
 
+<!-- ===== PUBLISHERS WEEKLY (midnight dark) ===== -->
+<section class="pw-review" style="position: relative; z-index: 2; padding: 5rem 2rem; text-align: center; overflow: hidden; background: var(--midnight-warm);">
+  <div class="art-leaf" style="left: -2%; bottom: -5%; width: 200px; opacity: 0.05; transform: scaleX(-1) rotate(-10deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="reveal" style="max-width: 700px; margin: 0 auto; position: relative; z-index: 5;">
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem;">Publishers Weekly &mdash; Starred Review</p>
+    <span style="font-family: 'Cormorant Garamond', serif; font-size: 7rem; line-height: 1; color: var(--gold); opacity: 0.2; display: block; margin-bottom: -2rem;">&ldquo;</span>
+    <blockquote style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; font-style: italic; line-height: 1.75; color: var(--cream);">
+      Weaving into the account her own alternately funny and touching motherhood anecdotes, Berget makes a strong case for eschewing reductive framings of God as a &ldquo;dominant, masculine deity&rdquo; for a more holistic notion that centers love, protection, and creation. This will be a balm for new and experienced moms alike.
+    </blockquote>
+    <cite style="display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; font-style: normal; letter-spacing: 0.06em; color: var(--gold); margin-top: 2rem;">
+      Publishers Weekly
+      <em style="display: block; font-style: italic; color: var(--cream-faint); font-weight: 400; font-size: 1rem; margin-top: 0.3rem;">Starred Review</em>
+    </cite>
+  </div>
+</section>
+
+
 <!-- ===== PRE-ORDER (midnight dark) ===== -->
 <section class="preorder" id="preorder">
   <!-- Botanical accent -->
@@ -671,6 +692,7 @@
     <a href="book.html">My Book</a>
     <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
     <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank">Instagram</a>
+    <a href="press.html">Press Kit</a>
     <a href="contact.html">Contact</a>
   </div>
   <p class="footer-copy" style="position:relative; z-index:5;">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
@@ -682,6 +704,7 @@
   <a href="about.html">About</a>
   <a href="book.html" class="active">My Book</a>
   <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+  <a href="press.html">Press Kit</a>
   <a href="contact.html">Contact</a>
 </nav>
 

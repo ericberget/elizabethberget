@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Kit — Elizabeth Berget</title>
+<meta name="description" content="Press kit for Elizabeth Berget — bio, book links, suggested topics, and interview questions for Love Like a Mother.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  :root {
+    --midnight: #0C1117;
+    --midnight-warm: #111820;
+    --midnight-blue: #14202A;
+    --blue-mist: #9BB5B8;
+    --blue-pale: #B5C9CB;
+    --blue-deep: #7A9EA2;
+    --blue-faint: rgba(155,181,184,0.10);
+    --ink: #1A2E28;
+    --ink-soft: #344840;
+    --ink-faint: #607870;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+  body { background: var(--midnight); }
+
+  /* ===== ART LEAVES ===== */
+  .art-leaf {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    width: 220px;
+    opacity: 0.12;
+  }
+  .art-leaf img { display: block; width: 100%; height: auto; }
+
+  /* ===== SUBMENU ===== */
+  .press-subnav {
+    position: sticky;
+    top: 52px;
+    z-index: 90;
+    background: rgba(12,17,23,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(155,181,184,0.08);
+    padding: 0.7rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.6s forwards;
+  }
+  .press-subnav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-faint);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+  .press-subnav a:hover {
+    color: var(--gold);
+  }
+
+  /* ===== HERO ===== */
+  .press-hero {
+    position: relative;
+    z-index: 2;
+    padding: 9rem 2rem 4rem;
+    text-align: center;
+  }
+  .press-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(155,181,184,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .press-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .press-hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: var(--cream-soft);
+    max-width: 550px; margin: 0 auto; line-height: 1.6;
+    opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+
+  /* ===== BIO ===== */
+  .press-bio {
+    position: relative; z-index: 2;
+    padding: 4rem 2rem 5rem;
+    overflow: hidden;
+    background: var(--blue-mist);
+  }
+  .press-bio-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 3.5rem; align-items: start;
+    position: relative; z-index: 5;
+  }
+  .press-bio-photo {
+    position: relative;
+  }
+  .press-bio-photo::before {
+    content: '';
+    position: absolute; inset: -10px;
+    border: 1px solid rgba(200,164,92,0.25);
+    pointer-events: none;
+  }
+  .press-bio-photo img {
+    width: 100%; height: auto; display: block;
+    filter: brightness(0.95) saturate(0.9);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  .press-bio-text {
+    padding-top: 0.5rem;
+  }
+  .press-bio-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 1.2rem;
+  }
+  .press-bio-text p {
+    font-size: 1.05rem; color: var(--ink-soft);
+    line-height: 1.8; margin-bottom: 1.2rem;
+  }
+  .press-bio-text em {
+    color: var(--ink); font-style: italic;
+  }
+
+
+  /* ===== PW REVIEW ===== */
+  .press-pw {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem; text-align: center;
+    overflow: hidden;
+    background: var(--midnight-warm);
+  }
+  .press-pw-inner {
+    max-width: 700px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .press-pw .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 7rem; line-height: 1;
+    color: var(--gold); opacity: 0.2;
+    display: block; margin-bottom: -2rem;
+  }
+  .press-pw blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400;
+    font-style: italic; line-height: 1.75;
+    color: var(--cream);
+  }
+  .press-pw cite {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600;
+    font-style: normal; letter-spacing: 0.06em;
+    color: var(--gold); margin-top: 2rem;
+  }
+  .press-pw cite em {
+    display: block; font-style: italic;
+    color: var(--cream-faint);
+    font-weight: 400; font-size: 1rem; margin-top: 0.3rem;
+  }
+
+
+  /* ===== CONTACT POINTS ===== */
+  .press-contact {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    background: var(--blue-mist);
+  }
+  .press-contact-inner {
+    max-width: 600px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .press-contact .section-label { color: var(--ink-faint); }
+  .press-contact .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    text-align: center; color: var(--ink);
+    margin-bottom: 2rem; line-height: 1.25;
+  }
+  .press-links {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .press-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-weight: 500;
+    color: var(--ink-soft); text-decoration: none;
+    padding: 1rem 1.4rem;
+    border: 1px solid rgba(26,46,40,0.12);
+    background: rgba(253,251,247,0.5);
+    transition: all 0.3s ease;
+  }
+  .press-link:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  }
+
+
+  /* ===== BOOK LINKS ===== */
+  .press-book {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    background: var(--midnight);
+    text-align: center;
+  }
+  .press-book-inner {
+    max-width: 800px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .press-book .section-label { color: var(--gold); }
+  .press-book .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    text-align: center; color: var(--cream);
+    margin-bottom: 1rem; line-height: 1.25;
+  }
+  .press-book-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--cream-soft);
+    margin-bottom: 2.5rem; line-height: 1.6;
+  }
+  .retailer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem; margin-bottom: 1rem;
+  }
+  .retailer-card {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 1.8rem 1.2rem;
+    background: rgba(155,181,184,0.05);
+    border: 1px solid rgba(155,181,184,0.1);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden;
+  }
+  .retailer-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .retailer-card:hover::before { transform: scaleX(1); }
+  .retailer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    border-color: var(--gold-dim);
+  }
+  .retailer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 500;
+    color: var(--cream); transition: color 0.3s ease;
+  }
+  .retailer-card:hover .retailer-name { color: var(--gold); }
+  .retailer-row-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    max-width: 540px; margin: 0 auto;
+  }
+
+
+  /* ===== TOPICS ===== */
+  .press-topics {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem 6rem;
+    overflow: hidden;
+    background: var(--blue-mist);
+  }
+  .press-topics-inner {
+    max-width: 800px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .press-topics .section-label { color: var(--ink-faint); }
+  .press-topics .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    text-align: center; color: var(--ink);
+    margin-bottom: 2.5rem; line-height: 1.25;
+  }
+  .topic-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .topic-item {
+    padding: 1.5rem 1.8rem;
+    background: rgba(253,251,247,0.5);
+    border: 1px solid rgba(26,46,40,0.08);
+  }
+  .topic-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .topic-desc {
+    font-size: 0.92rem; color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+
+  /* ===== QUESTIONS ===== */
+  .press-questions {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem 6rem;
+    overflow: hidden;
+    background: var(--midnight-warm);
+  }
+  .press-questions-inner {
+    max-width: 700px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .press-questions .section-label { color: var(--gold); }
+  .press-questions .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    text-align: center; color: var(--cream);
+    margin-bottom: 2.5rem; line-height: 1.25;
+  }
+  .question-list {
+    list-style: none;
+  }
+  .question-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400;
+    font-style: italic; color: var(--cream-soft);
+    line-height: 1.6;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(155,181,184,0.08);
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: var(--gold); opacity: 0.5;
+    margin-right: 0.3rem;
+  }
+
+
+  /* ===== GRAIN TEXTURES ===== */
+  .press-bio::after,
+  .press-contact::after,
+  .press-topics::after {
+    content: '';
+    position: absolute; inset: 0; z-index: 3;
+    pointer-events: none; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
+  }
+  .press-pw::after,
+  .press-book::after,
+  .press-questions::after,
+  footer::after {
+    content: '';
+    position: absolute; inset: 0; z-index: 3;
+    pointer-events: none; opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
+  }
+
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .press-bio-inner {
+      grid-template-columns: 1fr;
+      max-width: 520px;
+    }
+    .press-bio-photo {
+      max-width: 280px; margin: 0 auto;
+    }
+    .press-bio-text { text-align: center; }
+    .press-links { grid-template-columns: 1fr; }
+    .retailer-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto 1rem; }
+    .retailer-row-2 { grid-template-columns: 1fr; max-width: 320px; }
+    .topic-list { grid-template-columns: 1fr; }
+    .press-hero h1 { font-size: 2.8rem; }
+  }
+
+  @media (max-width: 600px) {
+    .press-hero { padding: 7rem 1.5rem 3rem; }
+    .press-hero h1 { font-size: 2.4rem; }
+    .press-subnav { gap: 1rem; padding: 0.6rem 1rem; flex-wrap: wrap; }
+    .press-subnav a { font-size: 0.7rem; letter-spacing: 0.1em; }
+    .press-bio { padding: 3rem 1.5rem 4rem; }
+    .press-pw { padding: 3.5rem 1.5rem; }
+    .press-pw blockquote { font-size: 1.15rem; }
+    .press-contact { padding: 3.5rem 1.5rem; }
+    .press-book { padding: 3.5rem 1.5rem; }
+    .press-topics { padding: 3.5rem 1.5rem 4rem; }
+    .press-questions { padding: 3.5rem 1.5rem 4rem; }
+    nav { gap: 1rem; padding: 0.9rem 0.8rem; }
+    nav a { font-size: 0.78rem; letter-spacing: 0.08em; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="fireflies"></canvas>
+
+<nav id="navbar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="book.html">My Book</a>
+  <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+  <a href="press.html" class="active">Press Kit</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+<!-- ===== HERO ===== -->
+<section class="press-hero">
+  <div class="gold-rule" style="margin-bottom: 2rem; opacity:0; animation: fadeUp 0.6s ease 0.1s forwards;"></div>
+  <h1>Press Kit</h1>
+  <p>Resources for media, podcasts, events, and book features. For inquiries, please visit the <a href="contact.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dim);">contact page</a>.</p>
+</section>
+
+<!-- ===== SUBMENU ===== -->
+<nav class="press-subnav">
+  <a href="#bio">Bio</a>
+  <a href="#review">Review</a>
+  <a href="#contact-points">Contact</a>
+  <a href="#book-links">Book Links</a>
+  <a href="#topics">Topics</a>
+  <a href="#questions">Questions</a>
+</nav>
+
+
+<!-- ===== BIO (blue mist) ===== -->
+<section class="press-bio" id="bio">
+  <div class="art-leaf" style="right: -2%; top: 5%; width: 200px; opacity: 0.06; transform: rotate(-15deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="press-bio-inner">
+    <figure class="press-bio-photo reveal">
+      <img src="images/about.webp" alt="Elizabeth Berget">
+    </figure>
+    <div class="press-bio-text reveal reveal-d1">
+      <h2>Author Bio</h2>
+      <p><strong style="color: var(--ink);">Elizabeth Berget</strong> is a speaker and author of <em>Love Like a Mother: How the Sacred Work of Motherhood Reveals the Maternal Heart of God</em>. Her work has appeared in <em>Christianity Today</em>, <em>Coffee + Crumbs</em>, <em>Mothering Spirit</em>, and other online spaces where mothers gather to find meaning in the mundane.</p>
+      <p>She shares her thoughts in her Substack newsletter, <em>Back of the Flock</em>, where she explores the image of God in the everyday work of motherhood. Berget has lived in Africa and Asia but now resides in Minneapolis, Minnesota, with her husband, three kids, and one mischievous dog. And yes, she'd love to hold your baby.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== PUBLISHERS WEEKLY (midnight) ===== -->
+<section class="press-pw" id="review">
+  <div class="art-leaf" style="left: -2%; bottom: -5%; width: 200px; opacity: 0.05; transform: scaleX(-1) rotate(-10deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="press-pw-inner reveal">
+    <p class="section-label" style="color: var(--gold); margin-bottom: 2rem;">Publishers Weekly — Starred Review</p>
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote>
+      Weaving into the account her own alternately funny and touching motherhood anecdotes, Berget makes a strong case for eschewing reductive framings of God as a &ldquo;dominant, masculine deity&rdquo; for a more holistic notion that centers love, protection, and creation. This will be a balm for new and experienced moms alike.
+    </blockquote>
+    <cite>
+      Publishers Weekly
+      <em>Starred Review</em>
+    </cite>
+  </div>
+</section>
+
+
+<!-- ===== CONTACT POINTS (blue mist) ===== -->
+<section class="press-contact" id="contact-points">
+  <div class="press-contact-inner">
+    <p class="section-label reveal">Find Elizabeth Online</p>
+    <h2 class="section-title reveal reveal-d1">Contact Points</h2>
+    <div class="press-links reveal reveal-d2">
+      <a href="index.html" class="press-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Website
+      </a>
+      <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank" class="press-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.threads.net/@elizabeth_a_berget" target="_blank" class="press-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M15.5 9.5c-.7-1.2-2-2-3.5-2-2.2 0-4 1.8-4 4s1.8 4 4 4c1.5 0 2.8-.8 3.5-2"/><path d="M15.5 9.5V15"/></svg>
+        Threads
+      </a>
+      <a href="https://elizabethberget.substack.com" target="_blank" class="press-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Substack
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BOOK LINKS (midnight) ===== -->
+<section class="press-book" id="book-links">
+  <div class="art-leaf" style="right: -2%; bottom: -3%; width: 220px; opacity: 0.05; transform: rotate(15deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="press-book-inner">
+    <p class="section-label reveal">Available Anywhere Books Are Sold</p>
+    <h2 class="section-title reveal reveal-d1">Book Links</h2>
+    <p class="press-book-note reveal reveal-d1"><em>Love Like a Mother</em> is available anywhere books are sold. Here are some links to help direct people:</p>
+
+    <div class="retailer-grid reveal reveal-d2">
+      <a href="https://a.co/d/5YA42rg" target="_blank" class="retailer-card">
+        <span class="retailer-name">Amazon</span>
+      </a>
+      <a href="https://www.barnesandnoble.com/w/love-like-a-mother-elizabeth-berget/1148520131?ean=9781587436819" target="_blank" class="retailer-card">
+        <span class="retailer-name">Barnes &amp; Noble</span>
+      </a>
+      <a href="https://bakerbookhouse.com/products/9781587436819_love-like-a-mother" target="_blank" class="retailer-card">
+        <span class="retailer-name">Baker Book House</span>
+      </a>
+    </div>
+    <div class="retailer-row-2 reveal reveal-d3">
+      <a href="https://bookshop.org/p/books/love-like-a-mother-elizabeth-berget/21929857" target="_blank" class="retailer-card">
+        <span class="retailer-name">Bookshop</span>
+      </a>
+      <a href="https://www.target.com/p/love-like-a-mother-by-elizabeth-berget-paperback/-/A-94219908" target="_blank" class="retailer-card">
+        <span class="retailer-name">Target</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SUGGESTED TOPICS (blue mist) ===== -->
+<section class="press-topics" id="topics">
+  <div class="art-leaf" style="left: -2%; top: 10%; width: 180px; opacity: 0.05; transform: scaleX(-1) rotate(10deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="press-topics-inner">
+    <p class="section-label reveal">For Interviews &amp; Features</p>
+    <h2 class="section-title reveal reveal-d1">Suggested Topics</h2>
+
+    <div class="topic-list">
+      <div class="topic-item reveal">
+        <div class="topic-title">Divine Feminine</div>
+        <p class="topic-desc">How the God of the Bible is depicted like a mother and how we reconcile this with a God primarily known as Father.</p>
+      </div>
+      <div class="topic-item reveal reveal-d1">
+        <div class="topic-title">Matrescence</div>
+        <p class="topic-desc">The process of becoming a mother and how it changes us physically, emotionally, spiritually, and otherwise.</p>
+      </div>
+      <div class="topic-item reveal reveal-d2">
+        <div class="topic-title">Spiritual Practice Expectations</div>
+        <p class="topic-desc">How we often think our spiritual practices need to be the same throughout very different seasons of life.</p>
+      </div>
+      <div class="topic-item reveal reveal-d3">
+        <div class="topic-title">The Experiences of Motherhood</div>
+        <p class="topic-desc">How the good, bad, and hilarious can reshape our views of God.</p>
+      </div>
+      <div class="topic-item reveal">
+        <div class="topic-title">Mental Load &amp; Mom Guilt</div>
+        <p class="topic-desc">How societal and religious expectations can create a spiritual barrier for weary moms.</p>
+      </div>
+      <div class="topic-item reveal reveal-d1">
+        <div class="topic-title">Whose Voice Matters</div>
+        <p class="topic-desc">How the voices of women are overlooked when we see God as primarily male.</p>
+      </div>
+      <div class="topic-item reveal reveal-d2">
+        <div class="topic-title">Who Benefits</div>
+        <p class="topic-desc">How does knowing God as mother help women, men, children, the church?</p>
+      </div>
+      <div class="topic-item reveal reveal-d3">
+        <div class="topic-title">Motherhood as Invitation</div>
+        <p class="topic-desc">How motherhood itself is an invitation to knowing God and not a barrier to spiritual growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SUGGESTED QUESTIONS (midnight) ===== -->
+<section class="press-questions" id="questions">
+  <div class="art-leaf" style="right: -1%; top: 15%; width: 180px; opacity: 0.04; transform: rotate(-20deg);">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+
+  <div class="press-questions-inner">
+    <p class="section-label reveal">Conversation Starters</p>
+    <h2 class="section-title reveal reveal-d1">Suggested Questions</h2>
+
+    <ul class="question-list reveal reveal-d2">
+      <li>What got you started exploring the maternal aspects of God in Scripture?</li>
+      <li>How does knowing God as mother benefit women? Men? Children? The church?</li>
+      <li>What do you hope readers take away from Love Like a Mother?</li>
+      <li>Why did you write Love Like a Mother?</li>
+      <li>What would you say to someone who is resistant to the idea of knowing God as mother?</li>
+      <li>How are the voices of women overlooked when we see God as only or primarily male?</li>
+      <li>Why do you think the church hasn't historically highlighted these aspects of God's character?</li>
+      <li>How can knowing God as both father and mother expand our love for God?</li>
+      <li>What was your favorite maternal image of God you came across during your writing of this book?</li>
+      <li>How can the day-to-day work of motherhood actually deepen our faith instead of serve as a barrier to it?</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="gold-rule" style="margin-bottom: 2.5rem;"></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="book.html">My Book</a>
+    <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+    <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank">Instagram</a>
+    <a href="press.html">Press Kit</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
