@@ -129,17 +129,16 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem; font-weight: 600;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--cream);
-    background: var(--ink);
+    color: var(--ink);
+    background: #fff;
     padding: 1rem 2.2rem; text-decoration: none;
     border: none; cursor: pointer;
     transition: all 0.3s ease;
     position: relative; overflow: hidden;
   }
   .btn-primary:hover {
-    background: var(--midnight-blue);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(12,17,23,0.25);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
   }
   .btn-primary span { position: relative; z-index: 1; }
 
@@ -173,9 +172,9 @@
     border-color: rgba(240,230,210,0.2);
   }
   .on-dark .btn-secondary:hover {
-    border-color: var(--blue-mist);
-    color: var(--blue-mist);
-    background: rgba(155,181,184,0.06);
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(200,164,92,0.08);
   }
 
 
@@ -248,7 +247,7 @@
   .hero-title {
     font-family: 'Oswald', sans-serif;
     font-size: 3.8rem; font-weight: 500;
-    line-height: 1.05; color: var(--ink);
+    line-height: 1.05; color: #283C35;
     margin-bottom: 1rem;
     white-space: nowrap;
     text-transform: uppercase;
@@ -287,6 +286,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.82rem; font-weight: 500; letter-spacing: 0.25em;
     text-transform: uppercase;
+    font-feature-settings: 'lnum';
     color: var(--ink-faint);
     background: none;
     border: none;
@@ -392,15 +392,26 @@
 
   .themes-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .theme-item {
-    padding: 2rem 1.5rem; text-align: center;
+    padding: 2rem 1.5rem; text-align: left;
     border: 1px solid rgba(26,46,40,0.08);
     background: rgba(255,255,255,0.12);
     transition: all 0.4s ease;
+    position: relative;
+  }
+  .theme-item::after {
+    content: '';
+    position: absolute;
+    top: -8px; left: -8px; right: -8px; bottom: -8px;
+    border: 1px solid rgba(26,46,40,0.25);
+    pointer-events: none;
+    z-index: -1;
   }
   .theme-item:hover {
     border-color: rgba(200,164,92,0.25);
@@ -416,10 +427,12 @@
   }
 
   .theme-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem; font-weight: 500;
-    color: var(--ink);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem; font-weight: 500;
+    color: var(--ink-soft);
     line-height: 1.3; margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .theme-desc {
@@ -814,24 +827,17 @@
   </div>
 
   <div class="book-themes-inner">
-    <p class="section-label reveal">Inside the Book</p>
-    <h2 class="section-title reveal reveal-d1" style="margin-bottom:1rem;">What if motherhood wasn't a barrier<br>to knowing God — <em style="color:var(--midnight-blue); font-style:italic;">but an invitation?</em></h2>
+    <p class="section-label reveal">Love Like a Mother — Inside the Book</p>
+    <h2 class="section-title reveal reveal-d1" style="margin-bottom:1rem;">What if the exhaustion, wonder, and work of motherhood weren't barriers to knowing God&hellip;<br><em style="color:var(--midnight-blue); font-style:italic;">but invitations?</em></h2>
     <p class="themes-intro reveal reveal-d2"><em>Love Like a Mother</em> weaves together real-life stories from the trenches of motherhood with overlooked maternal imagery for God in the Bible, offering both spiritual depth and a sense of humor that only a mother could deliver.</p>
     <div class="themes-grid">
       <div class="theme-item reveal reveal-d1">
-        <span class="theme-number">01</span>
         <h3 class="theme-title">Rediscover God as Mother</h3>
-        <p class="theme-desc">An invitation to rediscover God under the lens of motherhood — as the one who gestates, births, mourns, nourishes, comforts, and protects. Mothers bear the image of God in the sacred ordinary, from first contractions to first tantrums.</p>
+        <p class="theme-desc">The book gently invites readers to rediscover God under the lens of motherhood, as the one who gestates, births, mourns, adopts, nourishes, comforts, and protects — just like a mother. This discovery highlights how mothers bear the image of God in the sacred ordinary of everyday motherhood, from first contractions to first smiles to first tantrums.</p>
       </div>
       <div class="theme-item reveal reveal-d2">
-        <span class="theme-number">02</span>
         <h3 class="theme-title">A Lifeline for the Spiritually Adrift</h3>
-        <p class="theme-desc">For moms feeling spiritually adrift within parenting, a lifeline to connection right in the middle of dishes, diapers, and sleepless nights. Theological insights rooted in Scripture alongside contemplative practices that fit the busiest days.</p>
-      </div>
-      <div class="theme-item reveal reveal-d3">
-        <span class="theme-number">03</span>
-        <h3 class="theme-title">For Every Stage of Motherhood</h3>
-        <p class="theme-desc">An inspiration for moms in all stages of life, perfect for gift-giving and group discussion. Whether you're in the thick of toddler years or watching your children leave home, these words will meet you exactly where you are.</p>
+        <p class="theme-desc">For moms feeling spiritually adrift within parenting, this book provides a lifeline to spiritual connection, right in the middle of dishes, diapers, and sleepless nights. It offers theological insights rooted in Scripture as well as contemplative practices that fit right within the busiest days. The book also serves as an inspiration to moms in all stages of life, perfect for gift-giving, Bible studies, book clubs, and more.</p>
       </div>
     </div>
   </div>
