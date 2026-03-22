@@ -62,24 +62,6 @@
   }
 
 
-  /* ===== MORE ABOUT ME DIVIDER ===== */
-  .more-about-me {
-    position: relative; z-index: 2;
-    padding: 3rem 2rem 1rem; text-align: center;
-    background: var(--blue-pale);
-  }
-  .more-about-me h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.4rem; font-weight: 300;
-    font-style: italic; color: var(--ink);
-    line-height: 1.2;
-  }
-  .more-about-me .greeting-line {
-    width: 60px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    margin: 1.5rem auto 0;
-  }
-
   /* ===== STORY BLOCKS ===== */
   .story-block {
     position: relative; z-index: 2; padding: 3.5rem 2rem;
@@ -125,6 +107,14 @@
     width: 100%; height: auto; display: block;
     filter: brightness(0.95) saturate(0.9);
     box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  }
+
+  .story-greeting {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    font-style: italic; color: var(--ink);
+    line-height: 1.2; margin-bottom: 1.2rem;
+    text-align: left;
   }
 
   .story-text p {
@@ -242,7 +232,6 @@
   /* ===== DARK SECTION NOISE TEXTURE ===== */
   /* Light sections — very faint grain */
   .pro-bio.light::after,
-  .more-about-me::after,
   .story-block.pale::after,
   .story-block.light::after,
   .about-closing::after,
@@ -279,6 +268,7 @@
     .story-block.reversed .story-photo { order: 0; }
     .story-block.reversed .story-text { order: 0; }
     .story-text { text-align: center; }
+    .story-greeting { text-align: center; }
     .about-greeting h2 { font-size: 2.6rem; }
     .about-hero-overlay h1 { font-size: 2.8rem; }
     .pull-quote p { font-size: 1.15rem; }
@@ -319,7 +309,7 @@
     <img src="images/lizfullwidth.webp" alt="">
   </div>
   <div class="about-hero-overlay">
-    <h1>About Elizabeth</h1>
+    <h1>Hi! I'm Elizabeth Berget!</h1>
   </div>
 </section>
 
@@ -331,16 +321,9 @@
   </div>
   <div class="pro-bio-inner reveal">
     <p class="section-label">Professional Bio</p>
-    <p>Elizabeth Berget is a writer and former teacher whose work has appeared in <em>Coffee + Crumbs</em>, <em>Mothering Spirit</em>, and other online spaces where mothers gather to find meaning in the mundane. She shares her thoughts in her Substack newsletter, <em>Back of the Flock</em>, where she explores the image of God in the everyday work of motherhood. Berget has lived in Africa and Asia but now resides in Minneapolis, Minnesota, with her husband, three kids, and one mischievous dog. And yes, she'd love to hold your baby.</p>
+    <p>Elizabeth Berget is a speaker and the author of <em>Love like a Mother: How the Sacred Work of Motherhood Reveals the Maternal Heart of God</em>. Her work has appeared in <em>Christianity Today</em>, <em>Coffee + Crumbs</em>, <em>Mothering Spirit</em>, and other online spaces where mothers gather to find meaning in the mundane. She shares her thoughts in her Substack newsletter, <em>Back of the Flock</em>, where she explores the image of God in the everyday work of motherhood. Berget has lived in Africa and Asia but now resides in Minneapolis, Minnesota, with her husband, three kids, and one mischievous dog. And yes, she'd love to hold your baby.</p>
   </div>
 </section>
-
-
-<!-- ===== MORE ABOUT ME DIVIDER ===== -->
-<div class="more-about-me reveal">
-  <h2>Hi, I'm Elizabeth!</h2>
-  <div class="greeting-line"></div>
-</div>
 
 
 <!-- ===== STORY BLOCK 1 (blue pale) ===== -->
@@ -353,8 +336,9 @@
       <img src="images/about.webp" alt="Elizabeth Berget">
     </figure>
     <div class="story-text reveal reveal-d1">
+      <h2 class="story-greeting">Hi, I'm Elizabeth!</h2>
       <p>I'm married to Eric, who mailed me love letters when I lived in South Sudan, and together we have three kids who just yesterday were wearing diapers but are somehow now primarily pointy elbows and burgeoning hormones. We have a dog named Penny who lives for stealing trash and chasing squirrels.</p>
-      <p>Some of my other party tricks: I'm a former public school ELL teacher, and I've lived on three continents. For my day job, I homeschool my kids, but not in a denim jumper kind of way. I'm a textbook Enneagram One, and I think the world of proper grammar.</p>
+      <p>Some of my other party tricks; I'm a former English language-teacher, and I've lived on three continents. I love food and think the world of cheese. I am a textbook Enneagram one, and good grammar is one of my love languages.</p>
     </div>
   </div>
 </section>
@@ -385,7 +369,6 @@
     <img src="images/art/green-leaf.png" alt="">
   </div>
   <div class="pull-quote-inner reveal">
-    <span class="pull-quote-mark">&ldquo;</span>
     <p>I love Jesus, the Refugee King one, the one who washed feet and healed the blind and calmed the storm and loved His mother. I believe that He brought and is himself the Solution to every problem and that He shows up in our everyday...in the perfection of baby cheeks, in the liturgy of dishes, in that towering oak across the street.</p>
   </div>
 </section>
