@@ -630,8 +630,8 @@
 <nav class="press-subnav">
   <a href="#bio">Bio</a>
   <a href="#review">Review</a>
-  <a href="#assets">Downloads</a>
-  <a href="#promo">Promo Graphics</a>
+  <a href="#assets">Book Details</a>
+  <a href="#promo">Graphic Assets</a>
   <a href="#contact-points">Connect</a>
   <a href="#topics">Topics</a>
   <a href="#questions">Questions</a>
@@ -657,36 +657,11 @@
 </section>
 
 
-<!-- ===== DOWNLOADS & BOOK DETAILS (blue mist) ===== -->
+<!-- ===== BOOK DETAILS (blue mist) ===== -->
 <section class="press-assets" id="assets">
-  <div class="press-assets-inner">
+  <div class="press-assets-inner" style="grid-template-columns: 1fr; max-width: 500px;">
 
-    <!-- Left: Downloadable Assets -->
     <div class="assets-col reveal">
-      <h3>For Media Use</h3>
-      <h2>Download Assets</h2>
-      <div class="download-cards">
-        <a href="images/book-cover-hires.jpg" download class="download-card">
-          <img src="images/book-cover-hires.jpg" alt="Book cover" class="download-thumb">
-          <div class="download-info">
-            <span class="download-name">Book Cover</span>
-            <span class="download-meta">High-resolution JPG</span>
-          </div>
-          <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
-        <a href="images/about.webp" download="elizabeth-berget-headshot.webp" class="download-card">
-          <img src="images/about.webp" alt="Author headshot" class="download-thumb">
-          <div class="download-info">
-            <span class="download-name">Author Headshot</span>
-            <span class="download-meta">High-resolution photo</span>
-          </div>
-          <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Right: Book Details -->
-    <div class="assets-col reveal reveal-d1">
       <h3>At a Glance</h3>
       <h2>Book Details</h2>
       <div class="book-details">
@@ -733,10 +708,11 @@
 <section class="promo-gallery" id="promo">
   <div class="promo-gallery-inner">
     <p class="section-label reveal">For Social Media &amp; Promotion</p>
-    <h2 class="section-title reveal reveal-d1">Promotional Graphics</h2>
+    <h2 class="section-title reveal reveal-d1">Graphic Assets</h2>
 
     <div class="promo-tabs reveal reveal-d2">
       <button class="promo-tab active" data-cat="all">All</button>
+      <button class="promo-tab" data-cat="essential">Headshot &amp; Cover</button>
       <button class="promo-tab" data-cat="endorsement">Endorsements</button>
       <button class="promo-tab" data-cat="quote">Quotes</button>
       <button class="promo-tab" data-cat="cover">Covers</button>
@@ -745,6 +721,16 @@
     </div>
 
     <div class="promo-grid">
+      <!-- Headshot & Cover -->
+      <div class="promo-card reveal" data-cat="essential" onclick="openPromoLightbox(this)">
+        <img src="images/about.webp" alt="Author Headshot — Elizabeth Berget">
+        <span class="promo-card-label">Author Headshot</span>
+      </div>
+      <div class="promo-card reveal" data-cat="essential" onclick="openPromoLightbox(this)">
+        <img src="images/book-cover-hires.jpg" alt="Book Cover — Love Like a Mother">
+        <span class="promo-card-label">Book Cover</span>
+      </div>
+
       <!-- Endorsements -->
       <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
         <img src="images/promo/endorsement-fanucci.jpg" alt="Endorsement — Laura Kelly Fanucci">
