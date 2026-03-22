@@ -184,8 +184,10 @@
   .pro-bio {
     position: relative; z-index: 2;
     padding: 4.5rem 2rem;
-    border-top: 1px solid var(--gold-faint);
     background: var(--midnight-warm);
+  }
+  .pro-bio.light {
+    background: var(--blue-mist);
   }
   .pro-bio-inner {
     max-width: 700px; margin: 0 auto; text-align: center;
@@ -193,6 +195,9 @@
   .pro-bio-inner .section-label { margin-bottom: 1.5rem; color: var(--gold); }
   .pro-bio-inner p { font-size: 1.05rem; color: var(--cream-soft); line-height: 1.8; }
   .pro-bio-inner em { color: var(--blue-pale); font-style: italic; }
+  .pro-bio.light .pro-bio-inner .section-label { color: var(--ink-faint); }
+  .pro-bio.light .pro-bio-inner p { color: var(--ink-soft); }
+  .pro-bio.light .pro-bio-inner em { color: var(--ink); }
 
 
   /* ===== CONNECT STRIP (blue mist) ===== */
@@ -228,7 +233,7 @@
 
   /* ===== DARK SECTION NOISE TEXTURE ===== */
   /* Light sections — very faint grain */
-  .about-greeting::after,
+  .pro-bio.light::after,
   .more-about-me::after,
   .story-block.light::after,
   .about-closing::after,
@@ -245,8 +250,7 @@
 
   /* Dark sections — matte paper grain */
   .story-block.sage::after,
-  .pull-quote::after,
-  .pro-bio::after {
+  .pull-quote::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -311,15 +315,8 @@
 </section>
 
 
-<!-- ===== GREETING (blue mist) ===== -->
-<div class="about-greeting reveal">
-  <h2>Hi! I'm <em>Elizabeth Berget!</em></h2>
-  <div class="greeting-line"></div>
-</div>
-
-
-<!-- ===== PROFESSIONAL BIO (midnight) ===== -->
-<section class="pro-bio" style="overflow: hidden;">
+<!-- ===== PROFESSIONAL BIO (blue mist) ===== -->
+<section class="pro-bio light" style="overflow: hidden;">
   <div class="art-leaf" style="right: 2%; top: 50%; transform: translateY(-50%) rotate(-25deg); width: 180px; opacity: 0.04;">
     <img src="images/art/green-leaf.png" alt="">
   </div>
