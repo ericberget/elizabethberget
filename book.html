@@ -428,7 +428,7 @@
     overflow: hidden;
     background: var(--midnight);
     text-align: center;
-    scroll-margin-top: 80px;
+    scroll-margin-top: 120px;
   }
 
   .preorder-inner {
@@ -952,15 +952,16 @@
 <script>
 /* Pre-order CTA scroll — precise positioning across screen sizes */
 (function() {
-  const cta = document.querySelector('.book-hero-cta a[href="#preorder"]');
-  if (!cta) return;
-  cta.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.getElementById('preorder');
-    if (!target) return;
-    const navHeight = 80;
-    const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-    window.scrollTo({ top: top, behavior: 'smooth' });
+  var ctas = document.querySelectorAll('a[href="#preorder"]');
+  ctas.forEach(function(cta) {
+    cta.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('preorder');
+      if (!target) return;
+      setTimeout(function() {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    });
   });
 })();
 
