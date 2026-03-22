@@ -88,6 +88,7 @@
   .story-block.sage .story-text em { color: var(--blue-pale); }
   .story-block.sage .story-photo::before { border-color: rgba(200,164,92,0.45); }
   .story-block.sage .story-photo img { box-shadow: 0 10px 40px rgba(0,0,0,0.35); }
+  .story-block.sage .story-block-inner { grid-template-columns: 3fr 2fr; }
 
   .story-block-inner {
     max-width: 1000px; margin: 0 auto;
@@ -163,7 +164,7 @@
   /* ===== CLOSING (blue mist) ===== */
   .about-closing {
     position: relative; z-index: 2;
-    padding: 3rem 2rem 4.5rem; text-align: center;
+    padding: 2rem 2rem 1.5rem; text-align: center;
     background: var(--blue-mist);
   }
   .about-closing p {
@@ -201,12 +202,12 @@
   /* ===== CONNECT STRIP (blue mist) ===== */
   .connect-strip {
     position: relative; z-index: 2;
-    padding: 5rem 2rem; text-align: center;
-    background: var(--blue-mist);
+    padding: 3.5rem 2rem; text-align: center;
+    background: var(--midnight-warm);
     border-top: 1px solid var(--gold-faint);
   }
-  .connect-strip .section-label { color: var(--ink-faint); }
-  .connect-strip .section-title { color: var(--ink); }
+  .connect-strip .section-label { color: var(--gold); }
+  .connect-strip .section-title { color: var(--cream); }
   .social-links {
     display: flex; justify-content: center;
     gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;
@@ -216,16 +217,16 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem; font-weight: 600;
     letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--ink); text-decoration: none;
+    color: var(--cream); text-decoration: none;
     padding: 0.8rem 1.8rem;
-    border: 1px solid var(--ink-faint);
+    border: 1px solid rgba(155,181,184,0.3);
     transition: all 0.3s ease; background: transparent;
   }
   .social-link:hover {
-    border-color: var(--ink);
-    color: var(--midnight-blue);
+    border-color: var(--cream);
+    color: var(--cream);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(12,17,23,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
 
 
@@ -234,8 +235,7 @@
   .pro-bio.light::after,
   .story-block.pale::after,
   .story-block.light::after,
-  .about-closing::after,
-  .connect-strip::after {
+  .about-closing::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -248,7 +248,8 @@
 
   /* Dark sections — matte paper grain */
   .story-block.sage::after,
-  .pull-quote::after {
+  .pull-quote::after,
+  .connect-strip::after {
     content: '';
     position: absolute;
     inset: 0;
