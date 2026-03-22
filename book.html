@@ -274,6 +274,32 @@
   .book-description p { margin-bottom: 1.5rem; }
   .book-description em { color: var(--cream); font-style: italic; }
 
+  /* PW Review accordion */
+  .pw-review-toggle {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold-dim);
+    background: none; border: none; cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+  }
+  .pw-review-toggle:hover { color: var(--gold); }
+  .pw-review-toggle svg {
+    width: 14px; height: 14px;
+    transition: transform 0.4s ease;
+  }
+  .pw-review-toggle.open svg { transform: rotate(180deg); }
+  .pw-review-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pw-review-content.open {
+    max-height: 500px;
+    transition: max-height 0.8s ease;
+  }
+
 
   /* ========================================
      ENDORSEMENT — blue mist (light)
@@ -719,6 +745,19 @@
       <p>An inspiration to moms in all stages of life and perfect for gift-giving, Bible studies, book clubs, and more.</p>
     </div>
     <p class="reveal reveal-d2" style="font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 2.5rem; text-align: center;">Releasing May 5th &mdash; Brazos Press</p>
+
+    <div class="reveal reveal-d3" style="text-align: center; margin-top: 1.5rem;">
+      <button class="pw-review-toggle" onclick="var el=document.querySelector('.pw-review-content');el.classList.toggle('open');this.classList.toggle('open');">
+        Read the Publishers Weekly Review
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="pw-review-content">
+        <div style="max-width: 650px; margin: 1.5rem auto 0; text-align: left;">
+          <p style="font-family: 'Lora', serif; font-size: 1rem; font-style: italic; color: var(--cream-soft); line-height: 1.8;">Weaving into the account her own alternately funny and touching motherhood anecdotes, Berget makes a strong case for eschewing reductive framings of God as a &ldquo;dominant, masculine deity&rdquo; for a more holistic notion that centers love, protection, and creation. This will be a balm for new and experienced moms alike.</p>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--gold); margin-top: 1rem;">&mdash; Publishers Weekly</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
