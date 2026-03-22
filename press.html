@@ -433,6 +433,123 @@
   }
 
 
+  /* ===== PROMO GALLERY ===== */
+  .promo-gallery {
+    position: relative; z-index: 2;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    background: var(--midnight-warm);
+  }
+  .promo-gallery-inner {
+    max-width: 900px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .promo-gallery .section-label { color: var(--gold); }
+  .promo-gallery .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    text-align: center; color: var(--cream);
+    margin-bottom: 2rem; line-height: 1.25;
+  }
+  .promo-tabs {
+    display: flex; justify-content: center;
+    gap: 0.5rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .promo-tab {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cream-faint);
+    background: none; border: 1px solid rgba(240,230,210,0.12);
+    padding: 0.5rem 1.2rem; cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .promo-tab:hover { color: var(--cream-soft); border-color: rgba(240,230,210,0.3); }
+  .promo-tab.active {
+    color: var(--gold); border-color: var(--gold);
+    background: rgba(200,164,92,0.08);
+  }
+  .promo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  .promo-card {
+    position: relative; cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(155,181,184,0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .promo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+    border-color: var(--gold-dim);
+  }
+  .promo-card img {
+    width: 100%; height: auto; display: block;
+  }
+  .promo-card-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 0.5rem 0.8rem;
+    background: linear-gradient(transparent, rgba(12,17,23,0.85));
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--cream-soft);
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .promo-card:hover .promo-card-label { opacity: 1; }
+
+  /* Lightbox */
+  .promo-lightbox {
+    display: none; position: fixed;
+    inset: 0; z-index: 200;
+    background: rgba(12,17,23,0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center; justify-content: center;
+    flex-direction: column; gap: 1.5rem;
+    padding: 2rem;
+  }
+  .promo-lightbox.open { display: flex; }
+  .promo-lightbox img {
+    max-width: 90vw; max-height: 75vh;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .promo-lightbox-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none; cursor: pointer;
+    color: var(--cream-soft); font-size: 2rem;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    transition: color 0.3s ease;
+  }
+  .promo-lightbox-close:hover { color: var(--cream); }
+  .promo-lightbox-dl {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    border: 1px solid rgba(200,164,92,0.3);
+    padding: 0.7rem 1.8rem;
+    transition: all 0.3s ease;
+  }
+  .promo-lightbox-dl:hover {
+    border-color: var(--gold);
+    background: rgba(200,164,92,0.08);
+  }
+
+  @media (max-width: 900px) {
+    .promo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .promo-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    .promo-gallery { padding: 3.5rem 1.5rem; }
+  }
+
+
   /* ===== GRAIN TEXTURES ===== */
   .press-bio::after,
   .press-assets::after,
@@ -444,6 +561,7 @@
     background-size: 512px 512px;
   }
   .press-pw::after,
+  .promo-gallery::after,
   .press-connect::after,
   .press-questions::after,
   footer::after {
@@ -513,6 +631,7 @@
   <a href="#bio">Bio</a>
   <a href="#review">Review</a>
   <a href="#assets">Downloads</a>
+  <a href="#promo">Promo Graphics</a>
   <a href="#contact-points">Connect</a>
   <a href="#topics">Topics</a>
   <a href="#questions">Questions</a>
@@ -616,6 +735,103 @@
 
   </div>
 </section>
+
+
+<!-- ===== PROMO GRAPHICS GALLERY (midnight) ===== -->
+<section class="promo-gallery" id="promo">
+  <div class="promo-gallery-inner">
+    <p class="section-label reveal">For Social Media &amp; Promotion</p>
+    <h2 class="section-title reveal reveal-d1">Promotional Graphics</h2>
+
+    <div class="promo-tabs reveal reveal-d2">
+      <button class="promo-tab active" data-cat="all">All</button>
+      <button class="promo-tab" data-cat="endorsement">Endorsements</button>
+      <button class="promo-tab" data-cat="quote">Quotes</button>
+      <button class="promo-tab" data-cat="cover">Covers</button>
+      <button class="promo-tab" data-cat="banner">Banners</button>
+      <button class="promo-tab" data-cat="review">Reviews</button>
+    </div>
+
+    <div class="promo-grid">
+      <!-- Endorsements -->
+      <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
+        <img src="images/promo/endorsement-fanucci.jpg" alt="Endorsement — Laura Kelly Fanucci">
+        <span class="promo-card-label">Laura Kelly Fanucci</span>
+      </div>
+      <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
+        <img src="images/promo/endorsement-gadd.jpg" alt="Endorsement — Ashlee Gadd">
+        <span class="promo-card-label">Ashlee Gadd</span>
+      </div>
+      <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
+        <img src="images/promo/endorsement-miller.jpg" alt="Endorsement — Meredith Miller">
+        <span class="promo-card-label">Meredith Miller</span>
+      </div>
+      <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
+        <img src="images/promo/endorsement-mcdonald.jpg" alt="Endorsement — Chine McDonald">
+        <span class="promo-card-label">Chine McDonald</span>
+      </div>
+      <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
+        <img src="images/promo/endorsement-olson.jpg" alt="Endorsement — Tanner Olson">
+        <span class="promo-card-label">Tanner Olson</span>
+      </div>
+      <div class="promo-card reveal" data-cat="endorsement" onclick="openPromoLightbox(this)">
+        <img src="images/promo/endorsement-vangeffen.jpg" alt="Endorsement — Mary Van Geffen">
+        <span class="promo-card-label">Mary Van Geffen</span>
+      </div>
+
+      <!-- Quotes -->
+      <div class="promo-card reveal" data-cat="quote" onclick="openPromoLightbox(this)">
+        <img src="images/promo/quote-mother-bear.jpg" alt="Quote — You As Mother Bear">
+        <span class="promo-card-label">Book Quote</span>
+      </div>
+      <div class="promo-card reveal" data-cat="quote" onclick="openPromoLightbox(this)">
+        <img src="images/promo/quote-mothered-by-god.jpg" alt="Quote — Mothered by God">
+        <span class="promo-card-label">Book Quote</span>
+      </div>
+      <div class="promo-card reveal" data-cat="quote" onclick="openPromoLightbox(this)">
+        <img src="images/promo/quote-when-we-recognize.jpg" alt="Quote — When We Recognize">
+        <span class="promo-card-label">Book Quote</span>
+      </div>
+
+      <!-- Covers -->
+      <div class="promo-card reveal" data-cat="cover" onclick="openPromoLightbox(this)">
+        <img src="images/promo/cover-teal.jpg" alt="Cover — Coming May 2026">
+        <span class="promo-card-label">Cover — Coming May</span>
+      </div>
+      <div class="promo-card reveal" data-cat="cover" onclick="openPromoLightbox(this)">
+        <img src="images/promo/cover-wood.jpg" alt="Cover — Wood Background">
+        <span class="promo-card-label">Cover — Wood</span>
+      </div>
+
+      <!-- Banners -->
+      <div class="promo-card reveal" data-cat="banner" onclick="openPromoLightbox(this)">
+        <img src="images/promo/banner-order-today.jpg" alt="Banner — Order Today">
+        <span class="promo-card-label">Order Today Banner</span>
+      </div>
+      <div class="promo-card reveal" data-cat="banner" onclick="openPromoLightbox(this)">
+        <img src="images/promo/banner-pre-order.jpg" alt="Banner — Pre-Order">
+        <span class="promo-card-label">Pre-Order Banner</span>
+      </div>
+
+      <!-- Reviews -->
+      <div class="promo-card reveal" data-cat="review" onclick="openPromoLightbox(this)">
+        <img src="images/promo/review-pw-short.png" alt="Publishers Weekly Review">
+        <span class="promo-card-label">PW Review</span>
+      </div>
+      <div class="promo-card reveal" data-cat="review" onclick="openPromoLightbox(this)">
+        <img src="images/promo/review-pw-full.png" alt="Publishers Weekly Review — Full">
+        <span class="promo-card-label">PW Review (Alt)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Promo Lightbox -->
+<div class="promo-lightbox" id="promoLightbox">
+  <button class="promo-lightbox-close" onclick="closePromoLightbox()">&times;</button>
+  <img id="promoLightboxImg" src="" alt="">
+  <a id="promoLightboxDl" href="" download class="promo-lightbox-dl">Download</a>
+</div>
 
 
 <!-- ===== CONNECT & BOOK LINKS (combined) ===== -->
@@ -780,5 +996,51 @@
 </footer>
 
 <script src="main.js"></script>
+<script>
+/* Promo gallery tabs */
+(function() {
+  var tabs = document.querySelectorAll('.promo-tab');
+  var cards = document.querySelectorAll('.promo-card');
+  if (!tabs.length) return;
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var cat = tab.getAttribute('data-cat');
+      cards.forEach(function(card) {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+
+/* Promo lightbox */
+function openPromoLightbox(card) {
+  var img = card.querySelector('img');
+  var lb = document.getElementById('promoLightbox');
+  var lbImg = document.getElementById('promoLightboxImg');
+  var lbDl = document.getElementById('promoLightboxDl');
+  lbImg.src = img.src;
+  lbDl.href = img.src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePromoLightbox() {
+  var lb = document.getElementById('promoLightbox');
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('promoLightbox').addEventListener('click', function(e) {
+  if (e.target === this) closePromoLightbox();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePromoLightbox();
+});
+</script>
 </body>
 </html>
