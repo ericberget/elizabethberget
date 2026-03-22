@@ -92,6 +92,14 @@
   .story-block.light .story-photo::before { border-color: #6A8E6B; }
   .story-block.light .story-photo img { box-shadow: 0 10px 40px rgba(12,17,23,0.2); }
 
+  /* Pale = blue pale (matches "Hi I'm Elizabeth" section) */
+  .story-block.pale { background: var(--blue-pale); }
+  .story-block.pale .story-text p { color: var(--ink-soft); }
+  .story-block.pale .story-text em { color: var(--midnight-blue); }
+  .story-block.pale .story-photo::before { border-color: #6A8E6B; }
+  .story-block.pale .story-photo img { box-shadow: 0 10px 40px rgba(12,17,23,0.2); }
+  .story-block.pale .story-block-inner { grid-template-columns: 2fr 3fr; }
+
   /* Sage = midnight dark */
   .story-block.sage { background: var(--midnight-warm); }
   .story-block.sage .story-text p { color: var(--cream-soft); }
@@ -235,6 +243,7 @@
   /* Light sections — very faint grain */
   .pro-bio.light::after,
   .more-about-me::after,
+  .story-block.pale::after,
   .story-block.light::after,
   .about-closing::after,
   .connect-strip::after {
@@ -334,8 +343,8 @@
 </div>
 
 
-<!-- ===== STORY BLOCK 1 (blue mist) ===== -->
-<section class="story-block light" style="overflow: hidden;">
+<!-- ===== STORY BLOCK 1 (blue pale) ===== -->
+<section class="story-block pale" style="overflow: hidden;">
   <div class="art-leaf" style="right: -1%; top: -10%; width: 240px; opacity: 0.06; transform: rotate(15deg);">
     <img src="images/art/green-leaf.png" alt="">
   </div>
