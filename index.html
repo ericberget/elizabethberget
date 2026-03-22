@@ -586,6 +586,16 @@
     border-color: var(--cream-soft);
     background: rgba(240,230,210,0.15);
   }
+  .slider-pause {
+    width: 18px; height: 18px;
+    background: none; border: none; cursor: pointer;
+    color: rgba(240,230,210,0.2);
+    padding: 0; margin-left: 0.3rem;
+    transition: color 0.3s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .slider-pause:hover { color: rgba(240,230,210,0.5); }
+  .slider-pause svg { width: 12px; height: 12px; }
 
 
   /* ========================================
@@ -963,6 +973,10 @@
         <button class="slider-dot" aria-label="Testimonial 3"></button>
         <button class="slider-dot" aria-label="Testimonial 4"></button>
         <button class="slider-dot" aria-label="Testimonial 5"></button>
+        <button class="slider-pause" aria-label="Pause slideshow">
+          <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" width="10" height="10" style="display:none;"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
       </div>
       <button class="slider-arrow slider-next" aria-label="Next testimonial">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -1086,10 +1100,28 @@
     startAuto();
   }
 
-  prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
-  nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+  var paused = false;
+  var pauseBtn = document.querySelector('.slider-pause');
+  var pauseIcon = pauseBtn.querySelector('.pause-icon');
+  var playIcon = pauseBtn.querySelector('.play-icon');
+
+  pauseBtn.addEventListener('click', function() {
+    if (paused) {
+      startAuto();
+      pauseIcon.style.display = '';
+      playIcon.style.display = 'none';
+    } else {
+      clearInterval(autoTimer);
+      pauseIcon.style.display = 'none';
+      playIcon.style.display = '';
+    }
+    paused = !paused;
+  });
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); if (!paused) resetAuto(); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); if (!paused) resetAuto(); });
   dots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { goTo(i); resetAuto(); });
+    dot.addEventListener('click', function() { goTo(i); if (!paused) resetAuto(); });
   });
 
   startAuto();
