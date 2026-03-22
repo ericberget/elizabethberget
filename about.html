@@ -15,7 +15,7 @@
     position: relative; z-index: 2; overflow: hidden;
   }
   .about-hero-bg {
-    width: 100%; height: 45vh; min-height: 340px;
+    width: 100%; height: 35vh; min-height: 280px;
     position: relative; overflow: hidden;
   }
   .about-hero-bg img {
@@ -61,6 +61,24 @@
     margin: 1.5rem auto 0;
   }
 
+
+  /* ===== MORE ABOUT ME DIVIDER ===== */
+  .more-about-me {
+    position: relative; z-index: 2;
+    padding: 3rem 2rem 1rem; text-align: center;
+    background: var(--blue-mist);
+  }
+  .more-about-me h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 300;
+    font-style: italic; color: var(--ink);
+    line-height: 1.2;
+  }
+  .more-about-me .greeting-line {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    margin: 1.5rem auto 0;
+  }
 
   /* ===== STORY BLOCKS ===== */
   .story-block {
@@ -211,6 +229,7 @@
   /* ===== DARK SECTION NOISE TEXTURE ===== */
   /* Light sections — very faint grain */
   .about-greeting::after,
+  .more-about-me::after,
   .story-block.light::after,
   .about-closing::after,
   .connect-strip::after {
@@ -299,6 +318,25 @@
 </div>
 
 
+<!-- ===== PROFESSIONAL BIO (midnight) ===== -->
+<section class="pro-bio" style="overflow: hidden;">
+  <div class="art-leaf" style="right: 2%; top: 50%; transform: translateY(-50%) rotate(-25deg); width: 180px; opacity: 0.04;">
+    <img src="images/art/green-leaf.png" alt="">
+  </div>
+  <div class="pro-bio-inner reveal">
+    <p class="section-label">Professional Bio</p>
+    <p>Elizabeth Berget is a writer and former teacher whose work has appeared in <em>Coffee + Crumbs</em>, <em>Mothering Spirit</em>, and other online spaces where mothers gather to find meaning in the mundane. She shares her thoughts in her Substack newsletter, <em>Back of the Flock</em>, where she explores the image of God in the everyday work of motherhood. Berget has lived in Africa and Asia but now resides in Minneapolis, Minnesota, with her husband, three kids, and one mischievous dog. And yes, she'd love to hold your baby.</p>
+  </div>
+</section>
+
+
+<!-- ===== MORE ABOUT ME DIVIDER ===== -->
+<div class="more-about-me reveal">
+  <h2>More About Me!</h2>
+  <div class="greeting-line"></div>
+</div>
+
+
 <!-- ===== STORY BLOCK 1 (blue mist) ===== -->
 <section class="story-block light" style="overflow: hidden;">
   <div class="art-leaf" style="right: -1%; top: -10%; width: 240px; opacity: 0.06; transform: rotate(15deg);">
@@ -368,18 +406,6 @@
   <p>I'm so glad you're here!</p>
   <div class="closing-line"></div>
 </div>
-
-
-<!-- ===== PROFESSIONAL BIO (midnight) ===== -->
-<section class="pro-bio" style="overflow: hidden;">
-  <div class="art-leaf" style="right: 2%; top: 50%; transform: translateY(-50%) rotate(-25deg); width: 180px; opacity: 0.04;">
-    <img src="images/art/green-leaf.png" alt="">
-  </div>
-  <div class="pro-bio-inner reveal">
-    <p class="section-label">Professional Bio</p>
-    <p>Elizabeth Berget is a writer and former teacher whose work has appeared in <em>Coffee + Crumbs</em>, <em>Mothering Spirit</em>, and other online spaces where mothers gather to find meaning in the mundane. She shares her thoughts in her Substack newsletter, <em>Back of the Flock</em>, where she explores the image of God in the everyday work of motherhood. Berget has lived in Africa and Asia but now resides in Minneapolis, Minnesota, with her husband, three kids, and one mischievous dog. And yes, she'd love to hold your baby.</p>
-  </div>
-</section>
 
 
 <!-- ===== CONNECT (blue mist) ===== -->
