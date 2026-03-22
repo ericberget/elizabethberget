@@ -123,8 +123,16 @@
     }
     .nav-logo { position: absolute; left: 1.2rem; top: 0.7rem; }
     .nav-logo img { height: 22px !important; filter: brightness(0) invert(0.9) !important; }
-    .nav-toggle { display: block !important; position: absolute; right: 1.2rem; top: 0.7rem; }
-    .nav-toggle span { background: var(--cream) !important; }
+    .nav-toggle {
+      display: block !important; position: absolute; right: 1.2rem; top: 0.7rem;
+      background: none !important; border: none !important; border-radius: 0 !important;
+      -webkit-appearance: none; appearance: none;
+      padding: 0.5rem;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--cream) !important; margin: 5px 0;
+    }
     nav a {
       display: none; width: 100%; text-align: center; padding: 0.9rem 1rem;
       font-size: 1rem; letter-spacing: 0.2em;
@@ -133,7 +141,7 @@
     nav a:hover, nav a.active { color: var(--cream) !important; }
     nav.open a { display: block; }
     nav a:last-of-type { border-bottom: none; }
-    nav::before { content: ''; display: block; height: 38px; }
+    nav::before { content: ''; display: block; height: 48px; }
   }
 
   /* ===== GOLD DIVIDER ===== */
