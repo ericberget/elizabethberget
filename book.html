@@ -360,6 +360,64 @@
   }
   .slider-dot.active { background: var(--gold); }
 
+  /* Full endorsements accordion */
+  .full-endorsements-toggle {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(240,230,210,0.3);
+    background: none; border: none; cursor: pointer;
+    margin-top: 2.5rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+  }
+  .full-endorsements-toggle:hover { color: rgba(240,230,210,0.6); }
+  .full-endorsements-toggle svg {
+    width: 14px; height: 14px;
+    transition: transform 0.4s ease;
+  }
+  .full-endorsements-toggle.open svg { transform: rotate(180deg); }
+
+  .full-endorsements {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .full-endorsements.open {
+    max-height: 3000px;
+    transition: max-height 0.8s ease;
+  }
+  .full-endorsements-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+    max-width: 900px; margin: 2.5rem auto 0;
+    text-align: left;
+  }
+  .full-endorsement-item {
+    border-left: 1px solid rgba(200,164,92,0.15);
+    padding-left: 1.5rem;
+  }
+  .full-endorsement-item p {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.88rem; line-height: 1.75;
+    color: var(--cream-soft); font-style: italic;
+  }
+  .full-endorsement-item cite {
+    display: block; margin-top: 0.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; font-weight: 600;
+    font-style: normal; color: var(--gold);
+  }
+  .full-endorsement-item cite em {
+    display: block; font-style: italic;
+    color: rgba(240,230,210,0.35);
+    font-weight: 400; font-size: 0.82rem; margin-top: 0.15rem;
+  }
+
+  @media (max-width: 768px) {
+    .full-endorsements-grid { grid-template-columns: 1fr; }
+  }
+
 
   /* ========================================
      PRE-ORDER — midnight (dark)
@@ -742,6 +800,48 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
+
+    <button class="full-endorsements-toggle" onclick="var el=document.querySelector('.full-endorsements');el.classList.toggle('open');this.classList.toggle('open');">
+      Read Full Endorsements
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+
+    <div class="full-endorsements">
+      <div class="full-endorsements-grid">
+
+        <div class="full-endorsement-item">
+          <p>Elizabeth Berget is exactly the warm, witty, and wise guide moms need&mdash;that rare writer whose words feel like friendship. She invites each of us to encounter God as mother, and our faith is deepened by the maternal love we find in Scripture together.</p>
+          <cite>Laura Kelly Fanucci<em>Author of Everyday Sacrament: The Messy Grace of Parenting</em></cite>
+        </div>
+
+        <div class="full-endorsement-item">
+          <p>Where has this book been all my life? I don&rsquo;t say this lightly: Elizabeth Berget has unlocked a profound new framework for viewing the love of God. I was moved to tears twice out of sheer awe and astonishment. Reading <em style="font-style:italic;">Love like a Mother</em> felt like turning over a diamond and discovering a whole new facet of God&rsquo;s fierce devotion, gentle affection, and divine love for us. I want to get this book into the hands of every mother I know.</p>
+          <cite>Ashlee Gadd<em>Author of Create Anyway; Founder of Coffee + Crumbs</em></cite>
+        </div>
+
+        <div class="full-endorsement-item">
+          <p>I believe we all benefit from seeing God beyond exclusively masculine imagery, and <em style="font-style:italic;">Love like a Mother</em> is an excellent guide. Elizabeth artfully and carefully goes beyond a simplistic sense of mothering&mdash;for example, moms care and God cares&mdash;into a fuller, more dynamic, and deeply biblical view. What a wonderful contribution this book is: a gift for anyone who wants to know God better.</p>
+          <cite>Meredith Miller<em>Pastor; Author of Woven: Nurturing a Faith Your Kid Doesn&rsquo;t Have to Heal From</em></cite>
+        </div>
+
+        <div class="full-endorsement-item">
+          <p><em style="font-style:italic;">Love like a Mother</em> is a visceral, moving, and profoundly insightful book. Elizabeth Berget weaves Scripture together with the everyday realities of motherhood in ways that surprised me, challenged me, and taught me so much. Her reflections expand our understanding of God through the lens of maternal love: tender, embodied, and deeply human. I found myself nourished and seen; my heart expanded with love for my children, for other mothers, and for God.</p>
+          <cite>Chine McDonald<em>Writer, Broadcaster, Director of Theos; Author of Unmaking Mary: Shattering the Myth of Perfect Motherhood</em></cite>
+        </div>
+
+        <div class="full-endorsement-item">
+          <p>As a father, my eyes were opened by this book to the sacred beauty of nurturing and raising a family. Elizabeth Berget writes with wisdom and honesty, turning our eyes to the heart of God with a depth that invites all readers to see divine love in new and tender ways. This book is a gift.</p>
+          <cite>Tanner Olson<em>Author of Getting Through What You&rsquo;re Going Through</em></cite>
+        </div>
+
+        <div class="full-endorsement-item">
+          <p>If you can&rsquo;t bring yourself to read another book about a white male God but still ache for a God you can trust, Elizabeth Berget is your modern-day Christian mystic. Her tender, biblical theology is steeped in the universal languages of attachment, birth, and motherhood. This book reignited my holy imagination and helped me connect my evolving identity with a never-changing God. Seeing God in the mother and the mother in God changes everything. What we do as mothers matters, and Elizabeth gets it.</p>
+          <cite>Mary Van Geffen<em>Author of Parenting a Spicy One: A Compassionate Guide for Raising a Deep-Feeling and Wonderfully Strong-Willed Kid</em></cite>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
