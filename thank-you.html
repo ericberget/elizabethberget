@@ -32,11 +32,88 @@
     line-height: 1.6;
     margin-bottom: 2rem;
   }
+
+  /* Glowing orbs */
+  .orbs {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0;
+    animation: orbFloat linear infinite;
+  }
+  .orb-1 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(155,181,184,0.25) 0%, transparent 70%);
+    left: 10%; top: 20%;
+    animation-duration: 18s;
+    animation-delay: 0s;
+  }
+  .orb-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(200,164,92,0.15) 0%, transparent 70%);
+    right: 15%; top: 50%;
+    animation-duration: 22s;
+    animation-delay: 3s;
+  }
+  .orb-3 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(155,181,184,0.18) 0%, transparent 70%);
+    left: 50%; bottom: 10%;
+    animation-duration: 20s;
+    animation-delay: 6s;
+  }
+  .orb-4 {
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(200,164,92,0.12) 0%, transparent 70%);
+    left: 30%; top: 10%;
+    animation-duration: 25s;
+    animation-delay: 2s;
+  }
+  .orb-5 {
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(106,142,107,0.12) 0%, transparent 70%);
+    right: 25%; bottom: 30%;
+    animation-duration: 24s;
+    animation-delay: 8s;
+  }
+
+  @keyframes orbFloat {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(0.8);
+    }
+    15% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate(60px, -40px) scale(1.1);
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-30px, 50px) scale(0.9);
+    }
+  }
 </style>
 </head>
 <body>
 
-<canvas id="fireflies"></canvas>
+<div class="orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+  <div class="orb orb-5"></div>
+</div>
 
 <section class="thankyou">
   <div class="gold-rule" style="margin-bottom: 2rem;"></div>
@@ -45,6 +122,5 @@
   <a href="index.html" class="btn-secondary">Back to Home</a>
 </section>
 
-<script src="main.js"></script>
 </body>
 </html>
