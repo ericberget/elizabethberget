@@ -978,17 +978,24 @@
 <script>
 /* Pre-order CTA scroll — precise positioning across screen sizes */
 (function() {
+  function scrollToPreorder(smooth) {
+    var target = document.getElementById('preorder');
+    if (!target) return;
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'center' });
+  }
+
   var ctas = document.querySelectorAll('a[href="#preorder"]');
   ctas.forEach(function(cta) {
     cta.addEventListener('click', function(e) {
       e.preventDefault();
-      var target = document.getElementById('preorder');
-      if (!target) return;
-      setTimeout(function() {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
+      setTimeout(function() { scrollToPreorder(true); }, 50);
     });
   });
+
+  // Handle cross-page navigation (e.g. from homepage)
+  if (window.location.hash === '#preorder') {
+    setTimeout(function() { scrollToPreorder(false); }, 100);
+  }
 })();
 
 /* Navbar scroll */
