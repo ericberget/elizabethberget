@@ -35,11 +35,9 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  .book-about a:visited,
-  .endorsement a:visited,
-  .preorder a:visited,
-  .bulk-order a:visited,
-  .retailer-card:visited .retailer-name { color: inherit; }
+  a:visited { color: inherit; }
+  nav a:visited { color: var(--ink-soft); }
+  nav.scrolled a:visited { color: var(--cream-soft); }
   html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
@@ -1032,7 +1030,7 @@
       <a href="https://bakerbookhouse.com/products/9781587436819_love-like-a-mother" target="_blank" class="retailer-card reveal reveal-d3">
         <span class="retailer-name">Baker Book House</span>
         <span class="retailer-note">Paperback</span>
-        <span class="retailer-badge">40% Off + Free Shipping</span>
+        <span class="retailer-badge">40% Off — Bulk Orders</span>
       </a>
       <a href="https://www.target.com/p/love-like-a-mother-by-elizabeth-berget-paperback/-/A-1007422024" target="_blank" class="retailer-card reveal reveal-d1">
         <span class="retailer-name">Target</span>
