@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulk Orders — Elizabeth Berget</title>
+<meta name="description" content="Order Love Like a Mother in bulk for your book club, Bible study, or group. Enjoy 40% off, a free discussion guide, and a virtual Q&A with the author.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ===== HERO ===== */
+  .bulk-hero {
+    position: relative;
+    z-index: 2;
+    padding: 9rem 2rem 4rem;
+    text-align: center;
+  }
+  .bulk-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(155,181,184,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .bulk-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .bulk-hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--cream-soft);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+  .bulk-hero p em {
+    color: var(--cream);
+    font-style: italic;
+  }
+
+  /* ===== BENEFITS ===== */
+  .bulk-benefits {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2rem 4rem;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .benefit-card {
+    padding: 2.2rem 1.5rem;
+    border: 1px solid rgba(155,181,184,0.1);
+    background: rgba(155,181,184,0.04);
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .benefit-card:hover {
+    border-color: var(--gold-dim);
+    background: rgba(155,181,184,0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  }
+  .benefit-icon {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .benefit-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.8rem;
+  }
+  .benefit-desc {
+    font-size: 0.88rem;
+    color: var(--cream-soft);
+    line-height: 1.65;
+  }
+
+  /* ===== FORM SECTION ===== */
+  .bulk-form-section {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 2rem 6rem;
+  }
+  .bulk-form-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .bulk-form-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+  .bulk-form-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--cream-faint);
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .form-group {
+    margin-bottom: 1.4rem;
+  }
+  .form-group label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1rem;
+    color: var(--cream);
+    background: rgba(155,181,184,0.06);
+    border: 1px solid rgba(155,181,184,0.12);
+    padding: 0.9rem 1.1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--cream-faint);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--blue-mist);
+    box-shadow: 0 0 0 2px rgba(155,181,184,0.1);
+  }
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+  }
+  .form-submit {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .benefits-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .bulk-hero h1 { font-size: 2.8rem; }
+  }
+  @media (max-width: 600px) {
+    .bulk-hero { padding: 7rem 1.5rem 3rem; }
+    .bulk-hero h1 { font-size: 2.4rem; }
+    .bulk-form-section { padding: 1.5rem 1.5rem 4rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="fireflies"></canvas>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Elizabeth Berget" style="height:48px;width:auto;"></a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="book.html">My Book</a>
+  <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="bulk-hero">
+  <div class="gold-rule" style="margin-bottom: 2rem; opacity:0; animation: fadeUp 0.6s ease 0.1s forwards;"></div>
+  <h1>Order for Your Group</h1>
+  <p><em>Love Like a Mother</em> is perfect for Bible studies, book clubs, mom's groups, and retreats. Order in bulk and receive exclusive extras for your group.</p>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="bulk-benefits">
+  <div class="benefits-grid">
+    <div class="benefit-card reveal">
+      <span class="benefit-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8l-1.5 1.5M9.88 9.88a3 3 0 1 0 4.24 4.24M8.46 15.54L7 17"/><path d="M12 6v2M6 12h2M18 12h-2M12 18v-2"/></svg>
+      </span>
+      <h3 class="benefit-title">40% Off</h3>
+      <p class="benefit-desc">Bulk pricing through Baker Book House.</p>
+    </div>
+    <div class="benefit-card reveal reveal-d1">
+      <span class="benefit-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      </span>
+      <h3 class="benefit-title">Discussion Guide</h3>
+      <p class="benefit-desc">A free companion guide with reflection questions and prompts for each chapter.</p>
+    </div>
+    <div class="benefit-card reveal reveal-d2">
+      <span class="benefit-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5-5"/><path d="M20 5v4h-4"/><rect x="2" y="4" width="16" height="14" rx="2"/><circle cx="10" cy="11" r="3"/></svg>
+      </span>
+      <h3 class="benefit-title">Author Q&amp;A</h3>
+      <p class="benefit-desc">Schedule a virtual Zoom session with Elizabeth for your group's discussion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM ===== -->
+<section class="bulk-form-section">
+  <div class="bulk-form-inner reveal">
+    <div class="gold-rule" style="margin-bottom: 2rem;"></div>
+    <h2>Inquire About Bulk Orders</h2>
+    <p class="bulk-form-intro">Fill out the form below and Elizabeth will be in touch.</p>
+
+    <form name="bulk-order" method="POST" data-netlify="true" action="/thank-you.html">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="group">Group or Organization</label>
+          <input type="text" id="group" name="group" placeholder="e.g. Grace Church Book Club">
+        </div>
+        <div class="form-group">
+          <label for="copies">Number of Copies</label>
+          <input type="number" id="copies" name="copies" placeholder="10" min="1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your group and any questions you have..."></textarea>
+      </div>
+      <input type="hidden" name="subject" value="Bulk Order Inquiry">
+      <div class="form-submit">
+        <button type="submit" class="btn-primary"><span>Send Inquiry</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="gold-rule" style="margin-bottom: 2.5rem;"></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="book.html">My Book</a>
+    <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+    <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank">Instagram</a>
+    <a href="press.html">Press Kit</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
