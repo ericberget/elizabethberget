@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playlist — Love Like a Mother</title>
+<meta name="description" content="A curated playlist companion to Love Like a Mother by Elizabeth Berget.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  a:visited { color: inherit; }
+
+  .playlist-page {
+    position: relative; z-index: 2;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .playlist-page::before {
+    content: '';
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse at center, rgba(155,181,184,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .playlist-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative; z-index: 5;
+  }
+
+  .playlist-header .section-label {
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .playlist-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+  .playlist-header h1 em {
+    font-style: italic;
+    color: var(--blue-mist);
+  }
+
+  .playlist-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--cream-soft);
+    max-width: 500px; margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .playlist-embed {
+    position: relative; z-index: 5;
+    width: 100%;
+    max-width: 500px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .playlist-embed iframe {
+    border-radius: 12px;
+    width: 100%;
+    height: 660px;
+    border: none;
+    box-shadow:
+      0 4px 20px rgba(0,0,0,0.3),
+      0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .playlist-back {
+    margin-top: 3rem;
+    position: relative; z-index: 5;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1s forwards;
+  }
+  .playlist-back a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.88rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cream-faint);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(240,230,210,0.15);
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .playlist-back a:hover {
+    color: var(--gold);
+    border-color: var(--gold-dim);
+  }
+
+  @media (max-width: 600px) {
+    .playlist-page { padding: 6rem 1.5rem 3rem; }
+    .playlist-header h1 { font-size: 2.4rem; }
+    .playlist-embed iframe { height: 560px; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="fireflies"></canvas>
+
+<section class="playlist-page">
+  <div class="playlist-header">
+    <p class="section-label">A Companion Playlist</p>
+    <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
+    <h1>Songs for <em>Love Like a Mother</em></h1>
+    <p>Music to read by, reflect with, and carry the spirit of the book into your everyday moments.</p>
+  </div>
+
+  <div class="playlist-embed">
+    <iframe
+      src="https://open.spotify.com/embed/playlist/1jiIVZKQoPz5LPkSXubFqT?utm_source=generator&theme=0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="playlist-back">
+    <a href="book.html">Back to the Book</a>
+  </div>
+</section>
+
+<footer>
+  <div class="gold-rule" style="margin-bottom: 2.5rem;"></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="book.html">My Book</a>
+    <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+    <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank">Instagram</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
