@@ -263,7 +263,9 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
-    .story-block-inner {
+    .story-block-inner,
+    .story-block.sage .story-block-inner,
+    .story-block.pale .story-block-inner {
       grid-template-columns: 1fr; gap: 2.5rem; max-width: 520px;
     }
     .story-block.reversed .story-photo { order: 0; }
