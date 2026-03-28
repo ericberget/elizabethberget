@@ -66,21 +66,23 @@
     padding: 2.5rem 2rem 4rem;
   }
   .downloads-grid-inner {
-    max-width: 900px; margin: 0 auto;
+    max-width: 960px; margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .downloads-grid-inner.lockscreen-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* ===== CARD (shared) ===== */
   .dl-card {
     position: relative;
-    text-align: center;
   }
   .dl-preview {
     position: relative;
     overflow: hidden;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     box-shadow:
       0 4px 15px rgba(0,0,0,0.2),
       0 20px 50px rgba(0,0,0,0.3);
@@ -98,10 +100,52 @@
     height: auto;
   }
 
+  /* Caption row: title + download icon inline */
+  .dl-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .dl-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-weight: 400;
+    color: var(--cream-soft);
+  }
+  .dl-meta {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cream-faint);
+    margin-top: 0.15rem;
+  }
+
+  /* Small icon-only download button */
+  .btn-dl-icon {
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border: 1px solid rgba(240,230,210,0.2);
+    border-radius: 50%;
+    color: var(--cream-soft);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-dl-icon:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(200,164,92,0.06);
+    transform: translateY(-2px);
+  }
+  .btn-dl-icon svg {
+    width: 15px; height: 15px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
   /* Lockscreen preview — phone-shaped */
   .dl-preview.lockscreen {
     max-width: 340px;
-    margin-left: auto; margin-right: auto;
     border-radius: 20px;
     border: 3px solid rgba(240,230,210,0.08);
   }
@@ -117,54 +161,6 @@
     font-size: 1.3rem; font-weight: 500;
     letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--cream);
-  }
-
-  .dl-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
-  }
-  .dl-meta {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.82rem; font-weight: 500;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--cream-faint);
-    margin-bottom: 1.2rem;
-  }
-
-  .btn-download {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--cream);
-    background: transparent;
-    padding: 0.8rem 1.8rem;
-    text-decoration: none;
-    border: 1px solid rgba(240,230,210,0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative; overflow: hidden;
-  }
-  .btn-download::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px; background: var(--gold);
-    transform: scaleX(0); transform-origin: center;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .btn-download:hover::before { transform: scaleX(1); }
-  .btn-download:hover {
-    transform: translateY(-3px);
-    border-color: var(--gold-dim);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  }
-  .btn-download svg {
-    width: 16px; height: 16px;
-    stroke: currentColor; fill: none;
-    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
   }
 
   /* ===== INSTRUCTIONS ===== */
@@ -187,10 +183,15 @@
   }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
+    .downloads-grid-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
     .downloads-grid-inner {
       grid-template-columns: 1fr;
-      max-width: 400px;
+      max-width: 360px;
     }
     .downloads-hero h1 { font-size: 2.5rem; }
     .downloads-hero { padding: 7rem 1.5rem 2rem; }
@@ -232,38 +233,47 @@
 
     <div class="dl-card reveal">
       <div class="dl-preview">
-        <img src="images/print-icecream.png" alt="Ice Cream Scoop — poem print">
+        <img src="images/print-cover-art.jpg" alt="Love Like a Mother — cover art print">
       </div>
-      <h3 class="dl-title">Ice Cream Scoop</h3>
-      <p class="dl-meta">5&times;7 Print &middot; PDF</p>
-      <a href="prints/poem-icecream.pdf" download class="btn-download">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Print
-      </a>
+      <div class="dl-caption">
+        <div>
+          <h3 class="dl-title">Cover Art</h3>
+          <p class="dl-meta">5&times;7 Print</p>
+        </div>
+        <a href="prints/cover-art.pdf" download class="btn-dl-icon" title="Download Print">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
     </div>
 
     <div class="dl-card reveal reveal-d1">
       <div class="dl-preview">
-        <img src="images/print-stork.jpg" alt="Stork & Botanicals — art print">
+        <img src="images/print-icecream.png" alt="Ice Cream Scoop — poem print">
       </div>
-      <h3 class="dl-title">Stork &amp; Botanicals</h3>
-      <p class="dl-meta">5&times;7 Print &middot; PDF</p>
-      <a href="prints/illustration-1.pdf" download class="btn-download">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Print
-      </a>
+      <div class="dl-caption">
+        <div>
+          <h3 class="dl-title">Ice Cream Scoop</h3>
+          <p class="dl-meta">5&times;7 Print</p>
+        </div>
+        <a href="prints/poem-icecream.pdf" download class="btn-dl-icon" title="Download Print">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
     </div>
 
     <div class="dl-card reveal reveal-d2">
       <div class="dl-preview">
-        <img src="images/print-cover-art.jpg" alt="Love Like a Mother — cover art print">
+        <img src="images/print-stork.jpg" alt="Stork & Botanicals — art print">
       </div>
-      <h3 class="dl-title">Cover Art</h3>
-      <p class="dl-meta">5&times;7 Print &middot; PDF</p>
-      <a href="prints/cover-art.pdf" download class="btn-download">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Print
-      </a>
+      <div class="dl-caption">
+        <div>
+          <h3 class="dl-title">Stork &amp; Botanicals</h3>
+          <p class="dl-meta">5&times;7 Print</p>
+        </div>
+        <a href="prints/illustration-1.pdf" download class="btn-dl-icon" title="Download Print">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -287,12 +297,15 @@
           <img src="images/lockscreen-gentle.jpg" alt="God Is Gentle To Those With Young — Isaiah 40:11">
         </a>
       </div>
-      <h3 class="dl-title">God Is Gentle</h3>
-      <p class="dl-meta">Isaiah 40:11 &middot; Phone Wallpaper</p>
-      <a href="images/lockscreen-gentle.jpg" download class="btn-download">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Save Wallpaper
-      </a>
+      <div class="dl-caption">
+        <div>
+          <h3 class="dl-title">God Is Gentle</h3>
+          <p class="dl-meta">Isaiah 40:11</p>
+        </div>
+        <a href="images/lockscreen-gentle.jpg" download class="btn-dl-icon" title="Save Wallpaper">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
     </div>
 
   </div>
