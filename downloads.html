@@ -137,7 +137,10 @@
   /* ===== PLAYLIST SECTION ===== */
   .playlist-section {
     position: relative; z-index: 2;
-    padding: 2.5rem 2rem 3rem;
+    padding: 4rem 2rem 4rem;
+    background: var(--midnight-warm);
+    border-top: 1px solid rgba(155,181,184,0.06);
+    border-bottom: 1px solid rgba(155,181,184,0.06);
   }
   .playlist-inner {
     max-width: 800px; margin: 0 auto;
@@ -444,13 +447,13 @@
 
 
 <!-- ========== PLAYLIST ========== -->
-<div class="res-header reveal">
-  <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
-  <p class="section-label">Listen</p>
-  <h2>Companion Playlist</h2>
-</div>
-
 <section class="playlist-section">
+  <div class="res-header reveal" style="padding-top: 0;">
+    <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
+    <p class="section-label">Listen</p>
+    <h2>Companion Playlist</h2>
+  </div>
+
   <div class="playlist-inner reveal">
     <div class="playlist-embed">
       <iframe
