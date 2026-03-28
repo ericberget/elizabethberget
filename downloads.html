@@ -283,6 +283,88 @@
     color: var(--cream);
   }
 
+  /* ===== LIGHTBOX MODAL ===== */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    background: rgba(12,17,23,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .lightbox.open {
+    display: flex;
+    opacity: 1;
+  }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 88vh;
+    object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    cursor: default;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: none;
+    border: 1px solid rgba(240,230,210,0.2);
+    border-radius: 50%;
+    color: var(--cream-soft);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 201;
+  }
+  .lightbox-close:hover {
+    border-color: var(--cream);
+    color: var(--cream);
+  }
+  .lightbox-close svg {
+    width: 18px; height: 18px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* Clickable preview */
+  .dl-preview[data-zoom] {
+    cursor: zoom-in;
+  }
+
+  /* Zoom icon button */
+  .btn-zoom-icon {
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border: 1px solid rgba(240,230,210,0.2);
+    border-radius: 50%;
+    color: var(--cream-soft);
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-zoom-icon:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(200,164,92,0.06);
+    transform: translateY(-2px);
+  }
+  .btn-zoom-icon svg {
+    width: 15px; height: 15px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .dl-actions {
+    display: flex; gap: 0.4rem;
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
     .downloads-grid-inner { grid-template-columns: repeat(2, 1fr); }
@@ -402,7 +484,7 @@
   <div class="downloads-grid-inner">
 
     <div class="dl-card reveal">
-      <div class="dl-preview">
+      <div class="dl-preview" data-zoom="images/print-cover-art.jpg">
         <img src="images/print-cover-art.jpg" alt="Love Like a Mother — cover art print">
       </div>
       <div class="dl-caption">
@@ -410,14 +492,19 @@
           <h3 class="dl-title">Cover Art</h3>
           <p class="dl-meta">5&times;7 Print</p>
         </div>
-        <a href="prints/cover-art.pdf" download class="btn-dl-icon" title="Download Print">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+        <div class="dl-actions">
+          <button class="btn-zoom-icon" data-zoom="images/print-cover-art.jpg" title="Preview">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <a href="prints/cover-art.pdf" download class="btn-dl-icon" title="Download Print">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="dl-card reveal reveal-d1">
-      <div class="dl-preview">
+      <div class="dl-preview" data-zoom="images/print-icecream.png">
         <img src="images/print-icecream.png" alt="Ice Cream Scoop — poem print">
       </div>
       <div class="dl-caption">
@@ -425,14 +512,19 @@
           <h3 class="dl-title">Ice Cream Scoop</h3>
           <p class="dl-meta">5&times;7 Print</p>
         </div>
-        <a href="prints/poem-icecream.pdf" download class="btn-dl-icon" title="Download Print">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+        <div class="dl-actions">
+          <button class="btn-zoom-icon" data-zoom="images/print-icecream.png" title="Preview">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <a href="prints/poem-icecream.pdf" download class="btn-dl-icon" title="Download Print">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="dl-card reveal reveal-d2">
-      <div class="dl-preview">
+      <div class="dl-preview" data-zoom="images/print-stork.jpg">
         <img src="images/print-stork.jpg" alt="Stork & Botanicals — art print">
       </div>
       <div class="dl-caption">
@@ -440,9 +532,14 @@
           <h3 class="dl-title">Stork &amp; Botanicals</h3>
           <p class="dl-meta">5&times;7 Print</p>
         </div>
-        <a href="prints/illustration-1.pdf" download class="btn-dl-icon" title="Download Print">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+        <div class="dl-actions">
+          <button class="btn-zoom-icon" data-zoom="images/print-stork.jpg" title="Preview">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <a href="prints/illustration-1.pdf" download class="btn-dl-icon" title="Download Print">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -462,36 +559,42 @@
   <div class="downloads-grid-inner">
 
     <div class="dl-card reveal">
-      <div class="dl-preview lockscreen">
-        <a href="images/lockscreen-coverart.jpg" download>
-          <img src="images/lockscreen-coverart.jpg" alt="Love Like a Mother — cover art wallpaper">
-        </a>
+      <div class="dl-preview lockscreen" data-zoom="images/lockscreen-coverart.jpg">
+        <img src="images/lockscreen-coverart.jpg" alt="Love Like a Mother — cover art wallpaper">
       </div>
       <div class="dl-caption">
         <div>
           <h3 class="dl-title">Cover Art</h3>
           <p class="dl-meta">Phone Wallpaper</p>
         </div>
-        <a href="images/lockscreen-coverart.jpg" download class="btn-dl-icon" title="Save Wallpaper">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+        <div class="dl-actions">
+          <button class="btn-zoom-icon" data-zoom="images/lockscreen-coverart.jpg" title="Preview">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <a href="images/lockscreen-coverart.jpg" download class="btn-dl-icon" title="Save Wallpaper">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="dl-card reveal reveal-d1">
-      <div class="dl-preview lockscreen">
-        <a href="images/lockscreen-gentle.jpg" download>
-          <img src="images/lockscreen-gentle.jpg" alt="God Is Gentle To Those With Young — Isaiah 40:11">
-        </a>
+      <div class="dl-preview lockscreen" data-zoom="images/lockscreen-gentle.jpg">
+        <img src="images/lockscreen-gentle.jpg" alt="God Is Gentle To Those With Young — Isaiah 40:11">
       </div>
       <div class="dl-caption">
         <div>
           <h3 class="dl-title">God Is Gentle</h3>
           <p class="dl-meta">Isaiah 40:11</p>
         </div>
-        <a href="images/lockscreen-gentle.jpg" download class="btn-dl-icon" title="Save Wallpaper">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
+        <div class="dl-actions">
+          <button class="btn-zoom-icon" data-zoom="images/lockscreen-gentle.jpg" title="Preview">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <a href="images/lockscreen-gentle.jpg" download class="btn-dl-icon" title="Save Wallpaper">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -513,6 +616,51 @@
   <p class="footer-copy">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
 </footer>
 
+<!-- ===== LIGHTBOX MODAL ===== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script src="main.js"></script>
+<script>
+/* Lightbox zoom preview */
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  if (!lb) return;
+
+  function open(src) {
+    lbImg.src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function() { lbImg.src = ''; }, 300);
+  }
+
+  // Click on preview images or zoom buttons
+  document.querySelectorAll('[data-zoom]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      open(el.getAttribute('data-zoom'));
+    });
+  });
+
+  // Close on backdrop click, close button, or Escape
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) close();
+  });
+  lb.querySelector('.lightbox-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
 </body>
 </html>
