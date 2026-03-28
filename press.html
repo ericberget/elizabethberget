@@ -554,10 +554,15 @@
   .press-excerpt {
     position: relative; z-index: 2;
     overflow: hidden;
+    height: 380px;
   }
   .press-excerpt-bg {
-    display: block; width: 100%; height: auto;
+    position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100%; min-width: 100%; height: auto;
     filter: brightness(0.7);
+    object-fit: cover;
+    object-position: center bottom;
   }
   .press-excerpt-overlay {
     position: absolute; inset: 0;
