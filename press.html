@@ -550,6 +550,51 @@
   }
 
 
+  /* ===== EXCERPT CTA ===== */
+  .press-excerpt {
+    position: relative; z-index: 2;
+    overflow: hidden;
+  }
+  .press-excerpt-bg {
+    display: block; width: 100%; height: auto;
+    filter: brightness(0.7);
+  }
+  .press-excerpt-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 5;
+    text-align: center;
+    padding: 2rem;
+  }
+  .press-excerpt-overlay .section-label {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .press-excerpt-overlay h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem; font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+  .press-excerpt-overlay h2 em {
+    font-style: italic;
+    color: var(--blue-pale);
+  }
+  .press-excerpt-overlay p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream-soft);
+    max-width: 420px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 600px) {
+    .press-excerpt-overlay h2 { font-size: 1.8rem; }
+    .press-excerpt-overlay p { font-size: 1rem; }
+  }
+
   /* ===== GRAIN TEXTURES ===== */
   .press-bio::after,
   .press-assets::after,
@@ -632,6 +677,7 @@
 <!-- ===== SUBMENU ===== -->
 <nav class="press-subnav">
   <a href="#bio">Bio</a>
+  <a href="#excerpt">Excerpt</a>
   <a href="#review">Review</a>
   <a href="#promo">Downloads</a>
   <a href="#contact-points">Connect</a>
@@ -660,6 +706,19 @@
 
 
 
+
+<!-- ===== EXCERPT CTA ===== -->
+<section class="press-excerpt" id="excerpt">
+  <img src="images/bg-llamdark.png" alt="" class="press-excerpt-bg">
+  <div class="press-excerpt-overlay">
+    <p class="section-label reveal">A Look Inside</p>
+    <h2 class="reveal reveal-d1">Read the <em>Introduction &amp; Chapter 1</em></h2>
+    <p class="reveal reveal-d2">Start reading now — explore the opening pages of <em>Love Like a Mother</em>.</p>
+    <div class="reveal reveal-d3">
+      <a href="https://cdn-static.supadu.com/baker-publishing-group-us/pdf/Excerpt_9781587436819.pdf" target="_blank" class="btn-primary"><span>Read the Excerpt</span></a>
+    </div>
+  </div>
+</section>
 
 <!-- ===== PROMO GRAPHICS GALLERY (midnight) ===== -->
 <section class="promo-gallery" id="promo">
