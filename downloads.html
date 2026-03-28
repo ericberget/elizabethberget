@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Downloads — Elizabeth Berget</title>
-<meta name="description" content="Exclusive downloadable 5x7 art prints from Love Like a Mother by Elizabeth Berget. Print at home and frame.">
+<meta name="description" content="Exclusive downloadable art prints and phone lockscreens from Love Like a Mother by Elizabeth Berget.">
 <link rel="stylesheet" href="styles.css">
 <style>
   a:visited { color: inherit; }
@@ -40,24 +40,44 @@
   }
   .downloads-hero p em { color: var(--cream); font-style: italic; }
 
-  /* ===== PRINT GRID ===== */
-  .prints-section {
+  /* ===== SECTION DIVIDER ===== */
+  .downloads-section-header {
     position: relative; z-index: 2;
-    padding: 3rem 2rem 6rem;
+    text-align: center;
+    padding: 2rem 2rem 0;
   }
-  .prints-grid {
+  .downloads-section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .downloads-section-header p {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.9rem;
+    color: var(--cream-faint);
+    max-width: 420px; margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ===== GRID (shared) ===== */
+  .downloads-grid {
+    position: relative; z-index: 2;
+    padding: 2.5rem 2rem 4rem;
+  }
+  .downloads-grid-inner {
     max-width: 900px; margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
   }
 
-  /* ===== PRINT CARD ===== */
-  .print-card {
+  /* ===== CARD (shared) ===== */
+  .dl-card {
     position: relative;
     text-align: center;
   }
-  .print-preview {
+  .dl-preview {
     position: relative;
     overflow: hidden;
     margin-bottom: 1.5rem;
@@ -66,20 +86,28 @@
       0 20px 50px rgba(0,0,0,0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-  .print-preview:hover {
+  .dl-preview:hover {
     transform: translateY(-6px);
     box-shadow:
       0 8px 25px rgba(0,0,0,0.25),
       0 30px 60px rgba(0,0,0,0.35);
   }
-  .print-preview img {
+  .dl-preview img {
     display: block;
     width: 100%;
     height: auto;
   }
 
+  /* Lockscreen preview — phone-shaped */
+  .dl-preview.lockscreen {
+    max-width: 220px;
+    margin-left: auto; margin-right: auto;
+    border-radius: 20px;
+    border: 3px solid rgba(240,230,210,0.08);
+  }
+
   /* Coming soon overlay */
-  .print-preview.coming-soon::after {
+  .dl-preview.coming-soon::after {
     content: 'Coming Soon';
     position: absolute;
     inset: 0;
@@ -91,13 +119,13 @@
     color: var(--cream);
   }
 
-  .print-title {
+  .dl-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem; font-weight: 400;
     color: var(--cream);
     margin-bottom: 0.4rem;
   }
-  .print-meta {
+  .dl-meta {
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.82rem; font-weight: 500;
     letter-spacing: 0.15em; text-transform: uppercase;
@@ -160,12 +188,13 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 700px) {
-    .prints-grid {
+    .downloads-grid-inner {
       grid-template-columns: 1fr;
       max-width: 400px;
     }
     .downloads-hero h1 { font-size: 2.5rem; }
     .downloads-hero { padding: 7rem 1.5rem 2rem; }
+    .downloads-section-header h2 { font-size: 1.8rem; }
   }
 </style>
 </head>
@@ -187,33 +216,38 @@
 <section class="downloads-hero">
   <div class="gold-rule" style="margin-bottom: 2rem; opacity:0; animation: fadeUp 0.6s ease 0.1s forwards;"></div>
   <h1>Digital Downloads</h1>
-  <p>Printable 5&times;7 art prints inspired by <em>Love Like a Mother</em>. Download, print at home, and frame.</p>
+  <p>Exclusive art prints and phone lockscreens inspired by <em>Love Like a Mother</em>.</p>
 </section>
 
-<!-- ===== PRINTS GRID ===== -->
-<section class="prints-section">
-  <div class="prints-grid">
 
-    <!-- Print 1: Ice Cream Poem -->
-    <div class="print-card reveal">
-      <div class="print-preview">
+<!-- ========== PRINTS ========== -->
+<div class="downloads-section-header reveal">
+  <p class="section-label">Prints</p>
+  <h2>5&times;7 Art Prints</h2>
+  <p>Download and print at home on cardstock or matte photo paper. Designed for standard 5&times;7 frames.</p>
+</div>
+
+<section class="downloads-grid">
+  <div class="downloads-grid-inner">
+
+    <div class="dl-card reveal">
+      <div class="dl-preview">
         <img src="images/print-icecream.png" alt="Ice Cream Scoop — poem print">
       </div>
-      <h3 class="print-title">Ice Cream Scoop</h3>
-      <p class="print-meta">5&times;7 Print &middot; PDF</p>
+      <h3 class="dl-title">Ice Cream Scoop</h3>
+      <p class="dl-meta">5&times;7 Print &middot; PDF</p>
       <a href="prints/poem-icecream.pdf" download class="btn-download">
         <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Print
       </a>
     </div>
 
-    <!-- Print 2: Stork Illustration -->
-    <div class="print-card reveal reveal-d1">
-      <div class="print-preview">
+    <div class="dl-card reveal reveal-d1">
+      <div class="dl-preview">
         <img src="images/print-stork.jpg" alt="Stork & Botanicals — art print">
       </div>
-      <h3 class="print-title">Stork &amp; Botanicals</h3>
-      <p class="print-meta">5&times;7 Print &middot; PDF</p>
+      <h3 class="dl-title">Stork &amp; Botanicals</h3>
+      <p class="dl-meta">5&times;7 Print &middot; PDF</p>
       <a href="prints/illustration-1.pdf" download class="btn-download">
         <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Print
@@ -223,11 +257,35 @@
   </div>
 </section>
 
-<!-- ===== INSTRUCTIONS ===== -->
-<section class="print-instructions reveal">
+
+<!-- ========== LOCKSCREENS ========== -->
+<div class="downloads-section-header reveal">
   <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
-  <p>For best results, print on <em>cardstock or matte photo paper</em> at actual size. These prints are designed for standard 5&times;7 frames.</p>
+  <p class="section-label">Lockscreens</p>
+  <h2>Phone Wallpapers</h2>
+  <p>Save to your phone and set as your lockscreen. Long-press the image to save.</p>
+</div>
+
+<section class="downloads-grid">
+  <div class="downloads-grid-inner">
+
+    <div class="dl-card reveal">
+      <div class="dl-preview lockscreen">
+        <a href="images/lockscreen-gentle.jpg" download>
+          <img src="images/lockscreen-gentle.jpg" alt="God Is Gentle To Those With Young — Isaiah 40:11">
+        </a>
+      </div>
+      <h3 class="dl-title">God Is Gentle</h3>
+      <p class="dl-meta">Isaiah 40:11 &middot; Phone Wallpaper</p>
+      <a href="images/lockscreen-gentle.jpg" download class="btn-download">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save Wallpaper
+      </a>
+    </div>
+
+  </div>
 </section>
+
 
 <!-- ===== FOOTER ===== -->
 <footer>
