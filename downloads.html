@@ -40,6 +40,34 @@
   }
   .downloads-hero p em { color: var(--cream); font-style: italic; }
 
+  /* Jump nav */
+  .jump-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .jump-nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-faint);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .jump-nav a:hover { color: var(--gold); }
+  .jump-dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+  }
+  #reading, #playlist, #prints, #wallpapers {
+    scroll-margin-top: 80px;
+  }
+
   /* ===== SECTION HEADER ===== */
   .res-header {
     position: relative; z-index: 2;
@@ -405,12 +433,22 @@
   <div class="gold-rule" style="margin-bottom: 2rem; opacity:0; animation: fadeUp 0.6s ease 0.1s forwards;"></div>
   <p class="section-label" style="opacity:0; animation: fadeUp 0.8s ease 0.15s forwards;">Special Access</p>
   <h1>Digital Downloads</h1>
-  <p>Exclusive resources for the <em>Love Like a Mother</em> launch team.</p>
+  <p>Exclusive resources for supporters of <em>Love Like a Mother</em>.</p>
+
+    <div class="jump-nav" style="opacity:0; animation: fadeUp 0.8s ease 0.7s forwards;">
+      <a href="#reading">Guides</a>
+      <span class="jump-dot"></span>
+      <a href="#playlist">Playlist</a>
+      <span class="jump-dot"></span>
+      <a href="#prints">Prints</a>
+      <span class="jump-dot"></span>
+      <a href="#wallpapers">Wallpapers</a>
+    </div>
 </section>
 
 
 <!-- ========== READING COMPANIONS ========== -->
-<div class="res-header reveal">
+<div class="res-header reveal" id="reading">
   <p class="section-label">Reading Companions</p>
   <h2>Guides &amp; Resources</h2>
 </div>
@@ -448,7 +486,7 @@
 
 
 <!-- ========== PLAYLIST ========== -->
-<section class="playlist-section">
+<section class="playlist-section" id="playlist">
   <div class="res-header reveal" style="padding-top: 0;">
     <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
     <p class="section-label">Listen</p>
@@ -477,7 +515,7 @@
 
 
 <!-- ========== ART PRINTS ========== -->
-<div class="res-header reveal">
+<div class="res-header reveal" id="prints">
   <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
   <p class="section-label">Prints</p>
   <h2>5&times;7 Art Prints</h2>
@@ -552,7 +590,7 @@
 
 
 <!-- ========== PHONE WALLPAPERS ========== -->
-<div class="res-header reveal">
+<div class="res-header reveal" id="wallpapers">
   <div class="gold-rule" style="margin-bottom: 1.5rem;"></div>
   <p class="section-label">Lockscreens</p>
   <h2>Phone Wallpapers</h2>
