@@ -545,6 +545,163 @@
 
 
   /* ========================================
+     PRE-ORDER BONUSES — midnight (dark)
+     ======================================== */
+  .preorder-bonuses {
+    position: relative; z-index: 2;
+    padding: 6rem 2rem 7rem;
+    overflow: hidden;
+    background: var(--midnight-warm);
+    text-align: center;
+  }
+  .bonuses-inner {
+    max-width: 960px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .preorder-bonuses .section-label { color: var(--gold); }
+
+  .bonuses-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--cream); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .bonuses-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--cream-soft);
+    max-width: 560px; margin: 0 auto 3rem; line-height: 1.6;
+  }
+  .bonuses-subtitle em { color: var(--cream); font-style: italic; }
+
+  .bonuses-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    text-align: left;
+    align-items: start;
+  }
+
+  /* Image collage */
+  .bonuses-images {
+    position: relative;
+  }
+  .bonuses-collage {
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .collage-icecream {
+    position: absolute;
+    left: calc(18% + 80px); top: 0;
+    width: 52%;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    z-index: 0;
+    transform: rotate(3deg);
+  }
+  .collage-print {
+    position: absolute;
+    left: 0; top: 8%;
+    width: 62%;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 1;
+  }
+  .collage-guide {
+    position: absolute;
+    left: 15%; top: 28%;
+    width: 60%;
+    border-radius: 3px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 2;
+    transform: rotate(-2deg);
+  }
+  .collage-phone {
+    position: absolute;
+    right: 2%; top: 18%;
+    width: 34%;
+    z-index: 3;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+  }
+
+  /* Bonus items list */
+  .bonuses-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+  .bonus-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(155,181,184,0.08);
+  }
+  .bonus-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+  .bonus-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    min-width: 28px;
+    padding-top: 0.25rem;
+    opacity: 0.6;
+  }
+  .bonus-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .bonus-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    color: var(--cream-faint);
+    line-height: 1.65;
+  }
+
+  /* Instructions */
+  .bonuses-instructions {
+    margin-top: 2rem;
+    padding: 1.5rem 1.8rem;
+    background: rgba(155,181,184,0.05);
+    border: 1px solid rgba(155,181,184,0.1);
+    border-left: 3px solid var(--gold-dim);
+  }
+  .instructions-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .instructions-list {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--cream-soft);
+    line-height: 1.8;
+    padding-left: 1.2rem;
+  }
+  .instructions-list li { margin-bottom: 0.3rem; }
+  .instructions-list li::marker { color: var(--gold-dim); }
+
+  @media (max-width: 768px) {
+    .bonuses-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .bonuses-collage {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .bonuses-title { font-size: 2.2rem; }
+  }
+
+
+  /* ========================================
      BULK ORDER — blue mist (light)
      ======================================== */
   .bulk-order {
@@ -1156,6 +1313,72 @@
 </section>
 
 
+<!-- ===== PRE-ORDER BONUSES (midnight dark) ===== -->
+<section class="preorder-bonuses" id="preorder-bonuses">
+  <div class="art" style="left: 0; top: 10%; width: 280px; opacity: 0.08; transform: scaleX(-1);">
+    <img src="images/art/olive-fern.png" alt="">
+  </div>
+
+  <div class="bonuses-inner">
+    <div class="gold-rule" style="margin-bottom: 2rem;"></div>
+    <p class="section-label reveal">When You Pre-Order</p>
+    <h2 class="bonuses-title reveal reveal-d1">Free Bonuses</h2>
+    <p class="bonuses-subtitle reveal reveal-d2">Pre-order <em>Love Like a Mother</em> before May 5 and receive instant access to these exclusive extras&mdash;free.</p>
+
+    <div class="bonuses-layout reveal reveal-d2">
+      <!-- left: stacked image collage -->
+      <div class="bonuses-images">
+        <div class="bonuses-collage">
+          <img src="images/print-icecream.jpg" alt="Ice cream poem print" class="collage-icecream">
+          <img src="images/5x7print.jpg" alt="5×7 cover art print" class="collage-print">
+          <img src="images/discussion-guide-cover.jpg" alt="Discussion guide" class="collage-guide">
+          <img src="images/phoneWPnobg.png" alt="Phone wallpaper" class="collage-phone">
+        </div>
+      </div>
+
+      <!-- right: benefits list -->
+      <div class="bonuses-details">
+        <div class="bonus-item">
+          <span class="bonus-number">01</span>
+          <div>
+            <h3 class="bonus-name">5&times;7 Art Prints</h3>
+            <p class="bonus-desc">Three high-resolution botanical prints inspired by the book&rsquo;s cover art. Frame them, gift them, or keep them close.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-number">02</span>
+          <div>
+            <h3 class="bonus-name">Phone Wallpapers</h3>
+            <p class="bonus-desc">Beautiful lock screen wallpapers with cover art and scripture&mdash;a daily reminder on your phone.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-number">03</span>
+          <div>
+            <h3 class="bonus-name">Discussion Guide</h3>
+            <p class="bonus-desc">A chapter-by-chapter companion with reflection questions&mdash;perfect for personal study or group reading.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-number">04</span>
+          <div>
+            <h3 class="bonus-name">Prayers for Every Hour</h3>
+            <p class="bonus-desc">A beautifully designed prayer guide to carry you through your day, from dawn to after dark.</p>
+          </div>
+        </div>
+
+        <div class="bonuses-instructions">
+          <p class="instructions-label">How it works:</p>
+          <ol class="instructions-list">
+            <li>Pre-order from any retailer above</li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScqZRG35hSbGVPC05Du8YNI7bt5Fp8tqeuUCC1CkjU8YtSpDw/viewform" target="_blank" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dim);">Fill out this quick form</a> with your order details</li>
+            <li>Receive your bonuses by email within 24 hours</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ===== BULK ORDER (blue mist light) ===== -->
