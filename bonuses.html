@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Order Bonuses — Love Like a Mother — Elizabeth Berget</title>
+<meta name="description" content="Claim your free pre-order bonuses for Love Like a Mother by Elizabeth Berget. Art prints, phone wallpapers, discussion guide, and prayers.">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --midnight: #0C1117;
+    --midnight-warm: #111820;
+    --midnight-blue: #14202A;
+    --blue-mist: #9BB5B8;
+    --blue-pale: #B5C9CB;
+    --blue-cloud: #C2D1D3;
+    --blue-deep: #7A9EA2;
+    --blue-faint: rgba(155,181,184,0.10);
+    --cream: #F0E6D2;
+    --cream-soft: rgba(240,230,210,0.80);
+    --cream-faint: rgba(240,230,210,0.40);
+    --gold: #C8A45C;
+    --gold-light: #DFC07A;
+    --gold-dim: rgba(200,164,92,0.50);
+    --gold-faint: rgba(200,164,92,0.12);
+    --sage: #6A8E6B;
+    --olive: #4A6A3E;
+    --coral: #C75B3F;
+    --ink: #1A2E28;
+    --ink-soft: #344840;
+    --ink-faint: #607870;
+    --gold-dark: #6B5020;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  a:visited { color: inherit; }
+  nav a:visited { color: var(--cream-soft); }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--midnight);
+    color: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 1;
+    pointer-events: none; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  .art { position: absolute; pointer-events: none; z-index: 1; }
+  .art img { display: block; width: 100%; height: auto; }
+  .art-leaf { position: absolute; pointer-events: none; z-index: 1; width: 220px; opacity: 0.12; }
+  .art-leaf img { display: block; width: 100%; height: auto; }
+
+  .gold-rule {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    text-align: center; margin-bottom: 0.8rem;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.6rem 3rem;
+    display: flex; justify-content: flex-end; align-items: center; gap: 2.2rem;
+    transition: all 0.5s ease;
+    background: rgba(12,17,23,0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--gold-faint);
+  }
+  .nav-logo { margin-right: auto; display: block; line-height: 0; opacity: 0.85; transition: opacity 0.3s ease; }
+  .nav-logo:hover { opacity: 1; }
+  .nav-logo img { height: 48px !important; max-height: 48px !important; width: auto; display: block; filter: brightness(0) invert(0.9); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 101; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--cream); margin: 5px 0; transition: all 0.3s ease; }
+  nav.open .nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.open .nav-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cream-soft); text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a.active { color: var(--cream); }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column; align-items: stretch; padding: 0;
+      background: rgba(12,17,23,0.97) !important;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); gap: 0;
+    }
+    .nav-logo { position: absolute; left: 1.2rem; top: 0.7rem; }
+    .nav-logo img { height: 22px !important; filter: brightness(0) invert(0.9) !important; }
+    .nav-toggle { display: block; position: absolute; right: 1.2rem; top: 0.7rem; }
+    .nav-toggle span { background: var(--cream) !important; }
+    nav a {
+      display: none; width: 100%; text-align: center; padding: 0.9rem 1rem;
+      font-size: 1rem; letter-spacing: 0.2em;
+      color: var(--cream-soft) !important; border-bottom: 1px solid rgba(155,181,184,0.06);
+    }
+    nav a:hover, nav a.active { color: var(--cream) !important; }
+    nav.open a { display: block; }
+    nav a:last-of-type { border-bottom: none; }
+    nav::before { content: ''; display: block; height: 38px; }
+  }
+
+
+  /* ===== HOW IT WORKS HERO ===== */
+  .how-it-works-hero {
+    position: relative; z-index: 2;
+    padding: 10rem 2rem 5rem;
+    overflow: hidden;
+    background: var(--midnight);
+    text-align: center;
+  }
+  .how-it-works-inner {
+    max-width: 620px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .how-it-works-hero .section-label { color: var(--gold); }
+  .how-it-works-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--cream); margin-bottom: 1.2rem; line-height: 1.2;
+  }
+  .how-it-works-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--cream-soft);
+    max-width: 500px; margin: 0 auto 3rem; line-height: 1.6;
+  }
+  .how-it-works-subtitle em { color: var(--cream); font-style: italic; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+  .step-card {
+    padding: 2rem 1.5rem;
+    background: rgba(155,181,184,0.04);
+    border: 1px solid rgba(155,181,184,0.08);
+    position: relative;
+  }
+  .step-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem; font-weight: 300;
+    color: var(--gold); opacity: 0.4;
+    margin-bottom: 0.8rem;
+    line-height: 1;
+  }
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+  .step-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    color: var(--cream-faint);
+    line-height: 1.6;
+  }
+  .step-desc a {
+    color: var(--gold); text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+  }
+  .step-desc a:hover { color: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    .steps-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    .how-it-works-title { font-size: 2.2rem; }
+    .how-it-works-hero { padding: 7rem 1.5rem 4rem; }
+  }
+
+
+  /* ===== BONUSES SECTION ===== */
+  .preorder-bonuses {
+    position: relative; z-index: 2;
+    padding: 6rem 2rem 7rem;
+    overflow: hidden;
+    background: var(--midnight-warm);
+    text-align: center;
+  }
+  .bonuses-inner {
+    max-width: 960px; margin: 0 auto;
+    position: relative; z-index: 5;
+  }
+  .preorder-bonuses .section-label { color: var(--gold); }
+
+  .bonuses-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--cream); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .bonuses-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--cream-soft);
+    max-width: 560px; margin: 0 auto 3rem; line-height: 1.6;
+  }
+  .bonuses-subtitle em { color: var(--cream); font-style: italic; }
+
+  .bonuses-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    text-align: left;
+    align-items: start;
+  }
+
+  /* Image collage */
+  .bonuses-images {
+    position: relative;
+  }
+  .bonuses-collage {
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .collage-icecream {
+    position: absolute;
+    left: calc(18% + 80px); top: 0;
+    width: 52%;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    z-index: 0;
+    transform: rotate(3deg);
+  }
+  .collage-print {
+    position: absolute;
+    left: 0; top: 8%;
+    width: 62%;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 1;
+  }
+  .collage-guide {
+    position: absolute;
+    left: 15%; top: 28%;
+    width: 60%;
+    border-radius: 3px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 2;
+    transform: rotate(-2deg);
+  }
+  .collage-phone {
+    position: absolute;
+    right: 2%; top: 18%;
+    width: 34%;
+    z-index: 3;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+  }
+
+  /* Bonus items list */
+  .bonuses-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+  .bonus-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(155,181,184,0.08);
+  }
+  .bonus-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+  .bonus-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    min-width: 28px;
+    padding-top: 0.25rem;
+    opacity: 0.6;
+  }
+  .bonus-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .bonus-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    color: var(--cream-faint);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .bonuses-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .bonuses-collage {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .bonuses-title { font-size: 2.2rem; }
+  }
+
+
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--midnight); background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    padding: 1rem 2.2rem; text-decoration: none;
+    border: none; cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,164,92,0.3);
+  }
+  .btn-primary span { position: relative; z-index: 1; }
+
+
+  /* ===== FOOTER ===== */
+  footer {
+    position: relative; z-index: 2;
+    padding: 4rem 2rem 3rem;
+    text-align: center; overflow: hidden;
+    background: var(--midnight);
+    border-top: 1px solid rgba(155,181,184,0.06);
+  }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .footer-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cream-faint); text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.78rem; color: rgba(240,230,210,0.15);
+    font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em;
+  }
+
+
+  /* ===== TEXTURES ===== */
+  .how-it-works-hero::after,
+  footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
+  }
+  .preorder-bonuses::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
+  }
+
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.12s; }
+  .reveal-d2 { transition-delay: 0.24s; }
+  .reveal-d3 { transition-delay: 0.36s; }
+</style>
+</head>
+<body>
+
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works-hero">
+  <div class="art" style="left: -4%; top: 20%; width: 300px; opacity: 0.06; transform: scaleX(-1);">
+    <img src="images/art/olive-fern.png" alt="">
+  </div>
+  <div class="art" style="right: -3%; bottom: 10%; width: 280px; opacity: 0.06;">
+    <img src="images/art/blue-fern.png" alt="">
+  </div>
+
+  <div class="how-it-works-inner">
+    <div class="gold-rule" style="margin-bottom: 2rem;"></div>
+    <p class="section-label reveal" style="color: var(--gold);">Pre-Order Bonuses</p>
+    <h1 class="how-it-works-title reveal reveal-d1">How It Works</h1>
+    <p class="how-it-works-subtitle reveal reveal-d2">Pre-order <em>Love Like a Mother</em> before May 5 and claim your free bonuses in three easy steps.</p>
+
+    <div class="steps-grid reveal reveal-d3">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Pre-Order</h3>
+        <p class="step-desc">Order from any retailer &mdash; <a href="book.html#preorder">see all options here</a></p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Fill Out the Form</h3>
+        <p class="step-desc"><a href="https://docs.google.com/forms/d/e/1FAIpQLScqZRG35hSbGVPC05Du8YNI7bt5Fp8tqeuUCC1CkjU8YtSpDw/viewform" target="_blank">Submit this quick form</a> with your order details</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Get Your Bonuses</h3>
+        <p class="step-desc">Receive your access link for bonuses</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BONUSES ===== -->
+<section class="preorder-bonuses">
+  <div class="art" style="left: 0; top: 10%; width: 280px; opacity: 0.08; transform: scaleX(-1);">
+    <img src="images/art/olive-fern.png" alt="">
+  </div>
+
+  <div class="bonuses-inner">
+    <div class="gold-rule" style="margin-bottom: 2rem;"></div>
+    <p class="section-label reveal">What You Get</p>
+    <h2 class="bonuses-title reveal reveal-d1">Free Bonuses</h2>
+    <p class="bonuses-subtitle reveal reveal-d2">Exclusive extras for every pre-order of <em>Love Like a Mother</em>.</p>
+
+    <div class="bonuses-layout reveal reveal-d2">
+      <!-- left: stacked image collage -->
+      <div class="bonuses-images">
+        <div class="bonuses-collage">
+          <img src="images/print-icecream.jpg" alt="Ice cream poem print" class="collage-icecream">
+          <img src="images/5x7print.jpg" alt="5×7 cover art print" class="collage-print">
+          <img src="images/discussion-guide-cover.jpg" alt="Discussion guide" class="collage-guide">
+          <img src="images/phoneWPnobg.png" alt="Phone wallpaper" class="collage-phone">
+        </div>
+      </div>
+
+      <!-- right: benefits list -->
+      <div class="bonuses-details">
+        <div class="bonus-item">
+          <span class="bonus-number">01</span>
+          <div>
+            <h3 class="bonus-name">5&times;7 Art Prints</h3>
+            <p class="bonus-desc">Three high-resolution botanical prints inspired by the book&rsquo;s cover art. Frame them, gift them, or keep them close.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-number">02</span>
+          <div>
+            <h3 class="bonus-name">Phone Wallpapers</h3>
+            <p class="bonus-desc">Beautiful lock screen wallpapers with cover art and scripture&mdash;a daily reminder on your phone.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-number">03</span>
+          <div>
+            <h3 class="bonus-name">Discussion Guide</h3>
+            <p class="bonus-desc">A chapter-by-chapter companion with reflection questions&mdash;perfect for personal study or group reading.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-number">04</span>
+          <div>
+            <h3 class="bonus-name">Prayers for Every Hour</h3>
+            <p class="bonus-desc">A beautifully designed prayer guide to carry you through your day, from dawn to after dark.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="art" style="left: -2%; bottom: 0; width: 350px; opacity: 0.06; transform: rotate(12deg);">
+    <img src="images/art/back-fern.png" alt="">
+  </div>
+  <div class="art" style="right: -2%; bottom: 0; width: 350px; opacity: 0.06; transform: scaleX(-1) rotate(12deg);">
+    <img src="images/art/back-fern.png" alt="">
+  </div>
+
+  <div class="gold-rule" style="margin-bottom: 2.5rem;"></div>
+  <div class="footer-links" style="position:relative; z-index:5;">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="book.html">My Book</a>
+    <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+    <a href="https://www.instagram.com/elizabeth_a_berget/" target="_blank">Instagram</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy" style="position:relative; z-index:5;">&copy; 2026 Elizabeth Berget. All rights reserved.</p>
+</footer>
+
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Elizabeth Berget" style="height:48px;width:auto;"></a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="book.html">My Book</a>
+  <a href="https://elizabethberget.substack.com" target="_blank">Subscribe</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+<script>
+/* Mobile nav toggle */
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const navbar = document.getElementById('navbar');
+  if (!toggle || !navbar) return;
+  toggle.addEventListener('click', () => { navbar.classList.toggle('open'); });
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => { navbar.classList.remove('open'); });
+  });
+})();
+
+/* Scroll reveal */
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>
