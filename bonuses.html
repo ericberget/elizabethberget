@@ -307,6 +307,39 @@
     line-height: 1.65;
   }
 
+  .baker-callout {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    background: rgba(200,164,92,0.06);
+    border: 1px solid rgba(200,164,92,0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .baker-star {
+    color: var(--gold);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .baker-callout p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--cream-soft);
+    line-height: 1.6;
+  }
+  .baker-callout a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    transition: color 0.3s ease;
+  }
+  .baker-callout a:hover { color: var(--gold-light); }
+
   @media (max-width: 768px) {
     .bonuses-layout {
       grid-template-columns: 1fr;
@@ -498,6 +531,11 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="baker-callout reveal">
+      <span class="baker-star">&#9733;</span>
+      <p>The first 300 pre-orders from <a href="https://bakerbookhouse.com/products/9781587436819_love-like-a-mother" target="_blank">Baker Book House</a> receive two printed stationery cards featuring cover art with their book.</p>
     </div>
   </div>
 </section>
